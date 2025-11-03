@@ -2,29 +2,31 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookHeart, PenLine, Smartphone, BookOpen, Sparkles } from "lucide-react";
+import androidIcon from "@/assets/android.png";
+import appleIcon from "@/assets/apple.png";
 
 const RamNaamPage = () => {
   const benefits = [
     {
       icon: <BookHeart className="w-12 h-12 text-primary" />,
       title: "मन की शांति",
-      description: "राम नाम लेखन से मन को स्थिरता, शांति और भक्ति मिलती है।"
+      description: "राम नाम लेखन से मन को स्थिरता, शांति और भक्ति मिलती है।",
     },
     {
       icon: <PenLine className="w-12 h-12 text-primary" />,
       title: "आध्यात्मिक साधना",
-      description: "यह केवल लेखन नहीं, बल्कि साधना है जो आत्मा को शुद्ध करती है।"
+      description: "यह केवल लेखन नहीं, बल्कि साधना है जो आत्मा को शुद्ध करती है।",
     },
     {
       icon: <BookOpen className="w-12 h-12 text-primary" />,
       title: "पुण्य अर्जन",
-      description: "कलियुग में राम नाम लेखन से 100 गुना पुण्य की प्राप्ति होती है।"
+      description: "कलियुग में राम नाम लेखन से 100 गुना पुण्य की प्राप्ति होती है।",
     },
     {
       icon: <Sparkles className="w-12 h-12 text-primary" />,
       title: "सकारात्मक ऊर्जा",
-      description: "लेखन से एकाग्रता बढ़ती है और जीवन में सकारात्मक ऊर्जा का संचार होता है।"
-    }
+      description: "लेखन से एकाग्रता बढ़ती है और जीवन में सकारात्मक ऊर्जा का संचार होता है।",
+    },
   ];
 
   return (
@@ -48,29 +50,28 @@ const RamNaamPage = () => {
           </div>
         </section>
 
-       {/* Video Section */}
-<section className="py-20 bg-[#fffaf0] relative overflow-hidden">
-  <div className="container mx-auto px-4 text-center relative z-10">
-    <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-10 font-hind">
-      राम नाम लिखने के लाभ — हमारी टीम से सुनिए
-    </h2>
+        {/* Video Section */}
+        <section className="py-20 bg-[#fffaf0] relative overflow-hidden">
+          <div className="container mx-auto px-4 text-center relative z-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-10 font-hind">
+              राम नाम लिखने के लाभ — हमारी टीम से सुनिए
+            </h2>
 
-    {/* Soft Glow Aura */}
-    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-b from-yellow-200/30 to-transparent rounded-full blur-3xl"></div>
+            {/* Soft Glow Aura */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-b from-yellow-200/30 to-transparent rounded-full blur-3xl"></div>
 
-    {/* Responsive Video Embed */}
-    <div className="relative w-full max-w-5xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-lg border border-primary/20 bg-black/10">
-      <iframe
-        src="https://www.youtube.com/embed/ZUKJGkaSvaY?rel=0&modestbranding=1"
-        title="राम नाम लिखने के लाभ"
-        className="absolute inset-0 w-full h-full"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-      ></iframe>
-    </div>
-  </div>
-</section>
-
+            {/* Responsive Video Embed */}
+            <div className="relative w-full max-w-5xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-lg border border-primary/20 bg-black/10">
+              <iframe
+                src="https://www.youtube.com/embed/ZUKJGkaSvaY?rel=0&modestbranding=1"
+                title="राम नाम लिखने के लाभ"
+                className="absolute inset-0 w-full h-full"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          </div>
+        </section>
 
         {/* Methods Section */}
         <section className="py-16 bg-background">
@@ -80,6 +81,7 @@ const RamNaamPage = () => {
             </h2>
 
             <div className="grid md:grid-cols-2 gap-10">
+              {/* App Method */}
               <Card className="shadow-soft border-primary/20 bg-white/90 backdrop-blur-sm animate-fade-in">
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-3">
@@ -94,25 +96,40 @@ const RamNaamPage = () => {
                   <p>ऐप में जप प्रारंभ करें और सदस्य बनें</p>
                   <p>अपने जप की गिनती को ऐप में जमा करें</p>
 
+                  {/* App Buttons with Icons */}
                   <div className="flex flex-wrap justify-center gap-4 mt-6">
                     <a
                       href="https://play.google.com/store/apps/details?id=com.shri.rnvbs"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/80 transition"
+                      className="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-lg hover:bg-primary/80 transition"
                     >
-                      Google Play Store
+                      <img
+                        src={androidIcon}
+                        alt="Google Play"
+                        className="h-5 w-5 object-contain filter invert brightness-200"
+                      />
+                      <span>Google Play Store</span>
                     </a>
+
                     <a
-                      href="#"
-                      className="bg-secondary text-white px-6 py-2 rounded-lg hover:bg-secondary/80 transition"
+                      href="https://apps.apple.com/in/app/ram-naam/id6746091971"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 bg-secondary text-white px-5 py-2 rounded-lg hover:bg-secondary/80 transition"
                     >
-                      Apple App Store
+                      <img
+                        src={appleIcon}
+                        alt="App Store"
+                        className="h-5 w-5 object-contain filter invert brightness-200"
+                      />
+                      <span>Apple App Store</span>
                     </a>
                   </div>
                 </CardContent>
               </Card>
 
+              {/* Notebook Method */}
               <Card className="shadow-soft border-primary/20 bg-white/90 backdrop-blur-sm animate-fade-in">
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-3">
@@ -128,7 +145,7 @@ const RamNaamPage = () => {
                   <p>सदस्य बनें और अपनी लिखी हुई नोटबुक हमें जमा करें</p>
                   <div className="mt-4">
                     <a
-                      href="#"
+                      href="/contact"
                       className="inline-block bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/80 transition"
                     >
                       📓 राम नाम लेखन पुस्तिका खरीदें
@@ -153,7 +170,10 @@ const RamNaamPage = () => {
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {benefits.map((benefit, index) => (
-                <Card key={index} className="hover:shadow-lg transition-all duration-300 border-primary/20 animate-fade-in-up">
+                <Card
+                  key={index}
+                  className="hover:shadow-lg transition-all duration-300 border-primary/20 animate-fade-in-up"
+                >
                   <CardHeader>
                     <div className="flex justify-center mb-4">{benefit.icon}</div>
                     <CardTitle className="text-xl font-hind text-center text-secondary">

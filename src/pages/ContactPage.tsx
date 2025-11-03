@@ -31,29 +31,6 @@ const ContactPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const contactInfo = [
-    {
-      icon: <MapPin className="w-8 h-8 text-primary" />,
-      title: "पता",
-      content: "राम नाम बैंक, श्रीराम मंदिर, अयोध्या रोड, फैजाबाद, उत्तर प्रदेश"
-    },
-    {
-      icon: <Phone className="w-8 h-8 text-primary" />,
-      title: "फोन",
-      content: "+91-9045000118"
-    },
-    {
-      icon: <Mail className="w-8 h-8 text-primary" />,
-      title: "ईमेल",
-      content: "info@ramnaambank.org"
-    },
-    {
-      icon: <Clock className="w-8 h-8 text-primary" />,
-      title: "समय",
-      content: "सोमवार - शनिवार: 9:00 AM - 6:00 PM"
-    }
-  ];
-
   return (
     <div className="min-h-screen">
       <Header />
@@ -73,27 +50,80 @@ const ContactPage = () => {
           </div>
         </section>
 
-        {/* Contact Info Cards */}
+        {/* Contact Info Section */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-              {contactInfo.map((info, index) => (
-                <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 border-primary/20 animate-fade-in hover:scale-105">
-                  <CardHeader>
-                    <div className="flex justify-center mb-4">
-                      {info.icon}
-                    </div>
-                    <CardTitle className="text-xl font-hind text-secondary">
-                      {info.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-muted-foreground font-hind">
-                      {info.content}
-                    </p>
-                  </CardContent>
-                </Card>
-              ))}
+            <div className="grid md:grid-cols-2 gap-8 mb-16">
+              {/* Contact Details Card */}
+              <Card className="shadow-lg border-primary/30">
+                <CardHeader>
+                  <CardTitle className="text-2xl font-hind text-center text-secondary">
+                    संपर्क जानकारी
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4 text-muted-foreground font-hind text-lg leading-relaxed">
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-6 h-6 text-primary mt-1" />
+                    <span>
+                      +91-9045000108, +91-8868888601, +91-9410110900
+                    </span>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-6 h-6 text-primary mt-1" />
+                    <span>
+                      श्री राम नाम विश्व बैंक समिति आश्रम,<br />
+                      बिल्केश्वर बाई पास रोड, निकट वेदाग्रीन बैंकट हाल,<br />
+                      ललतारौ पुल हरिद्वार (उत्तराखंड) 249401
+                    </span>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-6 h-6 text-primary mt-1" />
+                    <span>
+                      No.7 नई बस्ती रामगढ़ रोड़, खड़खड़ी हरिद्वार (उत्तराखंड) 249401
+                    </span>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <MapPin className="w-6 h-6 text-primary mt-1" />
+                    <span>
+                      8 गोविंदपुरी, रानीपुर मोड, वुडलैंड शोरूम के ऊपर द्वितीय तल,<br />
+                      हरिद्वार उत्तराखंड 249401
+                    </span>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Mail className="w-6 h-6 text-primary mt-1" />
+                    <span>
+                      <a
+                        href="mailto:raamnaambank@gmail.com"
+                        className="hover:text-primary"
+                      >
+                        raamnaambank@gmail.com
+                      </a>
+                    </span>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <Clock className="w-6 h-6 text-primary mt-1" />
+                    <span>सोमवार - शनिवार: 9:00 AM - 6:00 PM</span>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Embedded Google Map */}
+              <div className="w-full h-[450px] rounded-xl overflow-hidden shadow-lg border border-primary/20">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3539258.527891304!2d73.29318371249998!3d29.97060149999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3909476cd233ec29%3A0x1dd4cf11353c3203!2z4KS24KWN4KSw4KWAIOCksOCkvuCkriDgpKjgpL7gpK4g4KSs4KWI4KSC4KSVIChTSFJFRSBSQU0gTkFBTSBWSVNIVkEgQkFOSyBTQU1JVEkp!5e0!3m2!1sen!2sin!4v1762171031068!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
             </div>
 
             {/* Contact Form */}

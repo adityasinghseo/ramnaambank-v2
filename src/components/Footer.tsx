@@ -6,9 +6,16 @@ import appleIcon from "@/assets/apple.png";
 const Footer = () => {
   const quickLinks = [
     { label: "होम", href: "/" },
-    { label: "हमारे बारे में", href: "#about" },
-    { label: "गतिविधियाँ", href: "#activities" },
-    { label: "संपर्क करें", href: "#contact" },
+    { label: "हमारे बारे में", href: "/about" },
+    { label: "राम नाम जमा करें", href: "/ram-naam" },
+    { label: "सदस्य बनें", href: "/membership" },
+    { label: "लेखन सामग्री", href: "/lekhan" },
+    { label: "योजनाएं", href: "/yojana" },
+    { label: "ज्योतिष फलादेश", href: "/jyotish" },
+    { label: "दान करें", href: "/donation" },
+    { label: "गैलरी", href: "/gallery" },
+    { label: "लेटेस्ट अपडेट", href: "/news" },
+    { label: "संपर्क करें", href: "/contact" },
   ];
 
   const socialLinks = [
@@ -98,7 +105,10 @@ const Footer = () => {
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <a href={link.href} className="text-white/80 hover:text-primary transition-smooth font-hind">
+                  <a
+                    href={link.href}
+                    className="text-white/80 hover:text-primary transition-smooth font-hind"
+                  >
                     {link.label}
                   </a>
                 </li>
