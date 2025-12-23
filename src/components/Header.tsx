@@ -17,6 +17,7 @@ const Header = () => {
     { label: "दान करें", href: "/donation" },
     { label: "गैलरी", href: "/gallery" },
     { label: "लेटेस्ट अपडेट", href: "/news" },
+    { label: "Shop", href: "https://shop.clickstraight.com", isExternal: true },
     { label: "संपर्क करें", href: "/contact" },
   ];
 
@@ -55,13 +56,26 @@ const Header = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-6">
             {navItems.map((item) => (
-              <Link
-                key={item.label}
-                to={item.href}
-                className="text-foreground hover:text-primary transition-smooth font-medium text-lg"
-              >
-                {item.label}
-              </Link>
+              // @ts-ignore
+              item.isExternal ? (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-foreground hover:text-primary transition-smooth font-medium text-lg"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  to={item.href}
+                  className="text-foreground hover:text-primary transition-smooth font-medium text-lg"
+                >
+                  {item.label}
+                </Link>
+              )
             ))}
           </div>
 
@@ -84,14 +98,28 @@ const Header = () => {
           <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4">
             <div className="flex flex-col gap-4">
               {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  className="text-foreground hover:text-primary transition-smooth font-medium text-lg"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
+                // @ts-ignore
+                item.isExternal ? (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-foreground hover:text-primary transition-smooth font-medium text-lg"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.label}
+                    to={item.href}
+                    className="text-foreground hover:text-primary transition-smooth font-medium text-lg"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                )
               ))}
             </div>
           </div>
