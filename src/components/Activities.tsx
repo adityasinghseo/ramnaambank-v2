@@ -6,21 +6,21 @@ const Activities = () => {
   const memberships = [
     {
       icon: Crown,
-      title: "₹3100 – आजीवन सदस्यता",
+      title: "₹5100 – आजीवन सदस्यता",
       description:
         "एक बार सहयोग करके आजीवन श्री राम नाम सेवा से जुड़े रहें। विशेष भक्ति आयोजनों में आमंत्रण, प्रमाणपत्र एवं प्राथमिकता सेवाएँ प्राप्त करें।",
       color: "from-primary to-accent",
     },
     {
       icon: Star,
-      title: "₹1100 – वार्षिक सदस्यता",
+      title: "₹2100 – वार्षिक सदस्यता",
       description:
         "हर वर्ष नव संकल्प के साथ राम नाम सेवा में सहभागिता करें। वार्षिक भक्ति कार्यक्रमों में विशेष निमंत्रण प्राप्त करें।",
       color: "from-secondary to-sacred-light",
     },
     {
       icon: HeartHandshake,
-      title: "₹150 – मासिक सदस्यता",
+      title: "₹300 – मासिक सदस्यता",
       description:
         "हर महीने एक छोटी राशि से भी आप श्री राम नाम के प्रसार में बड़ा योगदान दे सकते हैं।",
       color: "from-accent to-golden",
@@ -81,7 +81,7 @@ const Activities = () => {
             className="gradient-devotional text-white hover:opacity-90 shadow-devotional font-hind text-lg"
             asChild
           >
-            <a href="#membership">सदस्य बनने के लिए यहाँ क्लिक करें</a>
+            <a href="/membership">सदस्य बनने के लिए यहाँ क्लिक करें</a>
           </Button>
         </div>
       </div>

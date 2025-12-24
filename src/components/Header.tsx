@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
-import logo from "@/assets/logo.png";
+import { Link, useLocation } from "react-router-dom";
+import logo from "@/assets/ramnam-logo.png";
+import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const navItems = [
     { label: "होम", href: "/" },
@@ -22,108 +22,72 @@ const Header = () => {
   ];
 
   return (
-    // ✅ Made sticky
-    <header className="sticky top-0 z-50 w-full bg-white shadow-soft">
-      {/* 
-      // 🔵 Top Bar (commented out for now)
-      <div className="hidden md:block bg-secondary text-white py-1.5 text-sm">
-        <div className="container mx-auto px-4 flex flex-wrap justify-between items-center text-sm">
-          <div className="flex flex-wrap items-center gap-4">
-            <a href="tel:+91-9045000118" className="flex items-center gap-2 hover:text-primary transition-smooth">
-              <Phone className="h-4 w-4" />
-              <span className="font-poppins">+91-9045000118</span>
-            </a>
-            <a href="mailto:raamnaambank@gmail.com" className="flex items-center gap-2 hover:text-primary transition-smooth">
-              <Mail className="h-4 w-4" />
-              <span className="font-poppins">raamnaambank@gmail.com</span>
-            </a>
-          </div>
-          <Button variant="link" className="text-white hover:text-primary font-hind text-base" asChild>
-            <a href="#donation">दान करें 🙏</a>
-          </Button>
-        </div>
+    <header className="sticky top-0 z-50 w-full bg-white shadow-md flex flex-col items-center pt-2 pb-1">
+      {/* Top Section: Centered Logo */}
+      <div className="flex justify-center w-full mb-2">
+        <Link to="/" className="flex items-center">
+          <img
+            src={logo}
+            alt="श्री राम नाम विश्व बैंक समिति"
+            className="h-20 md:h-28 w-auto hover:scale-105 transition-transform duration-300"
+          />
+        </Link>
       </div>
-      */}
 
-      {/* Main Navigation */}
-      <nav className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img src={logo} alt="श्री राम नाम विश्व बैंक समिति" className="h-14 md:h-16 w-auto" />
-          </Link>
+      {/* Bottom Section: Navigation */}
+      <nav className="w-full border-t border-gray-100">
+        <div className="flex overflow-x-auto no-scrollbar py-2 px-4 gap-2 md:justify-center items-center w-full">
+          {navItems.map((item) => {
+            const isActive = location.pathname === item.href;
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-6">
-            {navItems.map((item) => (
-              // @ts-ignore
-              item.isExternal ? (
+            // @ts-ignore
+            if (item.isExternal) {
+              return (
                 <a
                   key={item.label}
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-foreground hover:text-primary transition-smooth font-medium text-lg"
+                  className="shrink-0"
                 >
-                  {item.label}
+                  <Button
+                    variant={isActive ? "default" : "ghost"}
+                    size="sm"
+                    className={cn(
+                      "font-hind text-sm md:text-base whitespace-nowrap px-4 rounded-full transition-all",
+                      isActive
+                        ? "bg-primary text-white shadow-md"
+                        : "text-gray-600 hover:text-primary hover:bg-primary/10"
+                    )}
+                  >
+                    {item.label}
+                  </Button>
                 </a>
-              ) : (
-                <Link
-                  key={item.label}
-                  to={item.href}
-                  className="text-foreground hover:text-primary transition-smooth font-medium text-lg"
+              );
+            }
+
+            return (
+              <Link
+                key={item.label}
+                to={item.href}
+                className="shrink-0"
+              >
+                <Button
+                  variant={isActive ? "default" : "ghost"}
+                  size="sm"
+                  className={cn(
+                    "font-hind text-sm md:text-base whitespace-nowrap px-4 rounded-full transition-all",
+                    isActive
+                      ? "bg-primary text-white shadow-md"
+                      : "text-gray-600 hover:text-primary hover:bg-primary/10"
+                  )}
                 >
                   {item.label}
-                </Link>
-              )
-            ))}
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? (
-              <X className="h-6 w-6 text-foreground" />
-            ) : (
-              <Menu className="h-6 w-6 text-foreground" />
-            )}
-          </button>
+                </Button>
+              </Link>
+            );
+          })}
         </div>
-
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4">
-            <div className="flex flex-col gap-4">
-              {navItems.map((item) => (
-                // @ts-ignore
-                item.isExternal ? (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-foreground hover:text-primary transition-smooth font-medium text-lg"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.label}
-                    to={item.href}
-                    className="text-foreground hover:text-primary transition-smooth font-medium text-lg"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                )
-              ))}
-            </div>
-          </div>
-        )}
       </nav>
     </header>
   );
