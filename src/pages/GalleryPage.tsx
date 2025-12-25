@@ -30,7 +30,7 @@ const GalleryPage = () => {
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto animate-fade-in">
               <h1 className="text-4xl md:text-6xl font-bold text-secondary mb-6 font-hind">
-                फोटो और वीडियो गैलरी
+                मीडिया गैलरी
               </h1>
               <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
               <p className="text-xl text-muted-foreground font-hind leading-relaxed">

@@ -26,7 +26,7 @@ const Team = () => {
             <div className="overflow-hidden rounded-xl mb-5">
               <img
                 src={teamone}
-                alt="श्री सुमित तिवारी"
+                alt="श्री सुमित तिवारी जी"
                 className="w-full max-w-[320px] mx-auto rounded-xl transition-transform duration-700 hover:scale-105 drop-shadow-lg"
               />
             </div>
@@ -34,7 +34,7 @@ const Team = () => {
               राष्ट्रीय अध्यक्ष
             </p>
             <h3 className="text-xl md:text-2xl font-bold text-secondary font-hind mt-1">
-              श्री सुमित तिवारी
+              श्री सुमित तिवारी जी
             </h3>
           </div>
 
@@ -43,7 +43,7 @@ const Team = () => {
             <div className="overflow-hidden rounded-xl mb-5">
               <img
                 src={teamtwo}
-                alt="श्री विकास गर्ग"
+                alt="श्री विकास गर्ग जी"
                 className="w-full max-w-[320px] mx-auto rounded-xl transition-transform duration-700 hover:scale-105 drop-shadow-lg"
               />
             </div>
@@ -51,7 +51,7 @@ const Team = () => {
               राष्ट्रीय महासचिव
             </p>
             <h3 className="text-xl md:text-2xl font-bold text-secondary font-hind mt-1">
-              श्री विकास गर्ग
+              श्री विकास गर्ग जी
             </h3>
           </div>
         </div>

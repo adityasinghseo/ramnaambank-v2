@@ -17,8 +17,8 @@ const JyotishPage = () => {
               </h1>
               <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
               <p className="text-xl text-muted-foreground font-hind leading-relaxed">
-                अपने जीवन की दिशा को समझें — ज्योतिषीय दृष्टिकोण से।  
-                हम आपको दो प्रमुख विधाओं में परामर्श प्रदान करते हैं:  
+                अपने जीवन की दिशा को समझें — ज्योतिषीय दृष्टिकोण से।
+                हम आपको दो प्रमुख विधाओं में परामर्श प्रदान करते हैं:
                 <strong> कुंडली ज्योतिष </strong> और <strong> गणितीय ज्योतिष </strong>।
               </p>
             </div>
@@ -54,30 +54,82 @@ const JyotishPage = () => {
               </CardContent>
             </Card>
 
-            {/* Mathematical Jyotish */}
+            {/* Ank Jyotish Section */}
             <Card className="shadow-md border-primary/20 mb-10">
               <CardHeader>
                 <CardTitle className="text-2xl md:text-3xl font-hind text-primary text-center">
-                  📐 2. गणितीय ज्योतिष क्या है?
+                  🔢 2. अंक ज्योतिष (Numerology)
                 </CardTitle>
               </CardHeader>
               <CardContent className="font-hind text-lg text-muted-foreground space-y-4 leading-relaxed">
                 <p>
-                  जन्म तिथि और नाम के आधार पर अंकशास्त्र से भविष्यवाणी की जाती है।
+                  अंक ज्योतिष का अर्थ है अंक शास्त्र। हर चीज़ ब्रह्मांड (Universe) में कंपन (vibrate) करती है। इन्हीं अंकों की आवृत्ति (frequency) और उनके कंपन सूचकांक (vibrational index) से हम यह जान सकते हैं कि एक संख्या की क्या विशेषताएँ (properties) और ऊर्जा (energies) हैं।
+                </p>
+                <p>
+                  इन्हीं अंकों से जुड़ी हुई चीज़ों को समझते हुए, जब हम अपनी जन्म तिथि (date of birth) से जुड़े अंकों को देखते हैं, तो हम अपने भूतकाल, वर्तमान और भविष्य को उन ग्रहों के अंकों के माध्यम से समझ सकते हैं।
                 </p>
 
-                <h4 className="font-bold text-secondary text-xl mt-4">✅ यह कैसे कार्य करता है?</h4>
-                <ul className="list-disc list-inside space-y-2">
-                  <li>नाम और जन्मतिथि से विशेष अंक निकाले जाते हैं।</li>
-                  <li>इन अंकों से स्वभाव और जीवन प्रवृत्तियों का पूर्वानुमान।</li>
-                </ul>
+                <h4 className="font-bold text-secondary text-xl mt-6">🌟 अंक ज्योतिष की प्रमुख शाखाएँ (Major Branches):</h4>
 
-                <h4 className="font-bold text-secondary text-xl mt-4">✨ लाभ:</h4>
-                <ul className="list-disc list-inside space-y-2">
-                  <li>जीवन की दिशा और स्वभाव की समझ।</li>
-                  <li>विवाह व करियर सलाह।</li>
-                  <li>समस्या का त्वरित समाधान।</li>
-                </ul>
+                <div className="space-y-4 mt-4">
+                  <div>
+                    <h5 className="font-semibold text-primary text-lg">1. Pythagorean (5000 BC)</h5>
+                    <p>यह पद्धति लोगों की उनकी ऊर्जा और सामंजस्य (harmony) के आधार पर सहायता करती है। यह बताती है कि व्यक्ति अपने संबंधों (relationships) और दूसरों के साथ कैसा तालमेल रखता है।</p>
+                  </div>
+
+                  <div>
+                    <h5 className="font-semibold text-primary text-lg">2. Chaldean (900 BC)</h5>
+                    <p>यह प्रणाली यह बताती है कि कौन-सा अंक आपके लिए लकी (Lucky) है और कौन-सा नहीं।</p>
+                  </div>
+
+                  <div>
+                    <h5 className="font-semibold text-primary text-lg">3. Lo Shu</h5>
+                    <p>यह चीनी फेंग शुई (Chinese Feng Shui) पर आधारित है। इसमें Lo Shu Grid के तीन स्तंभ (columns) और तीन पंक्तियाँ (rows) होती हैं, जिनमें 1 से 9 तक के अंक होते हैं।</p>
+                  </div>
+
+                  <div>
+                    <h5 className="font-semibold text-primary text-lg">4. Vedic (1500 BC)</h5>
+                    <p>इसके अनुसार, 1 से 9 तक के प्रत्येक अंक का संबंध किसी ग्रह से होता है। प्रमुख ग्रहों और आपके चार्ट में स्थित अशुभ ग्रहों के आधार पर अंक शुभ या अशुभ प्रभाव दे सकते हैं।</p>
+                    <p className="mt-2">यह प्रणाली भविष्यवाणियों (predictions) और व्यक्तित्व विश्लेषण (character analysis) में मदद करती है। इसके माध्यम से करियर, वित्त, यात्रा, संपत्ति और जीवन के अन्य पहलुओं का अनुमान लगाया जा सकता है।</p>
+                  </div>
+                </div>
+
+
+                <div className="mt-8">
+                  <h4 className="font-bold text-secondary text-xl mb-4">🪐 अंक और ग्रह (Planets & Numerology)</h4>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full border border-primary/20 text-center text-sm md:text-base">
+                      <thead className="bg-primary/10">
+                        <tr className="text-secondary">
+                          <th className="p-3 border border-primary/20">Number</th>
+                          <th className="p-3 border border-primary/20">Ruling Planet</th>
+                          <th className="p-3 border border-primary/20">Personality</th>
+                          <th className="p-3 border border-primary/20">Characteristics</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {[
+                          { num: 1, planet: "Sun (Surya)", personality: "King / Raja", traits: "Leader, Visionary, Ambitious, Independent, Authoritative" },
+                          { num: 2, planet: "Moon (Chandrama)", personality: "Queen / Rani", traits: "Intuitive, Sensitive, Supportive, Feminine Personality, Nurturing" },
+                          { num: 3, planet: "Jupiter (Guru)", personality: "Teacher / Guru", traits: "Wisdom, Inventive, Knowledge, Creative" },
+                          { num: 4, planet: "Rahu", personality: "Mysterious / Common Man", traits: "Practical, Overthinker, Intelligent, Unpredictable" },
+                          { num: 5, planet: "Mercury (Budh)", personality: "Prince / Rajkumar", traits: "Creative, Dynamic, Communicator, Charming" },
+                          { num: 6, planet: "Venus (Shukra)", personality: "Teacher of Devils / Detya Guru", traits: "Responsible, Caring, Self-Sacrificing, Warm Hearted" },
+                          { num: 7, planet: "Ketu", personality: "Disciples / Sanyasi", traits: "Spiritual, Introvert, Perfectionist, Researcher" },
+                          { num: 8, planet: "Saturn (Shani)", personality: "Judgement / Nyaye k devta", traits: "Laborious, Realistic, Planner, Dominating" },
+                          { num: 9, planet: "Mars (Mangal)", personality: "Commander / Senapati", traits: "Political, Confident, Kind-hearted, Passionate" },
+                        ].map((item) => (
+                          <tr key={item.num} className="hover:bg-primary/5 transition-colors">
+                            <td className="p-3 border border-primary/20 font-bold">{item.num}</td>
+                            <td className="p-3 border border-primary/20">{item.planet}</td>
+                            <td className="p-3 border border-primary/20">{item.personality}</td>
+                            <td className="p-3 border border-primary/20 text-left">{item.traits}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
@@ -85,7 +137,7 @@ const JyotishPage = () => {
             <Card className="shadow-md border-primary/20 mb-10">
               <CardHeader>
                 <CardTitle className="text-2xl md:text-3xl font-hind text-primary text-center">
-                  ⚖️ कुंडली बनाम गणितीय ज्योतिष
+                  ⚖️ कुंडली बनाम अंक ज्योतिष
                 </CardTitle>
               </CardHeader>
               <CardContent className="overflow-x-auto font-hind text-lg text-muted-foreground">
@@ -94,7 +146,7 @@ const JyotishPage = () => {
                     <tr className="text-secondary">
                       <th className="p-3 border border-primary/20">विशेषता</th>
                       <th className="p-3 border border-primary/20">कुंडली ज्योतिष 🪔</th>
-                      <th className="p-3 border border-primary/20">गणितीय ज्योतिष 📐</th>
+                      <th className="p-3 border border-primary/20">अंक ज्योतिष 📐</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -143,7 +195,7 @@ const JyotishPage = () => {
                   <li>🔹 ग्रह शांति उपाय: दोष निवारण हेतु सरल उपाय।</li>
                 </ul>
 
-                <h4 className="font-bold text-secondary text-xl pt-4">2. गणितीय ज्योतिष</h4>
+                <h4 className="font-bold text-secondary text-xl pt-4">2. अंक ज्योतिष (Numerology)</h4>
                 <ul className="list-disc list-inside space-y-2">
                   <li>जन्म तिथि, समय और स्थान के आधार पर भविष्य जानें।</li>
                   <li>जीवन की प्रमुख घटनाओं की भविष्यवाणी।</li>
@@ -157,10 +209,10 @@ const JyotishPage = () => {
               </CardContent>
             </Card>
           </div>
-        </section>
+        </section >
 
         {/* Contact Section */}
-        <section className="py-16 bg-cream text-center">
+        < section className="py-16 bg-cream text-center" >
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6 font-hind">
               परामर्श के लिए संपर्क करें
@@ -186,10 +238,10 @@ const JyotishPage = () => {
               </a>
             </div>
           </div>
-        </section>
-      </main>
+        </section >
+      </main >
       <Footer />
-    </div>
+    </div >
   );
 };
 

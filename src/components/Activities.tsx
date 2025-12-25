@@ -1,6 +1,7 @@
 import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Crown, Star, HeartHandshake, Users } from "lucide-react";
+import offlineForm from "../assets/ऑफ़लाइन-फार्म.pdf";
 
 const Activities = () => {
   const memberships = [
@@ -75,13 +76,25 @@ const Activities = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="text-center animate-fade-in-up">
+        {/* CTA Button */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up">
           <Button
             size="lg"
             className="gradient-devotional text-white hover:opacity-90 shadow-devotional font-hind text-lg"
             asChild
           >
-            <a href="/membership">सदस्य बनने के लिए यहाँ क्लिक करें</a>
+            <a href="/membership">ऑनलाइन सदस्य बनें</a>
+          </Button>
+
+          <Button
+            size="lg"
+            variant="outline"
+            className="border-primary text-primary hover:bg-primary/10 font-hind text-lg"
+            asChild
+          >
+            <a href={offlineForm} target="_blank" rel="noopener noreferrer">
+              ऑफलाइन सदस्य बनें
+            </a>
           </Button>
         </div>
       </div>

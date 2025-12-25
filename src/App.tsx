@@ -11,6 +11,7 @@ import RamNaamPage from "./pages/RamNaamPage";
 import MembershipPage from "./pages/MembershipPage";
 import LekhanPage from "./pages/LekhanPage";
 import YojanaPage from "./pages/YojanaPage";
+import YojanaDetailPage from "./pages/YojanaDetailPage";
 import JyotishPage from "./pages/JyotishPage";
 import GalleryPage from "./pages/GalleryPage";
 import NewsPage from "./pages/NewsPage";
@@ -40,6 +41,7 @@ const AppRoutes = () => (
       <Route path="/membership" element={<MembershipPage />} />
       <Route path="/lekhan" element={<LekhanPage />} />
       <Route path="/yojana" element={<YojanaPage />} />
+      <Route path="/yojana/:slug" element={<YojanaDetailPage />} />
       <Route path="/jyotish" element={<JyotishPage />} />
       <Route path="/donation" element={<DonationPage />} />
       <Route path="/gallery" element={<GalleryPage />} />

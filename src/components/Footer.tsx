@@ -1,5 +1,5 @@
 import { Facebook, Youtube, Instagram, MessageCircle, Mail, Phone, MapPin } from "lucide-react";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/ramnam-logo.png";
 import androidIcon from "@/assets/android.png";
 import appleIcon from "@/assets/apple.png";
 
@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Left Section — Logo + About + Social + App */}
           <div className="md:col-span-2">
-            <img src={logo} alt="Logo" className="h-20 mb-4 brightness-0 invert" />
+            <img src={logo} alt="Logo" className="h-20 mb-4 bg-white p-1 rounded-full shadow-sm" />
             <p className="text-white/80 mb-4 font-hind leading-relaxed">
               श्री राम नाम विश्व बैंक समिति एक धार्मिक व सामाजिक संस्था है जो राम नाम के प्रचार-प्रसार और समाज सेवा के लिए समर्पित है।
             </p>

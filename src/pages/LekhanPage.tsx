@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BookOpen, Download, FileText, Scroll } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import ramnamLekhan from "@/assets/ramnam-lekhan.png";
+
 const LekhanPage = () => {
   const materials = [
     {
@@ -37,17 +39,31 @@ const LekhanPage = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-br from-accent/10 via-primary/10 to-cream">
+        <section className="relative py-20 bg-gradient-to-br from-accent/10 via-primary/10 to-cream overflow-hidden">
           <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto animate-fade-in">
-              <h1 className="text-4xl md:text-6xl font-bold text-secondary mb-6 font-hind">
-                लेखन सामग्री
-              </h1>
-              <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
-              <p className="text-xl text-muted-foreground font-hind leading-relaxed">
-                राम नाम लेखन के लिए आवश्यक सभी सामग्री यहाँ उपलब्ध है। 
-                हम उच्च गुणवत्ता की पुस्तिकाएं और आध्यात्मिक साहित्य प्रदान करते हैं।
-              </p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className="text-center lg:text-left max-w-3xl mx-auto lg:mx-0 animate-fade-in order-2 lg:order-1">
+                <h1 className="text-4xl md:text-6xl font-bold text-secondary mb-6 font-hind">
+                  लेखन सामग्री
+                </h1>
+                <div className="w-24 h-1 bg-primary mx-auto lg:mx-0 mb-6"></div>
+                <p className="text-xl text-muted-foreground font-hind leading-relaxed mb-8">
+                  राम नाम लेखन के लिए आवश्यक सभी सामग्री यहाँ उपलब्ध है।
+                  हम उच्च गुणवत्ता की पुस्तिकाएं और आध्यात्मिक साहित्य प्रदान करते हैं।
+                </p>
+              </div>
+
+              <div className="relative animate-fade-in order-1 lg:order-2 flex justify-center">
+                <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                  <img
+                    src={ramnamLekhan}
+                    alt="Ram Naam Lekhan Samagri"
+                    className="w-full h-auto max-w-md object-cover"
+                  />
+                </div>
+                {/* Decorative background circle */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-primary/5 rounded-full blur-3xl -z-10"></div>
+              </div>
             </div>
           </div>
         </section>
@@ -73,7 +89,7 @@ const LekhanPage = () => {
                     <p className="text-center text-muted-foreground font-hind mb-4">
                       {material.description}
                     </p>
-                    <Button 
+                    <Button
                       className="w-full gradient-devotional text-white"
                       disabled={!material.available}
                     >
