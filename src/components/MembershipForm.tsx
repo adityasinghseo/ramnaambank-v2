@@ -5,9 +5,12 @@ import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { formatMembershipEmail, sendEmail } from "@/lib/email";
+import { Loader2 } from "lucide-react";
 
 const MembershipForm = () => {
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     role: "",
@@ -18,21 +21,43 @@ const MembershipForm = () => {
     address: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "धन्यवाद!",
-      description: "आपका पंजीकरण सफलतापूर्वक प्राप्त हुआ। हम जल्द ही आपसे संपर्क करेंगे।",
-    });
-    setFormData({
-      name: "",
-      role: "",
-      fatherHusband: "",
-      dob: "",
-      phone: "",
-      email: "",
-      address: "",
-    });
+    setIsLoading(true);
+
+    try {
+      const formattedMessage = formatMembershipEmail(formData);
+
+      await sendEmail({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formattedMessage,
+      });
+
+      toast({
+        title: "धन्यवाद!",
+        description: "आपका पंजीकरण सफलतापूर्वक प्राप्त हुआ। हम जल्द ही आपसे संपर्क करेंगे।",
+      });
+
+      setFormData({
+        name: "",
+        role: "",
+        fatherHusband: "",
+        dob: "",
+        phone: "",
+        email: "",
+        address: "",
+      });
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "त्रुटि!",
+        description: "पंजीकरण भेजने में समस्या आई। कृपया पुनः प्रयास करें।",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -183,10 +208,18 @@ const MembershipForm = () => {
                 {/* Submit Button */}
                 <Button
                   type="submit"
+                  disabled={isLoading}
                   className="w-full gradient-devotional text-white hover:opacity-90 shadow-devotional font-hind text-lg"
                   size="lg"
                 >
-                  पंजीकरण करें
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      कृपया प्रतीक्षा करें...
+                    </>
+                  ) : (
+                    "पंजीकरण करें"
+                  )}
                 </Button>
               </form>
             </CardContent>

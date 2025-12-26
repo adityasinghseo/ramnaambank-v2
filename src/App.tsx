@@ -15,6 +15,7 @@ import YojanaDetailPage from "./pages/YojanaDetailPage";
 import JyotishPage from "./pages/JyotishPage";
 import GalleryPage from "./pages/GalleryPage";
 import NewsPage from "./pages/NewsPage";
+import NewsDetailPage from "./pages/NewsDetailPage";
 import ContactPage from "./pages/ContactPage";
 import NotFound from "./pages/NotFound";
 
@@ -46,6 +47,7 @@ const AppRoutes = () => (
       <Route path="/donation" element={<DonationPage />} />
       <Route path="/gallery" element={<GalleryPage />} />
       <Route path="/news" element={<NewsPage />} />
+      <Route path="/news/:slug" element={<NewsDetailPage />} />
       <Route path="/contact" element={<ContactPage />} />
       {/* Catch-all route */}
       <Route path="*" element={<NotFound />} />

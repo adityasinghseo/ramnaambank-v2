@@ -9,8 +9,12 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
+import { sendEmail } from "@/lib/email";
+import { Loader2 } from "lucide-react";
+
 const ContactPage = () => {
   const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -18,13 +22,32 @@ const ContactPage = () => {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "धन्यवाद!",
-      description: "आपका संदेश प्राप्त हुआ। हम जल्द ही आपसे संपर्क करेंगे।",
-    });
-    setFormData({ name: "", email: "", phone: "", message: "" });
+    setIsLoading(true);
+
+    try {
+      await sendEmail({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        message: formData.message,
+      });
+
+      toast({
+        title: "धन्यवाद!",
+        description: "आपका संदेश प्राप्त हुआ। हम जल्द ही आपसे संपर्क करेंगे।",
+      });
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "त्रुटि!",
+        description: "संदेश भेजने में समस्या आई। कृपया पुनः प्रयास करें।",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -201,12 +224,20 @@ const ContactPage = () => {
                       />
                     </div>
 
-                    <Button 
-                      type="submit" 
+                    <Button
+                      type="submit"
+                      disabled={isLoading}
                       className="w-full gradient-devotional text-white hover:opacity-90 shadow-devotional font-hind text-lg"
                       size="lg"
                     >
-                      संदेश भेजें
+                      {isLoading ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                          भेजा जा रहा है...
+                        </>
+                      ) : (
+                        "संदेश भेजें"
+                      )}
                     </Button>
                   </form>
                 </CardContent>
