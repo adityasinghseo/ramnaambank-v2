@@ -8,37 +8,104 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { Facebook, Instagram, Twitter, Youtube, Languages } from "lucide-react";
 import offlineForm from "../assets/ऑफ़लाइन-फार्म.pdf";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Header = () => {
   const location = useLocation();
+  const { toggleLanguage } = useLanguage();
+  const { t } = useTranslation();
 
   const navItems = [
-    { label: "होम", href: "/" },
-    { label: "हमारे बारे में", href: "/about" },
-    { label: "राम नाम जमा करें", href: "/ram-naam" },
-    { label: "सदस्य बनें", href: "/membership" },
-    { label: "लेखन सामग्री", href: "/lekhan" },
-    { label: "योजनाएं", href: "/yojana" },
-    { label: "ज्योतिष फलादेश", href: "/jyotish" },
-    { label: "दान करें", href: "/donation" },
-    { label: "गैलरी", href: "/gallery" },
-    { label: "लेटेस्ट अपडेट", href: "/news" },
-    { label: "Shop", href: "https://shop.clickstraight.com", isExternal: true },
-    { label: "संपर्क करें", href: "/contact" },
+    { label: t.header.home, href: "/" },
+    { label: t.header.aboutUs, href: "/about" },
+    { label: t.header.submitRamNaam, href: "/ram-naam" },
+    { label: t.header.becomeMember, href: "/membership" },
+    { label: t.header.writingMaterial, href: "/lekhan" },
+    { label: t.header.schemes, href: "/yojana" },
+    { label: t.header.astrology, href: "/jyotish" },
+    { label: t.header.donate, href: "/donation" },
+    { label: t.header.gallery, href: "/gallery" },
+    { label: t.header.latestUpdate, href: "/news" },
+    { label: t.header.shop, href: "https://shop.clickstraight.com", isExternal: true },
+    { label: t.header.contact, href: "/contact" },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#FF7E26] shadow-md flex flex-col items-center pt-2 pb-1">
-      {/* Top Section: Centered Logo */}
-      <div className="flex justify-center w-full mb-2">
-        <Link to="/" className="flex items-center">
-          <img
-            src={logo}
-            alt="श्री राम नाम विश्व बैंक समिति"
-            className="h-20 md:h-28 w-auto bg-white p-1 rounded-full shadow-sm hover:scale-105 transition-transform duration-300"
-          />
-        </Link>
+      {/* Top Section: Social Media (Left) + Logo (Center) + Contact (Right) */}
+      <div className="w-full px-4 md:px-8 py-2">
+        <div className="max-w-7xl mx-auto grid grid-cols-3 items-center gap-4">
+          {/* Social Media Icons - Left */}
+          <div className="flex items-center gap-2 md:gap-3 justify-start">
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-white/80 transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-4 h-4 md:w-5 md:h-5" />
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-white/80 transition-colors"
+              aria-label="Instagram"
+            >
+              <Instagram className="w-4 h-4 md:w-5 md:h-5" />
+            </a>
+            <a
+              href="https://twitter.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-white/80 transition-colors"
+              aria-label="Twitter"
+            >
+              <Twitter className="w-4 h-4 md:w-5 md:h-5" />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-white/80 transition-colors"
+              aria-label="YouTube"
+            >
+              <Youtube className="w-4 h-4 md:w-5 md:h-5" />
+            </a>
+          </div>
+
+          {/* Logo and Name - Center */}
+          <div className="flex flex-col items-center justify-center">
+            <Link to="/" className="flex flex-col items-center gap-1">
+              <img
+                src={logo}
+                alt={t.header.organizationName}
+                className="h-16 md:h-20 w-auto bg-white p-1 rounded-full shadow-sm hover:scale-105 transition-transform duration-300"
+              />
+              <h1 className="font-hind text-[#FF7E26] bg-white px-3 py-1 rounded-md text-sm md:text-lg font-bold text-center tracking-wide shadow-sm whitespace-nowrap">
+                {t.header.organizationName}
+              </h1>
+            </Link>
+          </div>
+
+          {/* Language Toggle - Right */}
+          <div className="flex items-center justify-end">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-1 md:gap-2 text-white hover:text-white/80 transition-colors text-xs md:text-sm bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-md"
+              aria-label="Toggle Language"
+            >
+              <Languages className="w-4 h-4 md:w-5 md:h-5" />
+              <span className="font-hind">
+                {t.header.language}
+              </span>
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* Bottom Section: Navigation */}
@@ -48,7 +115,7 @@ const Header = () => {
             const isActive = location.pathname === item.href;
 
             // Handle Membership Dropdown
-            if (item.label === "सदस्य बनें") {
+            if (item.label === t.header.becomeMember) {
               return (
                 <DropdownMenu key={item.label}>
                   <DropdownMenuTrigger asChild>
@@ -63,12 +130,12 @@ const Header = () => {
                   <DropdownMenuContent>
                     <DropdownMenuItem asChild>
                       <Link to="/membership" className="font-hind cursor-pointer w-full">
-                        ऑनलाइन फॉर्म
+                        {t.header.onlineForm}
                       </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem asChild>
                       <a href={offlineForm} target="_blank" rel="noopener noreferrer" className="font-hind cursor-pointer w-full">
-                        ऑफलाइन फॉर्म
+                        {t.header.offlineForm}
                       </a>
                     </DropdownMenuItem>
                   </DropdownMenuContent>

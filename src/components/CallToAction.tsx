@@ -1,13 +1,16 @@
 import { Building2, Users2, HandHeart } from "lucide-react";
 import kalash from "@/assets/kalash.png";
-
-const highlights = [
-  { icon: Building2, title: "राम नाम लेखनकर्ता", count: "5,500,000" },
-  { icon: Users2, title: "रजिस्टर्ड सदस्य", count: "250,000" },
-  { icon: HandHeart, title: "संस्था के स्वयंसेवी", count: "4,500" },
-];
+import { useTranslation } from "@/hooks/useTranslation";
 
 const CallToAction = () => {
+  const { t } = useTranslation();
+
+  const highlights = [
+    { icon: Building2, title: t.callToAction.writers, count: "5,500,000" },
+    { icon: Users2, title: t.callToAction.members, count: "250,000" },
+    { icon: HandHeart, title: t.callToAction.volunteers, count: "4,500" },
+  ];
+
   return (
     <section className="py-20 bg-gradient-to-b from-[#fff8ef] to-[#fff4e6] relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10 max-w-7xl">
@@ -33,12 +36,10 @@ const CallToAction = () => {
         {/* Message Section */}
         <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in-up">
           <h4 className="text-2xl md:text-3xl font-bold text-primary mb-3 font-hind">
-            ॐ लेखन सामग्री प्राप्त करें ॐ
+            {t.callToAction.heading}
           </h4>
           <p className="text-lg md:text-xl text-foreground/90 font-hind leading-relaxed">
-            यदि आप राम नाम लिखने हेतु राम नाम सामग्री प्राप्त करना चाहते हैं या अपने प्रियजनों की याद में
-            उनके जन्मदिन या किसी विशेष उत्सव पर राम नाम कॉपियां प्रिंट कराकर उन्हें बंटवाना चाहते हैं
-            तो आप संस्था के ऑफिशियल और व्हाट्सएप नंबर पर संपर्क करें।
+            {t.callToAction.description}
           </p>
         </div>
 
@@ -55,7 +56,7 @@ const CallToAction = () => {
 
           {/* Center Text */}
           <div className="flex-1 text-center md:text-left">
-            <p className="text-white/90 text-lg font-hind mb-1">व्हाट्सएप पर संपर्क करें</p>
+            <p className="text-white/90 text-lg font-hind mb-1">{t.callToAction.contactText}</p>
             <a
               href="https://wa.me/919045000108"
               target="_blank"
@@ -81,8 +82,6 @@ const CallToAction = () => {
               />
             </a>
           </div>
-
-
         </div>
       </div>
     </section>

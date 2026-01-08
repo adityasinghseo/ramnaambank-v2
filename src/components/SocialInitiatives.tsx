@@ -9,9 +9,10 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const SocialInitiatives = () => {
+  const { t } = useTranslation();
   const plugin = useRef(
     Autoplay({ delay: 3000, stopOnInteraction: false })
   );
@@ -22,7 +23,7 @@ const SocialInitiatives = () => {
         {/* Header */}
         <div className="text-center mb-10 animate-fade-in-up">
           <h2 className="text-3xl md:text-5xl font-bold text-secondary mb-4 font-hind">
-            श्री राम नाम विश्व बैंक समिति के मुख्य कार्य एवं योजनाएँ
+            {t.socialInitiatives.title}
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
         </div>
@@ -71,7 +72,7 @@ const SocialInitiatives = () => {
             to="/yojana"
             className="inline-block bg-gradient-to-r from-primary to-accent text-white font-hind text-lg px-8 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-500"
           >
-            सभी योजनाएं देखें
+            {t.socialInitiatives.viewAll}
           </Link>
         </div>
       </div>

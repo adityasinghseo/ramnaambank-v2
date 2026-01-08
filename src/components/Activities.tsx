@@ -2,35 +2,34 @@ import { Card, CardContent } from "./ui/card";
 import { Button } from "./ui/button";
 import { Crown, Star, HeartHandshake, Users } from "lucide-react";
 import offlineForm from "../assets/ऑफ़लाइन-फार्म.pdf";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Activities = () => {
+  const { t } = useTranslation();
+
   const memberships = [
     {
       icon: Crown,
-      title: "₹5100 – आजीवन सदस्यता",
-      description:
-        "एक बार सहयोग करके आजीवन श्री राम नाम सेवा से जुड़े रहें। विशेष भक्ति आयोजनों में आमंत्रण, प्रमाणपत्र एवं प्राथमिकता सेवाएँ प्राप्त करें।",
+      title: t.activities.lifetime.title,
+      description: t.activities.lifetime.description,
       color: "from-primary to-accent",
     },
     {
       icon: Star,
-      title: "₹2100 – वार्षिक सदस्यता",
-      description:
-        "हर वर्ष नव संकल्प के साथ राम नाम सेवा में सहभागिता करें। वार्षिक भक्ति कार्यक्रमों में विशेष निमंत्रण प्राप्त करें।",
+      title: t.activities.yearly.title,
+      description: t.activities.yearly.description,
       color: "from-secondary to-sacred-light",
     },
     {
       icon: HeartHandshake,
-      title: "₹300 – मासिक सदस्यता",
-      description:
-        "हर महीने एक छोटी राशि से भी आप श्री राम नाम के प्रसार में बड़ा योगदान दे सकते हैं।",
+      title: t.activities.monthly.title,
+      description: t.activities.monthly.description,
       color: "from-accent to-golden",
     },
     {
       icon: Users,
-      title: "स्वयंसेवी बनें – निःशुल्क",
-      description:
-        "आप स्वयंसेवक बनकर बिना किसी शुल्क के भी संस्था के विविध सेवाकार्यों में भाग ले सकते हैं। सहयोग क्षेत्र: राम नाम लेखन प्रसार, आयोजन, भोजन सेवा, प्रचार-प्रसार आदि।",
+      title: t.activities.volunteer.title,
+      description: t.activities.volunteer.description,
       color: "from-primary to-devotional-dark",
     },
   ];
@@ -41,12 +40,12 @@ const Activities = () => {
         {/* Heading */}
         <div className="text-center mb-12 animate-fade-in-up">
           <h2 className="text-3xl md:text-5xl font-bold text-secondary mb-4 font-hind">
-            सदस्यता विकल्प
+            {t.activities.title}
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto mb-4"></div>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-hind">
-            श्री राम नाम विश्व बैंक समिति में जुड़ें — राम नाम सेवा का संकल्प लें और पुण्य लाभ अर्जित करें।
-            आप निम्नलिखित सदस्यता विकल्पों में से किसी एक को चुनकर इस आध्यात्मिक यात्रा का हिस्सा बन सकते हैं।
+            {t.activities.subtitle}<br />
+            {t.activities.description}
           </p>
         </div>
 
@@ -76,14 +75,13 @@ const Activities = () => {
         </div>
 
         {/* CTA Button */}
-        {/* CTA Button */}
         <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up">
           <Button
             size="lg"
             className="gradient-devotional text-white hover:opacity-90 shadow-devotional font-hind text-lg"
             asChild
           >
-            <a href="/membership">ऑनलाइन सदस्य बनें</a>
+            <a href="/membership">{t.activities.onlineButton}</a>
           </Button>
 
           <Button
@@ -93,7 +91,7 @@ const Activities = () => {
             asChild
           >
             <a href={offlineForm} target="_blank" rel="noopener noreferrer">
-              ऑफलाइन सदस्य बनें
+              {t.activities.offlineButton}
             </a>
           </Button>
         </div>

@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { useTranslation } from "@/hooks/useTranslation";
 
 interface SEOProps {
     title: string;
@@ -15,7 +16,8 @@ const SEO = ({
     url = "https://ramnaambank.com",
     type = "website"
 }: SEOProps) => {
-    const siteTitle = "श्री राम नाम विश्व बैंक समिति";
+    const { t } = useTranslation();
+    const siteTitle = t.header.organizationName;
     const fullTitle = `${title} | ${siteTitle}`;
 
     return (

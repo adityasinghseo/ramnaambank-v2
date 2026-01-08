@@ -2,20 +2,23 @@ import { Facebook, Youtube, Instagram, MessageCircle, Mail, Phone, MapPin } from
 import logo from "@/assets/ramnam-logo.png";
 import androidIcon from "@/assets/android.png";
 import appleIcon from "@/assets/apple.png";
+import { useTranslation } from "@/hooks/useTranslation";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   const quickLinks = [
-    { label: "होम", href: "/" },
-    { label: "हमारे बारे में", href: "/about" },
-    { label: "राम नाम जमा करें", href: "/ram-naam" },
-    { label: "सदस्य बनें", href: "/membership" },
-    { label: "लेखन सामग्री", href: "/lekhan" },
-    { label: "योजनाएं", href: "/yojana" },
-    { label: "ज्योतिष फलादेश", href: "/jyotish" },
-    { label: "दान करें", href: "/donation" },
-    { label: "गैलरी", href: "/gallery" },
-    { label: "लेटेस्ट अपडेट", href: "/news" },
-    { label: "संपर्क करें", href: "/contact" },
+    { label: t.header.home, href: "/" },
+    { label: t.header.aboutUs, href: "/about" },
+    { label: t.header.submitRamNaam, href: "/ram-naam" },
+    { label: t.header.becomeMember, href: "/membership" },
+    { label: t.header.writingMaterial, href: "/lekhan" },
+    { label: t.header.schemes, href: "/yojana" },
+    { label: t.header.astrology, href: "/jyotish" },
+    { label: t.header.donate, href: "/donation" },
+    { label: t.header.gallery, href: "/gallery" },
+    { label: t.header.latestUpdate, href: "/news" },
+    { label: t.header.contact, href: "/contact" },
   ];
 
   const socialLinks = [
@@ -33,7 +36,7 @@ const Footer = () => {
           <div className="md:col-span-2">
             <img src={logo} alt="Logo" className="h-20 mb-4 bg-white p-1 rounded-full shadow-sm" />
             <p className="text-white/80 mb-4 font-hind leading-relaxed">
-              श्री राम नाम विश्व बैंक समिति एक धार्मिक व सामाजिक संस्था है जो राम नाम के प्रचार-प्रसार और समाज सेवा के लिए समर्पित है।
+              {t.footer.aboutText}
             </p>
 
             {/* Social Icons */}
@@ -54,7 +57,9 @@ const Footer = () => {
 
             {/* App Download Buttons */}
             <div>
-              <h3 className="text-lg font-bold mb-3 font-hind">हमारा मोबाइल ऐप डाउनलोड करें</h3>
+              <h3 className="text-lg font-bold mb-3 font-hind">
+                {t.footer.about === "About Us" ? "Download Our Mobile App" : "हमारा मोबाइल ऐप डाउनलोड करें"}
+              </h3>
               <div className="flex flex-wrap gap-3">
                 {/* Google Play */}
                 <a
@@ -101,7 +106,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold mb-4 font-hind">त्वरित लिंक</h3>
+            <h3 className="text-xl font-bold mb-4 font-hind">{t.footer.quickLinks}</h3>
             <ul className="space-y-2">
               {quickLinks.map((link, index) => (
                 <li key={index}>
@@ -118,7 +123,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h3 className="text-xl font-bold mb-4 font-hind">संपर्क जानकारी</h3>
+            <h3 className="text-xl font-bold mb-4 font-hind">{t.footer.contactUs}</h3>
             <ul className="space-y-3 text-white/80 font-hind">
               <li className="flex items-start gap-2">
                 <Phone className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
@@ -160,7 +165,7 @@ const Footer = () => {
         {/* Copyright */}
         <div className="border-t border-white/10 pt-6 text-center">
           <p className="text-white/70 font-hind text-sm flex flex-col md:flex-row items-center justify-center gap-2">
-            <span>© 2025 श्री राम नाम विश्व बैंक समिति। सर्वाधिकार सुरक्षित।</span>
+            <span>© 2025 {t.header.organizationName}। {t.footer.copyright}।</span>
             <span>
               Developed by{" "}
               <a
@@ -172,7 +177,7 @@ const Footer = () => {
                 Marketing Wale™
               </a>
             </span>
-            <span>जय श्री राम 🙏</span>
+            <span>{t.hero.badge} 🙏</span>
           </p>
         </div>
       </div>
