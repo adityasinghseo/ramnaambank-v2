@@ -8,7 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Facebook, Instagram, Twitter, Youtube, Languages } from "lucide-react";
+import { Facebook, Instagram, Youtube, Languages } from "lucide-react";
 import offlineForm from "../assets/ऑफ़लाइन-फार्म.pdf";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -41,7 +41,7 @@ const Header = () => {
           {/* Social Media Icons - Left */}
           <div className="flex items-center gap-2 md:gap-3 justify-start">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/people/Shriramnaambank/61556191174978/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-white/80 transition-colors"
@@ -50,7 +50,7 @@ const Header = () => {
               <Facebook className="w-4 h-4 md:w-5 md:h-5" />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/ramnaambank/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-white/80 transition-colors"
@@ -59,16 +59,7 @@ const Header = () => {
               <Instagram className="w-4 h-4 md:w-5 md:h-5" />
             </a>
             <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-white/80 transition-colors"
-              aria-label="Twitter"
-            >
-              <Twitter className="w-4 h-4 md:w-5 md:h-5" />
-            </a>
-            <a
-              href="https://youtube.com"
+              href="https://www.youtube.com/@raamnaambank"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-white/80 transition-colors"
@@ -104,9 +95,9 @@ const Header = () => {
       </div>
 
       {/* ROW 2: Organization Name - White Background, Orange Text, Edge to Edge */}
-      <div className="w-full bg-white py-3">
-        <div className="w-full flex items-center justify-center">
-          <h1 className="font-hind text-[#FF7E26] text-xl md:text-3xl lg:text-4xl font-bold tracking-wide text-center">
+      <div className="w-full bg-white py-4">
+        <div className="w-full h-full flex items-center justify-center">
+          <h1 className="font-hind text-[#FF7E26] text-xl md:text-3xl lg:text-4xl font-bold tracking-wide text-center leading-none">
             {t.header.organizationName}
           </h1>
         </div>
