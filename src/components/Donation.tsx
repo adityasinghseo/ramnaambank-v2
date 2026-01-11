@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Heart, BookHeart, HandCoins, Landmark } from "lucide-react";
 import daanQR from "@/assets/daan-kare.webp";
@@ -44,6 +45,13 @@ const DonationPage = () => {
                 संस्था को दिया गया दान आयकर की धारा 80G के अंतर्गत कर मुक्त है।
                 आपके द्वारा दिया गया प्रत्येक योगदान, भक्ति और सेवा की दिशा में एक पवित्र कदम है।
               </p>
+              <div className="mt-8">
+                <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
+                  <Button size="lg" className="text-xl px-8 py-6 animate-pulse shadow-xl hover:scale-105 transition-transform bg-[#FF7E26] hover:bg-[#E66A1F] text-white">
+                    दान करें (Donate)
+                  </Button>
+                </a>
+              </div>
             </div>
           </div>
         </section>
@@ -134,7 +142,7 @@ const DonationPage = () => {
         </section>
       </main>
 
-    </div>
+    </div >
   );
 };
 
