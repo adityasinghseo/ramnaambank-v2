@@ -2,7 +2,7 @@ import { MessageCircle } from "lucide-react";
 
 const WhatsAppFloat = () => {
     const whatsappNumber = "919045000108";
-    const message = "।। जय श्री राम ।।\nमुझे श्री राम नाम विश्व बैंक समिति के बारे में जानकारी चाहिए !\n\nजय";
+    const message = "।। जय श्री राम ।।\nमुझे श्री राम नाम विश्व बैंक समिति के बारे में जानकारी चाहिए !";
 
     const handleWhatsAppClick = () => {
         const encodedMessage = encodeURIComponent(message);
@@ -11,7 +11,7 @@ const WhatsAppFloat = () => {
     };
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 animate-fade-in">
+        <div className="fixed bottom-6 left-6 z-50 animate-fade-in">
             <button
                 onClick={handleWhatsAppClick}
                 className="group relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#25D366] hover:bg-[#20BA5A] text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 hover:scale-110 animate-bounce-slow"
@@ -24,7 +24,7 @@ const WhatsAppFloat = () => {
                 <span className="absolute top-0 right-0 w-3 h-3 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
 
                 {/* Tooltip */}
-                <span className="absolute right-full mr-3 px-3 py-2 bg-gray-900 text-white text-sm font-hind rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <span className="absolute left-full ml-3 px-3 py-2 bg-gray-900 text-white text-sm font-hind rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                     WhatsApp पर चैट करें
                 </span>
             </button>

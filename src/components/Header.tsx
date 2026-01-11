@@ -13,6 +13,41 @@ import { Facebook, Instagram, Youtube, Languages } from "lucide-react";
 import offlineForm from "../assets/ऑफ़लाइन-फार्म.pdf";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "@/hooks/useTranslation";
+import { useAuth } from "@/modules/auth/context/authContext";
+import { User, LogOut, UserCircle, Heart } from "lucide-react";
+
+const UserAuthMenu = () => {
+  const { user, logout } = useAuth();
+
+  if (!user) {
+    return (
+      <Link to="/login" className="text-white hover:text-white/80 text-sm font-medium mr-2">
+        Login / Signup
+      </Link>
+    );
+  }
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="ghost" className="text-white hover:bg-white/20 hover:text-white gap-2 px-2">
+          <UserCircle className="h-5 w-5" />
+          <span className="hidden md:inline">{user.first_name}</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-48 bg-white">
+        <DropdownMenuItem asChild>
+          <Link to="/profile" className="cursor-pointer w-full flex items-center">
+            <User className="mr-2 h-4 w-4" /> My Profile
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuItem onClick={logout} className="cursor-pointer text-red-500 focus:text-red-500">
+          <LogOut className="mr-2 h-4 w-4" /> Logout
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+};
 
 const Header = () => {
   const location = useLocation();
@@ -30,17 +65,39 @@ const Header = () => {
     { label: t.header.donate, href: "/donation" },
     { label: t.header.gallery, href: "/gallery" },
     { label: t.header.latestUpdate, href: "/news" },
-    { label: t.header.shop, href: "https://shop.clickstraight.com", isExternal: true },
+    { label: t.header.shop, href: "/shop" },
     { label: t.header.contact, href: "/contact" },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full shadow-md">
       {/* ROW 1: Social Media (Left) + Logo (Center) + Language Toggle (Right) - Orange Background */}
+      {/* ROW 1: Social Media (Left) + Logo (Center) + Language Toggle (Right) - Orange Background */}
       <div className="w-full bg-[#FF7E26] px-4 md:px-8 py-3">
-        <div className="max-w-7xl mx-auto grid grid-cols-3 items-center gap-4">
-          {/* Social Media Icons - Left */}
-          <div className="flex items-center gap-2 md:gap-3 justify-start">
+        <div className="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-3 items-center gap-4">
+
+          {/* Mobile Top Row: Login/Signup + Language + Wishlist */}
+          <div className="flex md:hidden w-full justify-between items-center px-2 relative z-30">
+            {/* Login/Signup - Left (Mobile) */}
+            <div className="flex items-center">
+              <UserAuthMenu />
+            </div>
+
+            {/* Language + Heart (Mobile) */}
+            <div className="flex items-center gap-2">
+              <Link to="/wishlist" className="relative group p-1">
+                <Heart className="text-white w-5 h-5" />
+              </Link>
+              <button onClick={toggleLanguage} className="flex items-center gap-1 text-white bg-white/10 px-2 py-1 rounded text-xs font-hind">
+                <Languages className="w-3 h-3" />
+                <span>{t.header.language}</span>
+              </button>
+            </div>
+          </div>
+
+
+          {/* Desktop Left: Social Media */}
+          <div className="hidden md:flex items-center gap-2 md:gap-3 justify-start">
             <a
               href="https://www.facebook.com/people/Shriramnaambank/61556191174978/"
               target="_blank"
@@ -70,19 +127,30 @@ const Header = () => {
             </a>
           </div>
 
-          {/* Logo - Center */}
-          <div className="flex items-center justify-center">
+          {/* Logo - Center (Both Mobile & Desktop) */}
+          <div className="flex items-center justify-center py-2 md:py-0 -mt-8 md:mt-0">
             <Link to="/" className="flex items-center justify-center">
               <img
                 src={logo}
                 alt={t.header.organizationName}
-                className="h-16 md:h-20 w-auto bg-white p-1 rounded-full shadow-lg hover:scale-105 transition-transform duration-300"
+                className="h-20 w-auto bg-white p-1 rounded-full shadow-lg hover:scale-105 transition-transform duration-300 relative z-20"
               />
             </Link>
           </div>
 
-          {/* Language Toggle - Right */}
-          <div className="flex items-center justify-end">
+          {/* Mobile Bottom Row REMOVED - Auth moved to top left */}
+
+
+          {/* Desktop Right: Language + Auth + Wishlist */}
+          <div className="hidden md:flex items-center justify-end gap-3">
+            <div className="flex items-center">
+              <UserAuthMenu />
+            </div>
+            <Link to="/wishlist" className="relative group">
+              <div className="text-white hover:text-white/80 p-2 rounded-full hover:bg-white/10 transition-colors">
+                <Heart className="w-5 h-5 md:w-6 md:h-6" />
+              </div>
+            </Link>
             <button
               onClick={toggleLanguage}
               className="flex items-center gap-1 md:gap-2 text-white hover:text-white/80 transition-colors text-xs md:text-sm bg-white/10 hover:bg-white/20 px-3 py-1.5 rounded-md font-hind"
@@ -151,22 +219,7 @@ const Header = () => {
             }
 
             // Regular nav items
-            if (item.isExternal) {
-              return (
-                <a
-                  key={item.label}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={cn(
-                    "text-white hover:bg-white/20 px-3 py-2 rounded-md font-hind text-xs md:text-sm whitespace-nowrap transition-all duration-300",
-                    isActive && "bg-white/20 font-bold"
-                  )}
-                >
-                  {item.label}
-                </a>
-              );
-            }
+
 
             return (
               <Link

@@ -8,6 +8,9 @@ import plantation from "@/assets/yojna-images/tree-plantation-abhiyan.webp";
 import ganga_campaign from "@/assets/yojna-images/ganga-pollution-free-abhiyan.webp";
 import medical_camp from "@/assets/yojna-images/medical-health-camp.webp";
 import moksha_dham from "@/assets/yojna-images/moksha-dham-cremation.webp";
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Heart } from "lucide-react";
 
 export interface Yojana {
     slug: string;
@@ -32,6 +35,14 @@ export const yojanas: Yojana[] = [
                 <p>
                     जिसको व्यवस्थित एवं भव्य स्वरूप देने के लिए संस्था द्वारा विश्व का सबसे दिव्य एवं अदभुत "श्री राम नाम संग्राहलय"बनाया जा रहा है। जिस महान कार्य में आप सहयोग कर अपनी महत्वपूर्ण भूमिका दर्ज करवा सकते है। कृपया इस राम काज से अवश्य जुड़ें।
                 </p>
+                <div className="py-6">
+                    <Link to="/donation">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            दान करें (Donate)
+                        </Button>
+                    </Link>
+                </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
                     <p>Website : shreeramnaambank.com / Email: raamnaambank@gmail.com</p>
@@ -55,6 +66,14 @@ export const yojanas: Yojana[] = [
                 <p>
                     गौमाता के लिए खाने के लिए चारे, चोकर, खल, आदि, मेडिकल में दवाईयां, पट्टी, रुई, रहने के लिए टीन शेड, बांस बल्लियां, पंखे लाइट, आदि सेवा कार्यों में आप जरूर सहयोग करें।
                 </p>
+                <div className="py-6">
+                    <Link to="/donation">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            दान करें (Donate)
+                        </Button>
+                    </Link>
+                </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
@@ -85,6 +104,14 @@ export const yojanas: Yojana[] = [
                         <li>हरकी पौडी से मात्र 15 मिनट की दूरी पर</li>
                     </ul>
                 </div>
+                <div className="py-6">
+                    <Link to="/donation">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            दान करें (Donate)
+                        </Button>
+                    </Link>
+                </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
@@ -105,6 +132,14 @@ export const yojanas: Yojana[] = [
                 <p>
                     हरिद्वार में गंगा किनारे स्थित यह घाट (लगभग 102 मी. क्षेत्र में बना हुआ है। जहां का सौंदर्यीकरण, टीन शेड, मंदिर निर्माण, गंगा आरती का स्टेज आदि बहुत से कार्य किए जाने है। आप भी यहीं आकर गंगा आरती धार्मिक अनुष्ठान भोजन/भंडारे आदि कार्यों में प्रतिभाग/सहयोग कर पुण्य को भागी बन सकते हैं। घाट के सौन्दर्यकरण, मदिर निर्माण में आप भी अपना महत्वपूर्ण योगदान दे सकते हैं।
                 </p>
+                <div className="py-6">
+                    <Link to="/donation">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            दान करें (Donate)
+                        </Button>
+                    </Link>
+                </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
@@ -128,6 +163,14 @@ export const yojanas: Yojana[] = [
                 <p>
                     विशेषकर आप भी अपनी की याद में, अपने प्रियजनों को निमित्त, या अपने जन्मदिन, वैवाहिक वर्षगांठ और किसी भी शुभ अवसर पर संस्था के सहयोग से भण्डारा करवाना चाहते हैं। तो करवा सकते हैं।
                 </p>
+                <div className="py-6">
+                    <Link to="/donation">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            दान करें (Donate)
+                        </Button>
+                    </Link>
+                </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
@@ -145,6 +188,14 @@ export const yojanas: Yojana[] = [
                 <p>
                     श्री राम नाम विश्व बैंक समिति प्रतिभावान गरीब, बेसहारा एवं निराश्रित छात्र एवं छात्राओं को निःशुल्क -पाठ्य सामग्री व कोर्स से सम्बंधित किताबें कॉपियां या उनकी स्कून कोलेज की फीस देने में सहयोग करती है। जिन बच्चों में पढाई का हुनर होता है। तो उन बच्चों की प्रतिभा को निखारने के लिए संस्था अपना महत्वपूर्ण सहयोग प्रदान करती है। विगत 15 वर्षों से संस्था अपनी सामर्थ्यनुसार जरूरतमंदों को सहयोग करने का कार्य करती आ रही है। इस महत्वपूर्ण कार्य में आप भी बच्चों की स्कूली शिक्षा व पढ़ाई के खर्च को वहन कर उनकी मदद कर सकते है। जरूरतमंदों को सहयोग प्रदान कर सकते हैं।
                 </p>
+                <div className="py-6">
+                    <Link to="/donation">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            दान करें (Donate)
+                        </Button>
+                    </Link>
+                </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
@@ -165,6 +216,14 @@ export const yojanas: Yojana[] = [
                 <p>
                     आप भी स्वयं या अपनों की याद में अपने जन्मदिवस, वैवाहिक वर्षगांठ या किसी खुशी के अवसर पर वृक्षारोपण करवा सकते हैं। या एक पौधे को गोद ले सकते हैं।
                 </p>
+                <div className="py-6">
+                    <Link to="/donation">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            दान करें (Donate)
+                        </Button>
+                    </Link>
+                </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
@@ -185,6 +244,14 @@ export const yojanas: Yojana[] = [
                 <p>
                     अभी भी संस्था का प्रयास लगातार जारी है। कि लोगों को जागरुकता के माध्यम से इस अभियान से जोड़ा जाए। संस्था गंगा किनारे जगह-जगह कैम्प लगाकर लोगों को जागरुक करने का कार्य करती है। आप भी स्वयंसेवी बनकर हमारी इस मुहीम में शामिल होकर गंगा के प्रति अपनी जिम्मेदारी निभा सकते हैं।
                 </p>
+                <div className="py-6">
+                    <Link to="/donation">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            दान करें (Donate)
+                        </Button>
+                    </Link>
+                </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
@@ -205,6 +272,14 @@ export const yojanas: Yojana[] = [
                 <p>
                     संख्या अपने स्वयंसेवियों के सहयोग से वृहद स्तर पर अभियान चलाकर जरूरतमंदो को स्वास्थ्य से जुडी सामग्री भी वितरित करती है। इस महान कार्य से जुड़‌कर आप भी किसी की जान बचा सकते हैं। तो आइए हमारे साथ और इस कार्य में सहयोग कीजिए।
                 </p>
+                <div className="py-6">
+                    <Link to="/donation">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            दान करें (Donate)
+                        </Button>
+                    </Link>
+                </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
@@ -232,6 +307,14 @@ export const yojanas: Yojana[] = [
                 <p>
                     गरीबों की सहायता, सेवा करने में यदि आप भी आगे आना चाहते है या सहयोग करना चाहते है तो आपका हृदय से स्वागत है।
                 </p>
+                <div className="py-6">
+                    <Link to="/donation">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            दान करें (Donate)
+                        </Button>
+                    </Link>
+                </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>

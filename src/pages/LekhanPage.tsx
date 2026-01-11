@@ -2,24 +2,41 @@ import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, Download, FileText, Scroll, MessageCircle } from "lucide-react";
+import { BookOpen, Download, FileText, Scroll, MessageCircle, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import ramnamLekhan from "@/assets/ramnam-lekhan.png";
 
+import ramCharitManasPdf from "@/assets/ram-charit-manas.pdf";
+
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from "@/components/ui/dialog";
+
 const LekhanPage = () => {
+  const [isLekhanDialogOpen, setIsLekhanDialogOpen] = useState(false);
+
   const materials = [
     {
       icon: <BookOpen className="w-10 h-10 text-primary" />,
       title: "राम नाम लेखन पुस्तिका",
       description: "विशेष रूप से डिज़ाइन की गई लेखन पुस्तिका",
-      available: true
+      available: true,
+      action: "popup"
     },
     {
       icon: <Scroll className="w-10 h-10 text-primary" />,
       title: "राम चरित मानस",
       description: "तुलसीदास जी द्वारा रचित पवित्र ग्रंथ",
-      available: true
+      available: true,
+      downloadLink: ramCharitManasPdf
     },
     {
       icon: <FileText className="w-10 h-10 text-primary" />,
@@ -34,6 +51,12 @@ const LekhanPage = () => {
       available: true
     }
   ];
+
+  const handleMaterialClick = (material: any) => {
+    if (material.action === "popup") {
+      setIsLekhanDialogOpen(true);
+    }
+  };
 
   return (
     <div className="min-h-screen">
@@ -95,9 +118,30 @@ const LekhanPage = () => {
                     <p className="text-center text-muted-foreground font-hind mb-4">
                       {material.description}
                     </p>
-                    {material.available ? (
+                    {material.downloadLink ? (
                       <a
-                        href={`https://wa.me/919045000108?text=${encodeURIComponent(`नमस्ते, मुझे ${material.title} के बारे में जानकारी चाहिए।`)}`}
+                        href={material.downloadLink}
+                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
+                      >
+                        <Button className="w-full gradient-devotional text-white">
+                          <Download className="w-4 h-4 mr-2" />
+                          प्राप्त करें
+                        </Button>
+                      </a>
+                    ) : material.action === "popup" ? (
+                      <Button
+                        className="w-full gradient-devotional text-white"
+                        onClick={() => handleMaterialClick(material)}
+                      >
+                        <MessageCircle className="w-4 h-4 mr-2" />
+                        प्राप्त करें
+                      </Button>
+                    ) : material.available ? (
+                      <a
+                        href={`https://wa.me/919045000108?text=${encodeURIComponent(`जय श्री राम, मुझे ${material.title} के बारे में जानकारी चाहिए।`)}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block"
@@ -122,6 +166,54 @@ const LekhanPage = () => {
           </div>
         </section>
 
+        <Dialog open={isLekhanDialogOpen} onOpenChange={setIsLekhanDialogOpen}>
+          <DialogContent className="sm:max-w-[500px] font-hind">
+            <DialogHeader>
+              <DialogTitle className="text-2xl text-primary font-bold text-center">राम नाम लेखन पुस्तिका</DialogTitle>
+              <DialogDescription className="text-center text-gray-600">
+                पुस्तिका प्राप्त करने के लिए कृपया एक विकल्प चुनें
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              {/* Option 1: Membership */}
+              <Link to="/membership" onClick={() => setIsLekhanDialogOpen(false)}>
+                <Card className="hover:bg-primary/5 transition-colors cursor-pointer border-primary/20">
+                  <CardContent className="p-4 flex items-center space-x-4">
+                    <div className="bg-primary/10 p-3 rounded-full">
+                      <BookOpen className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg text-secondary">सदस्य बनें</h3>
+                      <p className="text-sm text-gray-500">सदस्यता शुल्क देकर मासिक, वार्षिक या आजीवन सदस्य बनें और पुस्तिकाएं प्राप्त करें।</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+
+              {/* Option 2: Buy */}
+              <Link to="/shop" onClick={() => setIsLekhanDialogOpen(false)}>
+                <Card className="hover:bg-primary/5 transition-colors cursor-pointer border-primary/20">
+                  <CardContent className="p-4 flex items-center space-x-4">
+                    <div className="bg-primary/10 p-3 rounded-full">
+                      <ShoppingCart className="w-6 h-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-lg text-secondary">सीधे खरीदें (Buy)</h3>
+                      <p className="text-sm text-gray-500">10 पुस्तकों का सेट मात्र ₹199 में।</p>
+                      <span className="text-xs font-semibold text-green-600 bg-green-100 px-2 py-0.5 rounded mt-1 inline-block">Free Shipping</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            </div>
+            <DialogFooter className="sm:justify-center">
+              <Button type="button" variant="secondary" onClick={() => setIsLekhanDialogOpen(false)}>
+                रद्द करें
+              </Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
+
         {/* How to Get Section */}
         <section className="py-16 bg-cream">
           <div className="container mx-auto px-4">
@@ -142,7 +234,7 @@ const LekhanPage = () => {
                       <strong className="text-secondary">डाक द्वारा:</strong> संपूर्ण भारत में होम डिलीवरी की सुविधा उपलब्ध है।
                     </p>
                     <p className="text-muted-foreground">
-                      <strong className="text-secondary">संपर्क:</strong> +91- 9045000108 या info@ramnaambank.org
+                      <strong className="text-secondary">संपर्क:</strong> +91- 9045000108 या raamnaambank@gmail.com
                     </p>
                   </div>
                 </CardContent>

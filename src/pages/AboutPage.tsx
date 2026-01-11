@@ -3,9 +3,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import rampic from "@/assets/rampic.png";
-import rambaba from "@/assets/rambaba.png";
-import teamone from "@/assets/teamone.png";
-import teamtwo from "@/assets/teamtwo.png";
+import rambaba from "@/assets/team/rambabanew.webp";
+import teamone from "@/assets/team/sumittiwarinew.webp";
+import teamtwo from "@/assets/team/vikasgargnew.webp";
 import { Phone, Mail, MapPin, Facebook, Youtube, Instagram } from "lucide-react";
 
 const AboutPage = () => {
@@ -100,7 +100,7 @@ const AboutPage = () => {
                   <img
                     src={rambaba}
                     alt="Swami Ram Baba Ji"
-                    className="w-60 h-60 md:w-72 md:h-72 object-cover rounded-full border-4 border-primary/30 shadow-xl"
+                    className="w-60 h-60 md:w-72 md:h-72 object-cover rounded-full border-4 border-primary/30 shadow-2xl drop-shadow-xl transition-transform duration-500 hover:scale-105"
                   />
                 </div>
 
@@ -139,7 +139,7 @@ const AboutPage = () => {
                 <img
                   src={teamone}
                   alt="Acharya Shri Sumit Tiwari Ji"
-                  className="w-60 h-60 md:w-72 md:h-72 object-cover object-top rounded-full border-4 border-primary/30 shadow-xl"
+                  className="w-60 h-60 md:w-72 md:h-72 object-cover object-top rounded-full border-4 border-primary/30 shadow-2xl drop-shadow-xl transition-transform duration-500 hover:scale-105"
                 />
               </div>
 
@@ -179,7 +179,7 @@ const AboutPage = () => {
                     </div>
                     <div>
                       <p className="text-xs text-gray-400 uppercase font-semibold tracking-wider">Email</p>
-                      <p className="text-gray-800 font-medium font-hind">sumit@shriramnaambank.com</p>
+                      <p className="text-gray-800 font-medium font-hind">sumit@ramnaam.in </p>
                     </div>
                   </div>
 
@@ -190,7 +190,7 @@ const AboutPage = () => {
                     <div>
                       <p className="text-xs text-gray-400 uppercase font-semibold tracking-wider">Address</p>
                       <p className="text-gray-800 font-medium font-hind leading-snug">
-                        8 गोविंदपुरी, रानीपुर मोड, वुडलैंड शोरूम के ऊपर, हरिद्वार, उत्तराखंड 249401
+                        H.No. 7, नई बस्ती रामगढ़ रोड, खड़खड़ी, हरिद्वार, उत्तराखंड 249401
                       </p>
                     </div>
                   </div>
@@ -224,7 +224,7 @@ const AboutPage = () => {
                 <img
                   src={teamtwo}
                   alt="Shri Vikas Garg Ji"
-                  className="w-60 h-60 md:w-72 md:h-72 object-cover object-top rounded-full border-4 border-primary/30 shadow-xl"
+                  className="w-60 h-60 md:w-72 md:h-72 object-cover object-top rounded-full border-4 border-primary/30 shadow-2xl drop-shadow-xl transition-transform duration-500 hover:scale-105"
                 />
               </div>
 
@@ -275,7 +275,7 @@ const AboutPage = () => {
                     <div>
                       <p className="text-xs text-gray-400 uppercase font-semibold tracking-wider">Address</p>
                       <p className="text-gray-800 font-medium font-hind leading-snug">
-                        24 Fifth st., New York, US
+                        8 गोविंदपुरी, रानीपुर मोड, वुडलैंड शोरूम के ऊपर द्वितीय तल, हरिद्वार उत्तराखंड 249401
                       </p>
                     </div>
                   </div>

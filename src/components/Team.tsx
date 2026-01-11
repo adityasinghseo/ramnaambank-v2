@@ -1,5 +1,5 @@
-import teamone from "@/assets/teamone.png";
-import teamtwo from "@/assets/teamtwo.png";
+import teamone from "@/assets/team/sumittiwarinew.webp";
+import teamtwo from "@/assets/team/vikasgargnew.webp";
 import { useTranslation } from "@/hooks/useTranslation";
 
 const Team = () => {

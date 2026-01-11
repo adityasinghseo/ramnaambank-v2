@@ -1,0 +1,10 @@
+# BACKEND CORS FIX
+# Upload this code to the .htaccess file in the ROOT directory of your WordPress installation
+# (htdocs/ or public_html/ of shop.clickstraight.com)
+
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS, PUT, DELETE"
+    Header set Access-Control-Allow-Headers "Authorization, Content-Type, X-WP-Nonce"
+    Header set Access-Control-Expose-Headers "X-WP-Total, X-WP-TotalPages"
+</IfModule>
