@@ -2,7 +2,7 @@ import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, Download, FileText, Scroll } from "lucide-react";
+import { BookOpen, Download, FileText, Scroll, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import ramnamLekhan from "@/assets/ramnam-lekhan.png";
@@ -95,12 +95,26 @@ const LekhanPage = () => {
                     <p className="text-center text-muted-foreground font-hind mb-4">
                       {material.description}
                     </p>
-                    <Button
-                      className="w-full gradient-devotional text-white"
-                      disabled={!material.available}
-                    >
-                      {material.available ? "प्राप्त करें" : "जल्द आ रहा है"}
-                    </Button>
+                    {material.available ? (
+                      <a
+                        href={`https://wa.me/919045000108?text=${encodeURIComponent(`नमस्ते, मुझे ${material.title} के बारे में जानकारी चाहिए।`)}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block"
+                      >
+                        <Button className="w-full gradient-devotional text-white">
+                          <MessageCircle className="w-4 h-4 mr-2" />
+                          प्राप्त करें
+                        </Button>
+                      </a>
+                    ) : (
+                      <Button
+                        className="w-full gradient-devotional text-white"
+                        disabled
+                      >
+                        जल्द आ रहा है
+                      </Button>
+                    )}
                   </CardContent>
                 </Card>
               ))}
@@ -128,7 +142,7 @@ const LekhanPage = () => {
                       <strong className="text-secondary">डाक द्वारा:</strong> संपूर्ण भारत में होम डिलीवरी की सुविधा उपलब्ध है।
                     </p>
                     <p className="text-muted-foreground">
-                      <strong className="text-secondary">संपर्क:</strong> +91-9045000118 या info@ramnaambank.org
+                      <strong className="text-secondary">संपर्क:</strong> +91- 9045000108 या info@ramnaambank.org
                     </p>
                   </div>
                 </CardContent>

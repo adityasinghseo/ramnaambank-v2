@@ -75,7 +75,7 @@ export const translations = {
             writers: "राम नाम लेखनकर्ता",
             members: "रजिस्टर्ड सदस्य",
             volunteers: "संस्था के स्वयंसेवी",
-            heading: "ॐ लेखन सामग्री प्राप्त करें ॐ",
+            heading: "⭐ लेखन सामग्री प्राप्त करें ⭐",
             description: "यदि आप राम नाम लिखने हेतु राम नाम सामग्री प्राप्त करना चाहते हैं या अपने प्रियजनों की याद में उनके जन्मदिन या किसी विशेष उत्सव पर राम नाम कॉपियां प्रिंट कराकर उन्हें बंटवाना चाहते हैं तो आप संस्था के ऑफिशियल और व्हाट्सएप नंबर पर संपर्क करें।",
             contactText: "व्हाट्सएप पर संपर्क करें"
         },
@@ -339,7 +339,7 @@ export const translations = {
             writers: "Ram Naam Writers",
             members: "Registered Members",
             volunteers: "Organization Volunteers",
-            heading: "ॐ Get Writing Materials ॐ",
+            heading: "⭐ Get Writing Materials ⭐",
             description: "If you want to get Ram Naam materials for writing Ram Naam or want to print and distribute Ram Naam copies in memory of your loved ones on their birthday or any special occasion, please contact the organization's official and WhatsApp number.",
             contactText: "Contact on WhatsApp"
         },

@@ -83,7 +83,7 @@ const FAQ = () => {
             संस्था द्वारा वृहद स्तर पर श्री राम नाम संग्रहालय का निर्माण किया जा रहा है जहां आपके द्वारा लिखा गया राम नाम पूरे विधि विधान से सुरक्षित रखा जाता है।
           </p>
           <p>
-            आप हमारी वेबसाइट <a href="https://www.ramnaam.in" className="text-primary hover:underline">www.ramnaam.in</a> पर जाकर अधिक जानकारी प्राप्त कर सकते है या हमारे आधिकारिक मोबाइल नंबर <a href="tel:9045000108" className="text-primary hover:underline">9045000108</a> पर भी संपर्क कर सकते है। या नीचे दिए पतों पर राम नाम लेखन सामग्री भेज सकते है या प्राप्त कर सकते है। संस्था द्वारा आपका एक खाता खोला जाएगा जिसमें आपके द्वारा लिखा गया राम नाम जमा किया जाएगा।
+            आप हमारी वेबसाइट <a href="https://www.shriramnaambank.com" className="text-primary hover:underline">www.shriramnaambank.com</a> पर जाकर अधिक जानकारी प्राप्त कर सकते है या हमारे आधिकारिक मोबाइल नंबर <a href="tel:9045000108" className="text-primary hover:underline">9045000108</a> पर भी संपर्क कर सकते है। या नीचे दिए पतों पर राम नाम लेखन सामग्री भेज सकते है या प्राप्त कर सकते है। संस्था द्वारा आपका एक खाता खोला जाएगा जिसमें आपके द्वारा लिखा गया राम नाम जमा किया जाएगा।
           </p>
           <div className="bg-primary/5 p-4 rounded-lg">
             <p className="font-semibold mb-2">संस्था का पता है :</p>
@@ -95,7 +95,7 @@ const FAQ = () => {
           </div>
           <div>
             <p>Contact No. 9045000108 / 8868888601 / 9410110900</p>
-            <p>Website : <a href="https://www.ramnaam.in" className="text-primary hover:underline">www.ramnaam.in</a> | raamnaambank@gmail.com</p>
+            <p>Website : <a href="https://www.shriramnaambank.com" className="text-primary hover:underline">www.shriramnaambank.com</a> | raamnaambank@gmail.com</p>
           </div>
         </div>
       ),
@@ -134,7 +134,7 @@ const FAQ = () => {
             जिनके लगभग पूरे भारत में 275 से ज्यादा शाखाएं है जहां राम नाम इक्कठा होता है और फिर पार्सल के रूप में पैक होकर हरिद्वार जाता है। जहां सबकी गिनती होती है तथा उसे व्यवस्थित तरीके से संग्रहालय में जमा करने के लिए तैयार किया जाता है।
           </p>
           <p>
-            अधिक जानकारी आप संस्था के नंबर <a href="tel:9045000108" className="text-primary hover:underline">9045000108</a> या वेबसाइट <a href="https://www.ramnaam.in" className="text-primary hover:underline">www.ramnaam.in</a> पर प्राप्त कर सकते है।
+            अधिक जानकारी आप संस्था के नंबर <a href="tel:9045000108" className="text-primary hover:underline">9045000108</a> या वेबसाइट <a href="https://www.shriramnaambank.com" className="text-primary hover:underline">www.shriramnaambank.com</a> पर प्राप्त कर सकते है।
           </p>
         </div>
       ),
@@ -148,7 +148,7 @@ const FAQ = () => {
           </p>
           <div className="p-4 bg-primary/5 rounded-lg border border-primary/10">
             <p className="font-bold">Contact No. 9045000108 / 8868888601 / 9410110900</p>
-            <p>Website : <a href="https://www.ramnaam.in" className="text-primary hover:underline">www.ramnaam.in</a> | raamnaambank@gmail.com</p>
+            <p>Website : <a href="https://www.shriramnaambank.com" className="text-primary hover:underline">www.shriramnaambank.com</a> | raamnaambank@gmail.com</p>
           </div>
           <div className="space-y-4 mt-4">
             <div>
@@ -175,7 +175,7 @@ const FAQ = () => {
             जब भी आप राम नाम जमा करते होंगे या आपने राम नाम के ऊपर शोध किया होगा तो आपके मन में ये सवाल जरूर आया होगा कि आखिर लिखे हुए राम नाम का क्या होता है ? क्योंकि इसे हम गंगा जी या नदी में प्रवाहित कर नहीं सकते क्योंकि उसमें प्रदूषण फैलेगा और जीव हत्या का पाप लगेगा। यदि मंदिर में चढ़ाकर आ जाएंगे तो उसके बाद मंदिर वाले इसका क्या करते होंगे ? यदि हम इसे आग लगा दें तो यह लिखा हुआ नाम नष्ट हो जाएगा आदि ऐसे तमाम सवाल आपके मन को कुरेदते होंगे।
           </p>
           <p>
-            इसलिए आपकी संस्था श्री राम नाम विश्व बैंक समिति ने लिखे हुए राम नाम का सबसे ज्यादा सदुपयोग करती है। आप इसकी अधिक जानकारी वेबसाइट <a href="https://www.ramnaam.in" className="text-primary hover:underline">www.ramnaam.in</a> से या इनके आधिकारिक नंबर <a href="tel:9045000108" className="text-primary hover:underline">9045000108</a> से प्राप्त कर सकते हैं। क्योंकि अभी हाल ही में इन्होंने 51 लाख करोड़ से ज्यादा राम नाम अयोध्या के श्री राम मंदिर में लगवाया है। जिसकी जानकारी आपको इनकी वेबसाइट पर मिल जाएगी।
+            इसलिए आपकी संस्था श्री राम नाम विश्व बैंक समिति ने लिखे हुए राम नाम का सबसे ज्यादा सदुपयोग करती है। आप इसकी अधिक जानकारी वेबसाइट <a href="https://www.shriramnaambank.com" className="text-primary hover:underline">www.shriramnaambank.com</a> से या इनके आधिकारिक नंबर <a href="tel:9045000108" className="text-primary hover:underline">9045000108</a> से प्राप्त कर सकते हैं। क्योंकि अभी हाल ही में इन्होंने 51 लाख करोड़ से ज्यादा राम नाम अयोध्या के श्री राम मंदिर में लगवाया है। जिसकी जानकारी आपको इनकी वेबसाइट पर मिल जाएगी।
           </p>
         </div>
       ),
@@ -192,7 +192,7 @@ const FAQ = () => {
           </p>
           <div className="p-4 bg-primary/5 rounded-lg border border-primary/10">
             <p className="font-bold">Contact No. 9045000108 / 8868888601 / 9410110900</p>
-            <p>Website : <a href="https://www.ramnaam.in" className="text-primary hover:underline">www.ramnaam.in</a> | raamnaambank@gmail.com</p>
+            <p>Website : <a href="https://www.shriramnaambank.com" className="text-primary hover:underline">www.shriramnaambank.com</a> | raamnaambank@gmail.com</p>
           </div>
           <div className="space-y-4 mt-4">
             <div>
@@ -295,7 +295,7 @@ const FAQ = () => {
             The organization is building a grand Shri Ram Naam museum on a large scale where your written Ram Naam is kept safe with complete procedures.
           </p>
           <p>
-            You can get more information by visiting our website <a href="https://www.ramnaam.in" className="text-primary hover:underline">www.ramnaam.in</a> or you can also contact our official mobile number <a href="tel:9045000108" className="text-primary hover:underline">9045000108</a>. Or you can send or receive Ram Naam writing material at the addresses given below. An account will be opened for you by the organization in which your written Ram Naam will be deposited.
+            You can get more information by visiting our website <a href="https://www.shriramnaambank.com" className="text-primary hover:underline">www.shriramnaambank.com</a> or you can also contact our official mobile number <a href="tel:9045000108" className="text-primary hover:underline">9045000108</a>. Or you can send or receive Ram Naam writing material at the addresses given below. An account will be opened for you by the organization in which your written Ram Naam will be deposited.
           </p>
           <div className="bg-primary/5 p-4 rounded-lg">
             <p className="font-semibold mb-2">Organization Address:</p>
@@ -307,7 +307,7 @@ const FAQ = () => {
           </div>
           <div>
             <p>Contact No. 9045000108 / 8868888601 / 9410110900</p>
-            <p>Website : <a href="https://www.ramnaam.in" className="text-primary hover:underline">www.ramnaam.in</a> | raamnaambank@gmail.com</p>
+            <p>Website : <a href="https://www.shriramnaambank.com" className="text-primary hover:underline">www.shriramnaambank.com</a> | raamnaambank@gmail.com</p>
           </div>
         </div>
       ),
@@ -346,7 +346,7 @@ const FAQ = () => {
             Which has more than 275 branches across India where Ram Naam is collected and then packed in the form of parcels and goes to Haridwar. Where everyone is counted and prepared to be deposited in the museum in an organized manner.
           </p>
           <p>
-            For more information, you can contact the organization's number <a href="tel:9045000108" className="text-primary hover:underline">9045000108</a> or website <a href="https://www.ramnaam.in" className="text-primary hover:underline">www.ramnaam.in</a>.
+            For more information, you can contact the organization's number <a href="tel:9045000108" className="text-primary hover:underline">9045000108</a> or website <a href="https://www.shriramnaambank.com" className="text-primary hover:underline">www.shriramnaambank.com</a>.
           </p>
         </div>
       ),
@@ -360,7 +360,7 @@ const FAQ = () => {
           </p>
           <div className="p-4 bg-primary/5 rounded-lg border border-primary/10">
             <p className="font-bold">Contact No. 9045000108 / 8868888601 / 9410110900</p>
-            <p>Website : <a href="https://www.ramnaam.in" className="text-primary hover:underline">www.ramnaam.in</a> | raamnaambank@gmail.com</p>
+            <p>Website : <a href="https://www.shriramnaambank.com" className="text-primary hover:underline">www.shriramnaambank.com</a> | raamnaambank@gmail.com</p>
           </div>
           <div className="space-y-4 mt-4">
             <div>
@@ -387,7 +387,7 @@ const FAQ = () => {
             Whenever you deposit Ram Naam or if you have researched on Ram Naam, this question must have arisen in your mind that what happens to the written Ram Naam? Because we cannot flow it in Ganga Ji or river because it will spread pollution and there will be sin of killing living beings. If you offer it in the temple and come back, then what do the temple people do with it? If we set it on fire, this written name will be destroyed, etc. Many such questions will prick your mind.
           </p>
           <p>
-            Therefore, your organization Shri Ram Naam Vishwa Bank Samiti makes the best use of the written Ram Naam. You can get more information about this from the website <a href="https://www.ramnaam.in" className="text-primary hover:underline">www.ramnaam.in</a> or from their official number <a href="tel:9045000108" className="text-primary hover:underline">9045000108</a>. Because recently they have installed more than 51 lakh crore Ram Naam in Shri Ram Temple in Ayodhya. You will get information about this on their website.
+            Therefore, your organization Shri Ram Naam Vishwa Bank Samiti makes the best use of the written Ram Naam. You can get more information about this from the website <a href="https://www.shriramnaambank.com" className="text-primary hover:underline">www.shriramnaambank.com</a> or from their official number <a href="tel:9045000108" className="text-primary hover:underline">9045000108</a>. Because recently they have installed more than 51 lakh crore Ram Naam in Shri Ram Temple in Ayodhya. You will get information about this on their website.
           </p>
         </div>
       ),
@@ -404,7 +404,7 @@ const FAQ = () => {
           </p>
           <div className="p-4 bg-primary/5 rounded-lg border border-primary/10">
             <p className="font-bold">Contact No. 9045000108 / 8868888601 / 9410110900</p>
-            <p>Website : <a href="https://www.ramnaam.in" className="text-primary hover:underline">www.ramnaam.in</a> | raamnaambank@gmail.com</p>
+            <p>Website : <a href="https://www.shriramnaambank.com" className="text-primary hover:underline">www.shriramnaambank.com</a> | raamnaambank@gmail.com</p>
           </div>
           <div className="space-y-4 mt-4">
             <div>
@@ -484,7 +484,7 @@ const FAQ = () => {
             </span>
           </p>
           <p className="text-muted-foreground font-hind">
-            Website: <a href="https://www.ramnaam.in" className="text-primary hover:underline">www.ramnaam.in</a> | Email: raamnaambank@gmail.com
+            Website: <a href="https://www.shriramnaambank.com" className="text-primary hover:underline">www.shriramnaambank.com</a> | Email: raamnaambank@gmail.com
           </p>
         </div>
       </div>

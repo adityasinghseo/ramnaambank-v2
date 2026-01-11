@@ -9,9 +9,18 @@ import gl3 from "@/assets/gl3.webp";
 import gl4 from "@/assets/gl4.webp";
 import gl5 from "@/assets/gl5.webp";
 import gl6 from "@/assets/gl6.webp";
+import gl7 from "@/assets/gl7.jpg";
+import gl8 from "@/assets/gl8.jpg";
+import gl9 from "@/assets/gl9.jpg";
+import gl10 from "@/assets/gl10.jpg";
+import gl11 from "@/assets/gl11.jpg";
+import gl12 from "@/assets/gl12.jpg";
+import gl13 from "@/assets/gl13.jpg";
+import gl14 from "@/assets/gl14.jpg";
+import gl15 from "@/assets/gl15.jpg";
 
 const GalleryPage = () => {
-  const galleryImages = [gl1, gl2, gl3, gl4, gl5, gl6];
+  const galleryImages = [gl1, gl2, gl3, gl4, gl5, gl6, gl7, gl8, gl9, gl10, gl11, gl12, gl13, gl14, gl15];
 
   const videoLinks = [
     "https://www.youtube.com/embed/sCSimkx0nwE",

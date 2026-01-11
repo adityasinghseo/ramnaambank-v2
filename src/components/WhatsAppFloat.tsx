@@ -2,7 +2,7 @@ import { MessageCircle } from "lucide-react";
 
 const WhatsAppFloat = () => {
     const whatsappNumber = "919045000108";
-    const message = "नमस्ते! मुझे श्री राम नाम विश्व बैंक समिति के बारे में जानकारी चाहिए।"; // Hello! I want information about Shri Ram Naam Vishwa Bank Samiti.
+    const message = "।। जय श्री राम ।।\nमुझे श्री राम नाम विश्व बैंक समिति के बारे में जानकारी चाहिए !\n\nजय";
 
     const handleWhatsAppClick = () => {
         const encodedMessage = encodeURIComponent(message);

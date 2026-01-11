@@ -80,12 +80,12 @@ const RamNaamPage = () => {
 
         {/* Methods Section */}
         <section className="py-16 bg-background">
-          <div className="container mx-auto px-4 max-w-5xl">
+          <div className="container mx-auto px-4 max-w-6xl">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary text-center mb-12 font-hind">
               यह कैसे कार्य करता है?
             </h2>
 
-            <div className="grid md:grid-cols-2 gap-10">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* App Method */}
               <Card className="shadow-soft border-primary/20 bg-white/90 backdrop-blur-sm animate-fade-in">
                 <CardHeader>
@@ -146,7 +146,7 @@ const RamNaamPage = () => {
                 </CardHeader>
                 <CardContent className="text-lg text-muted-foreground font-hind leading-relaxed space-y-3">
                   <p>राम नाम लिखने के लिए नोटबुक खरीदें</p>
-                  <p>उसमें “श्री राम” या “राम राम” लिखें</p>
+                  <p>उसमें "श्री राम" या "राम राम" लिखें</p>
                   <p>सदस्य बनें और अपनी लिखी हुई नोटबुक हमें जमा करें</p>
                   <div className="mt-4">
                     <a
@@ -155,6 +155,26 @@ const RamNaamPage = () => {
                     >
                       📓 राम नाम लेखन पुस्तिका खरीदें
                     </a>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Mail Submission Method */}
+              <Card className="shadow-soft border-primary/20 bg-white/90 backdrop-blur-sm animate-fade-in md:col-span-2 lg:col-span-1">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-3">
+                    <BookHeart className="w-10 h-10 text-primary" />
+                    <CardTitle className="text-2xl text-secondary font-hind">
+                      📮 तीसरा तरीका: पुस्तिका डाक द्वारा भेजें
+                    </CardTitle>
+                  </div>
+                </CardHeader>
+                <CardContent className="text-lg text-muted-foreground font-hind leading-relaxed space-y-3">
+                  <p>यदि आप भी राम नाम लिखते है तो अपने द्वारा लिखी गई पुस्तकों को आप श्री राम नाम विश्व बैंक समिति के नीचे दिए गए आश्रम के पते पर भेज सकते है।</p>
+                  <p>पुस्तकें जमा करने के लिए सबसे पहले आपका खाता खोला जाएगा। जिसके लिए आधार कार्ड और एक फोटो की आवश्यकता होगी।</p>
+                  <p>उसके बाद आप फ्री, मासिक, वार्षिक या आजीवन किसी भी विकल्प को चुनकर अपने द्वारा लिखी गई राम नाम पुस्तिकाएं जमा करवा सकते हैं।</p>
+                  <div className="mt-4 bg-primary/10 p-4 rounded-lg border border-primary/20">
+                    <p className="font-semibold text-secondary">अधिक जानकारी के लिए संस्था के नंबर पर संपर्क करें।</p>
                   </div>
                 </CardContent>
               </Card>

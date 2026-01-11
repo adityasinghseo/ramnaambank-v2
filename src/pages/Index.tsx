@@ -11,7 +11,6 @@ import Cta from "@/components/CallToAction"
 import Events from "@/components/Events";
 import News from "@/components/News";
 import Footer from "@/components/Footer";
-import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { useTranslation } from "@/hooks/useTranslation";
 
 const Index = () => {
@@ -37,7 +36,6 @@ const Index = () => {
         <News />
       </main>
       <Footer />
-      <WhatsAppFloat />
     </div>
   );
 };

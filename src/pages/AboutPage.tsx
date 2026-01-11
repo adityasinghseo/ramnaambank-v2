@@ -134,19 +134,13 @@ const AboutPage = () => {
             <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100 flex flex-col md:flex-row hover:shadow-2xl transition-shadow duration-300">
 
               {/* Image Section - Left Panel */}
-              <div className="md:w-2/5 relative h-[500px] md:h-auto bg-gradient-to-b from-orange-100 to-orange-50">
-                {/* Full Image Display - Object Top to avoid head crop */}
+              <div className="md:w-2/5 relative flex items-center justify-center bg-gradient-to-b from-orange-100 to-orange-50 p-8">
+                {/* Circular Image with Border */}
                 <img
                   src={teamone}
                   alt="Acharya Shri Sumit Tiwari Ji"
-                  className="w-full h-full object-cover object-top"
+                  className="w-60 h-60 md:w-72 md:h-72 object-cover object-top rounded-full border-4 border-primary/30 shadow-xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:hidden flex items-end p-6">
-                  <div className="text-white">
-                    <h3 className="text-2xl font-bold">आचार्य श्री सुमित तिवारी जी</h3>
-                    <p className="text-orange-300 font-medium">राष्ट्रीय अध्यक्ष</p>
-                  </div>
-                </div>
               </div>
 
               {/* Content Section - Right Panel */}
@@ -185,7 +179,7 @@ const AboutPage = () => {
                     </div>
                     <div>
                       <p className="text-xs text-gray-400 uppercase font-semibold tracking-wider">Email</p>
-                      <p className="text-gray-800 font-medium font-hind">sumit@ramnaam.in</p>
+                      <p className="text-gray-800 font-medium font-hind">sumit@shriramnaambank.com</p>
                     </div>
                   </div>
 
@@ -225,19 +219,13 @@ const AboutPage = () => {
             <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100 flex flex-col md:flex-row-reverse hover:shadow-2xl transition-shadow duration-300">
 
               {/* Image Section - Right Panel */}
-              <div className="md:w-2/5 relative h-[500px] md:h-auto bg-gradient-to-b from-gray-100 to-gray-200">
-                {/* Full Image Display */}
+              <div className="md:w-2/5 relative flex items-center justify-center bg-gradient-to-b from-gray-100 to-gray-200 p-8">
+                {/* Circular Image with Border */}
                 <img
                   src={teamtwo}
                   alt="Shri Vikas Garg Ji"
-                  className="w-full h-full object-cover object-top"
+                  className="w-60 h-60 md:w-72 md:h-72 object-cover object-top rounded-full border-4 border-primary/30 shadow-xl"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent md:hidden flex items-end p-6">
-                  <div className="text-white">
-                    <h3 className="text-2xl font-bold">श्री विकास गर्ग जी</h3>
-                    <p className="text-red-300 font-medium">राष्ट्रीय महासचिव</p>
-                  </div>
-                </div>
               </div>
 
               {/* Content Section - Left Panel */}

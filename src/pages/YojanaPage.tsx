@@ -65,7 +65,7 @@ const YojanaPage = () => {
               किसी भी योजना या जनहित कार्य में शामिल होने के लिए
             </h2>
             <p className="text-xl mb-8 font-hind">
-              हमसे संपर्क करें: <a href="tel:+91-9045000118" className="underline">+91-9045000118</a>
+              हमसे संपर्क करें: <a href="tel:+91-9045000108" className="underline">+91-9045000108</a>
             </p>
             <p className="text-lg font-hind">
               या ईमेल करें:{" "}

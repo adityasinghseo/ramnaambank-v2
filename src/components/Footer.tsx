@@ -138,10 +138,12 @@ const Footer = () => {
                 <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                 <span>{t.footer.address1}</span>
               </li>
-              <li>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                 <span>{t.footer.address2}</span>
               </li>
-              <li>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
                 <span>{t.footer.address3}</span>
               </li>
 

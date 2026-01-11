@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import logo from "@/assets/ramnam-logo.png";
+import headerTitleLogo from "@/assets/header-title-logo.png";
 import { Button } from "./ui/button";
 import { cn } from "@/lib/utils";
 import {
@@ -94,12 +95,14 @@ const Header = () => {
         </div>
       </div>
 
-      {/* ROW 2: Organization Name - White Background, Orange Text, Edge to Edge */}
+      {/* ROW 2: Organization Name - White Background, Logo Image */}
       <div className="w-full bg-white py-4">
         <div className="w-full h-full flex items-center justify-center">
-          <h1 className="font-hind text-[#FF7E26] text-xl md:text-3xl lg:text-4xl font-bold tracking-wide text-center leading-none">
-            {t.header.organizationName}
-          </h1>
+          <img
+            src={headerTitleLogo}
+            alt="श्री राम नाम विश्व बैंक समिति - काम से राम की ओर..."
+            className="h-12 md:h-16 lg:h-20 w-auto"
+          />
         </div>
       </div>
 

@@ -30,7 +30,7 @@ const DonationPage = () => {
 
   return (
     <div className="min-h-screen">
-       
+
       <main>
         {/* Hero Section */}
         <section className="relative py-20 bg-gradient-to-br from-primary/10 via-accent/10 to-cream">
@@ -41,7 +41,7 @@ const DonationPage = () => {
               </h1>
               <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
               <p className="text-xl text-muted-foreground font-hind leading-relaxed">
-                संस्था को दिया गया दान आयकर की धारा 80G के अंतर्गत कर मुक्त है।  
+                संस्था को दिया गया दान आयकर की धारा 80G के अंतर्गत कर मुक्त है।
                 आपके द्वारा दिया गया प्रत्येक योगदान, भक्ति और सेवा की दिशा में एक पवित्र कदम है।
               </p>
             </div>
@@ -111,9 +111,6 @@ const DonationPage = () => {
                     <p className="text-base text-foreground font-hind">
                       किसी भी UPI ऐप से स्कैन करें और सीधे दान करें।
                     </p>
-                    <p className="font-semibold text-secondary">
-                      ☎ संपर्क करें: +91-9045000118
-                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -131,12 +128,12 @@ const DonationPage = () => {
               आप ऑनलाइन, बैंक ट्रांसफर या QR कोड स्कैन करके सीधे योगदान कर सकते हैं।
             </p>
             <p className="text-lg font-hind">
-              अधिक जानकारी के लिए संपर्क करें: <strong>+91-9045000118</strong> या ईमेल करें: <strong>raamnaambank@gmail.com</strong>
+              अधिक जानकारी के लिए संपर्क करें: <strong>+91 9045000108</strong> या ईमेल करें: <strong>raamnaambank@gmail.com</strong>
             </p>
           </div>
         </section>
       </main>
-       
+
     </div>
   );
 };
