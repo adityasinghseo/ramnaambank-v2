@@ -89,6 +89,14 @@ export default function LoginPage() {
                                         </FormItem>
                                     )}
                                 />
+                                <div className="text-right">
+                                    <Link
+                                        to="/forgot-password"
+                                        className="text-sm font-medium text-primary hover:text-primary/80 hover:underline transition-colors"
+                                    >
+                                        Forgot Password?
+                                    </Link>
+                                </div>
                                 <Button className="w-full" type="submit" disabled={isLoading}>
                                     {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                                     Sign In

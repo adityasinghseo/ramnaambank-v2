@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-// WordPress API URL for Posts (e.g. from shop.clickstraight.com/wp-json/wp/v2/posts)
+// WordPress API URL for Posts (e.g. from admin.shriramnaambank.com/wp-json/wp/v2/posts)
 const WP_API_URL = import.meta.env.VITE_WP_API;
 
 // Type definition for a Blog Post
@@ -33,14 +33,14 @@ export interface BlogPost {
 }
 
 const api = axios.create({
-    baseURL: WP_API_URL, // This is expected to be 'https://shop.clickstraight.com/wp-json'
+    baseURL: WP_API_URL, // This is expected to be 'https://admin.shriramnaambank.com/wp-json'
 });
 
 /**
  * Validates if the WP_API_URL points to the /wp-json root, 
  * and appends /wp/v2 if necessary, or just uses it directly.
  * Adjust based on your .env VITE_WP_API structure. 
- * Assuming VITE_WP_API = 'https://shop.clickstraight.com/wp-json'
+ * Assuming VITE_WP_API = 'https://admin.shriramnaambank.com/wp-json'
  */
 
 // Fetch Latest Blog Posts

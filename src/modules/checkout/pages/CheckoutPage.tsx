@@ -76,43 +76,57 @@ const CheckoutPage = () => {
         setIsSubmitting(true);
 
         try {
+            // 1. Create Order (Status: Pending Payment)
+            // We set 'set_paid' to false for both scenarios initially.
+            // For COD, the backend might handle status, but 'pending' is safe.
+            const orderPayload = {
+                ...createPayload(data, items),
+                payment_method: paymentMethod === 'online' ? "razorpay" : "cod",
+                payment_method_title: paymentMethod === 'online' ? "Online Payment" : "Cash on Delivery",
+                set_paid: false,
+            };
+
+            const response = await createOrder(orderPayload);
+
+            if (!response || !response.id) {
+                throw new Error("Invalid order response");
+            }
+
             if (paymentMethod === 'online') {
-                // SIMULATED PAYMENT FLOW
-                // In a real scenario, you would create an order first, get an ID, then open Razorpay/Stripe.
-                // Upon success, you verify signature and update order status.
+                // FUTURE READY NOTE: 
+                // Once you install the "Razorpay for WooCommerce" plugin on WordPress, 
+                // uncomment the redirect block below to enable real payments.
 
-                // For this demo: We pretend to create order pending payment, then complete it.
-                await new Promise(resolve => setTimeout(resolve, 1500)); // Simulate processing
+                /*
+                if (response.payment_url) {
+                    toast.loading("Redirecting to secure payment gateway...");
+                    window.location.href = response.payment_url;
+                    return;
+                }
+                */
 
-                // Create Paid Order
-                await createOrder({
-                    ...createPayload(data, items),
-                    payment_method: "razorpay",
-                    payment_method_title: "Online Payment (Razorpay)",
-                    set_paid: true, // Mark as paid
-                });
+                // FALLBACK / SIMULATION (Active until Plugin is installed)
+                // This will run until you fully configure the Razorpay plugin in WordPress.
+                await new Promise(resolve => setTimeout(resolve, 1500));
 
+                // Manually mark as paid logic would go here if we were using a headless SDK
+                // For now, we assume success for the simulation
                 clearCart();
-                toast.success("Payment Successful! Order placed.");
+                toast.success("Payment Successful (Simulated)! Order placed.");
                 navigate("/order-success");
 
             } else {
                 // COD FLOW
-                await createOrder({
-                    ...createPayload(data, items),
-                    payment_method: "cod",
-                    payment_method_title: "Cash on Delivery",
-                    set_paid: false,
-                });
-
                 clearCart();
                 toast.success("Order placed successfully");
                 navigate("/order-success");
             }
 
-        } catch (error) {
+        } catch (error: any) {
             console.error(error);
-            toast.error("Failed to place order. Please try again.");
+            // Better Error Handling
+            const msg = error.response?.data?.message || error.message || "Failed to place order.";
+            toast.error(`Order Failed: ${msg}`);
         } finally {
             setIsSubmitting(false);
         }

@@ -34,6 +34,7 @@ const LoginPage = lazy(() => import("./modules/auth/pages/LoginPage"));
 const SignupPage = lazy(() => import("./modules/auth/pages/SignupPage"));
 const ProfilePage = lazy(() => import("./modules/auth/pages/ProfilePage"));
 const WishlistPage = lazy(() => import("./modules/shop/pages/WishlistPage"));
+const ForgotPasswordPage = lazy(() => import("./modules/auth/pages/ForgotPasswordPage"));
 
 const queryClient = new QueryClient();
 
@@ -107,6 +108,11 @@ const AppRoutes = () => (
       <Route path="/wishlist" element={
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
           <WishlistPage />
+        </Suspense>
+      } />
+      <Route path="/forgot-password" element={
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+          <ForgotPasswordPage />
         </Suspense>
       } />
 
