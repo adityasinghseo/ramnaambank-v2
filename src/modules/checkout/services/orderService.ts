@@ -5,8 +5,12 @@ const WC_API_URL = import.meta.env.VITE_WC_API;
 const CONSUMER_KEY = import.meta.env.VITE_WC_CONSUMER_KEY;
 const CONSUMER_SECRET = import.meta.env.VITE_WC_CONSUMER_SECRET;
 
+// Use Proxy URL in development to bypass CORS
+const isDev = import.meta.env.MODE === 'development';
+const apiBaseUrl = isDev ? '/api-wc' : WC_API_URL;
+
 const api = axios.create({
-    baseURL: WC_API_URL,
+    baseURL: apiBaseUrl,
 });
 
 export const createOrder = async (orderData: OrderPayload) => {
@@ -20,6 +24,48 @@ export const createOrder = async (orderData: OrderPayload) => {
         return response.data;
     } catch (error) {
         console.error('Error creating order:', error);
+        throw error;
+    }
+};
+
+export const verifyPayment = async (orderId: number, paymentId: string) => {
+    if (!orderId) {
+        throw new Error("Invalid order ID: " + orderId);
+    }
+    console.log(`Verifying payment for Order ID: ${orderId}, Payment ID: ${paymentId}`);
+
+    try {
+        // Step 1: Update Status (Priority)
+        // We use POST instead of PUT to avoid strict CORS/Firewall issues with PUT methods
+        console.log(`Sending POST (Update) request to: /orders/${orderId}`);
+        const updateResponse = await api.post(`/orders/${orderId}`, {
+            status: 'processing',
+            transaction_id: paymentId,
+            set_paid: true
+        }, {
+            params: {
+                consumer_key: CONSUMER_KEY,
+                consumer_secret: CONSUMER_SECRET,
+            },
+        });
+
+        // Step 2: Add Note (Optional, catch error inside so it doesn't fail the whole flow)
+        try {
+            await api.post(`/orders/${orderId}/notes`, {
+                note: `Payment Successful via Razorpay. Payment ID: ${paymentId}`
+            }, {
+                params: {
+                    consumer_key: CONSUMER_KEY,
+                    consumer_secret: CONSUMER_SECRET,
+                },
+            });
+        } catch (noteError) {
+            console.warn("Failed to add order note, but order status updated:", noteError);
+        }
+
+        return updateResponse.data;
+    } catch (error) {
+        console.error('Error verifying payment:', error);
         throw error;
     }
 };

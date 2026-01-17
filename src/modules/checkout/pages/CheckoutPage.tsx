@@ -10,7 +10,7 @@ import { useEffect } from "react";
 
 import { useAuth } from "@/modules/auth/context/authContext";
 import { useCartStore } from "@/modules/shop/context/cartStore";
-import { createOrder } from "../services/orderService";
+import { createOrder, verifyPayment } from "../services/orderService";
 import { CheckoutFormData } from "../types";
 import { BillingForm } from "../components/BillingForm";
 import { OrderSummary } from "../components/OrderSummary";
@@ -98,23 +98,75 @@ const CheckoutPage = () => {
             }
 
             if (paymentMethod === 'online') {
-                // REAL PAYMENT FLOW
-                // Requires "Razorpay for WooCommerce" plugin to be installed and active on the backend.
-                if (response.payment_url) {
-                    toast.loading("Redirecting to secure payment gateway...");
-                    window.location.href = response.payment_url;
+                // Initialize Razorpay
+                const options = {
+                    key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+                    amount: response.total ? Math.round(parseFloat(response.total) * 100) : 0, // Amount in paise
+                    currency: "INR",
+                    name: "Shri Ram Naam Vishwa Bank",
+                    description: `Order #${response.id}`,
+                    image: "/logo.png", // Ensure you have a logo at this path or use a remote URL
+                    order_id: "", // We are not creating a Razorpay Order ID from backend yet to keep it simple, but recommended for production.
+
+                    handler: async function (razorpayResponse: any) {
+                        // Verify and Update Order in WooCommerce (using 'response' from outer scope which is the WC Order)
+                        const toastId = toast.loading("Verifying Payment...");
+
+                        try {
+                            const paymentId = razorpayResponse.razorpay_payment_id;
+                            await verifyPayment(response.id, paymentId);
+
+                            toast.success("Payment Successful! Order placed.", { id: toastId });
+                            clearCart();
+                            navigate("/order-success");
+                        } catch (err: any) {
+                            console.error("Payment verification failed", err);
+                            const errorMessage = err.response?.data?.message || err.message || "Unknown error";
+                            toast.error(`Payment verification failed: ${errorMessage}`, { id: toastId });
+                        }
+                    },
+                    prefill: {
+                        name: `${data.firstName} ${data.lastName}`,
+                        email: data.email,
+                        contact: data.phone,
+                    },
+                    notes: {
+                        address: `${data.address}, ${data.city}, ${data.state}, ${data.pincode}`
+                    },
+                    theme: {
+                        color: "#F97316", // Primary color (orange)
+                    },
+                };
+
+                // Load Razorpay Script dynamically if not present
+                const loadRazorpay = () => {
+                    return new Promise((resolve) => {
+                        const script = document.createElement("script");
+                        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+                        script.onload = () => resolve(true);
+                        script.onerror = () => resolve(false);
+                        document.body.appendChild(script);
+                    });
+                };
+
+                const isLoaded = await loadRazorpay();
+                if (!isLoaded) {
+                    toast.error("Razorpay SDK failed to load. Are you online?");
+                    setIsSubmitting(false);
                     return;
                 }
 
-                // If no payment_url is returned, it means the backend isn't configured correctly for online payments yet.
-                // We fall back to simulation for testing purposes only.
-                console.warn("No payment_url found in response. Falling back to simulation.");
+                const rzp1 = new (window as any).Razorpay(options);
+                rzp1.on('payment.failed', function (response: any) {
+                    toast.error(`Payment Failed: ${response.error.description}`);
+                    setIsSubmitting(false);
+                });
 
-                // SIMULATION (Remove this block when going live)
-                await new Promise(resolve => setTimeout(resolve, 1500));
-                clearCart();
-                toast.success("Payment Successful (Simulated)! Order placed.");
-                navigate("/order-success");
+                rzp1.open();
+                // We keep isSubmitting true until payment handler closes or succeeds
+                // But if they close modal without paying? Handle that:
+                // Razorpay doesn't have a specific "close" event easily accessible in all versions without custom UI.
+                // For now, we rely on the user to try again or payment.failed.
 
             } else {
                 // COD FLOW
