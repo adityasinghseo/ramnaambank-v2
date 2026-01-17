@@ -157,24 +157,36 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-white/10 pt-6 text-center">
-          <p className="text-white/70 font-hind text-sm flex flex-col md:flex-row items-center justify-center gap-2">
-            <span>© 2025 {t.header.organizationName}। {t.footer.copyright}।</span>
-            <span>
-              Developed by{" "}
-              <a
-                href="https://www.marketingwale.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-primary hover:underline font-semibold"
-              >
-                Marketing Wale™
-              </a>
-            </span>
-            <span>{t.hero.badge} 🙏</span>
-          </p>
+      </div>
+
+      {/* Compliance Links */}
+      <div className="border-t border-white/10 pt-6 mt-4 mb-2">
+        <div className="flex flex-wrap justify-center gap-4 text-sm font-hind text-white/70">
+          <a href="/privacy-policy" className="hover:text-primary transition-smooth">{t.footer.privacyPolicy}</a>
+          <span className="hidden md:inline">|</span>
+          <a href="/terms-of-service" className="hover:text-primary transition-smooth">{t.footer.termsOfService}</a>
+          <span className="hidden md:inline">|</span>
+          <a href="/cancellation-refund" className="hover:text-primary transition-smooth">{t.footer.cancellationRefund}</a>
+          <span className="hidden md:inline">|</span>
+          <a href="/shipping-policy" className="hover:text-primary transition-smooth">{t.footer.shippingPolicy}</a>
         </div>
+      </div>
+      <div className="border-t border-white/10 pt-6 text-center">
+        <p className="text-white/70 font-hind text-sm flex flex-col md:flex-row items-center justify-center gap-2">
+          <span>© 2025 {t.header.organizationName}। {t.footer.copyright}।</span>
+          <span>
+            Developed by{" "}
+            <a
+              href="https://www.marketingwale.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline font-semibold"
+            >
+              Marketing Wale™
+            </a>
+          </span>
+          <span>{t.hero.badge} 🙏</span>
+        </p>
       </div>
     </footer>
   );

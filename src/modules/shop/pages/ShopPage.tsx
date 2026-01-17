@@ -13,6 +13,8 @@ import { toast } from "sonner";
 import { useWishlistStore } from "../context/wishlistStore";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
+
 
 export default function ShopPage() {
     const { data: products, isLoading, error } = useQuery({
@@ -59,7 +61,9 @@ export default function ShopPage() {
                     <title>Ram Naam Shop - Spiritual Merch & Books</title>
                     <meta name="description" content="Explore our collection of spiritual books, merch, and ram naam writing accessories." />
                 </Helmet>
-                <h1 className="text-4xl font-bold mb-8 text-center text-primary font-heading">Ram Naam Shop</h1>
+                <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+                    <h1 className="text-4xl font-bold text-primary font-heading text-center md:text-left">Ram Naam Shop</h1>
+                </div>
 
                 {(!products || products.length === 0) ? (
                     <p className="text-center text-gray-500">No products found.</p>
@@ -77,12 +81,18 @@ export default function ShopPage() {
 // Sub-component to handle hooks inside loop cleanly
 const ProductGrid = ({ products, handleAddToCart }: { products: Product[], handleAddToCart: (p: Product) => void }) => {
     const { addItem, removeItem, isInWishlist } = useWishlistStore();
+    const { language } = useLanguage();
 
     return (
         <>
             {products.map((product) => {
                 const hasSale = product.sale_price && product.sale_price !== "";
                 const inWishlist = isInWishlist(product.id);
+                // Language Logic
+                const displayName = (language === 'english' && product.acf?.english_title)
+                    ? product.acf.english_title
+                    : product.name;
+
                 return (
                     <Card key={product.id} className="h-full flex flex-col hover:shadow-lg transition-shadow duration-300 relative group">
                         <button
@@ -105,7 +115,7 @@ const ProductGrid = ({ products, handleAddToCart }: { products: Product[], handl
                                     {product.images && product.images.length > 0 ? (
                                         <img
                                             src={product.images[0].src}
-                                            alt={product.images[0].alt || product.name}
+                                            alt={product.images[0].alt || displayName}
                                             className="w-full h-full object-cover hover:scale-105 transition-transform duration-500 absolute inset-0"
                                         />
                                     ) : (
@@ -119,7 +129,7 @@ const ProductGrid = ({ products, handleAddToCart }: { products: Product[], handl
                         <CardContent className="flex-grow p-4 flex flex-col items-center text-center">
                             <Link to={`/product/${product.slug}`} className="w-full">
                                 <CardTitle className="text-lg font-semibold mb-2 hover:text-primary transition-colors line-clamp-2 h-14 flex items-center justify-center">
-                                    {product.name}
+                                    {displayName}
                                 </CardTitle>
                             </Link>
 

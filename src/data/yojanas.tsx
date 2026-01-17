@@ -15,14 +15,17 @@ import { Heart } from "lucide-react";
 export interface Yojana {
     slug: string;
     title: string;
+    title_en: string;
     image: string;
     desc: JSX.Element;
+    desc_en: JSX.Element;
 }
 
 export const yojanas: Yojana[] = [
     {
         slug: "shri-ram-naam-sangrahalaya",
         title: "1. श्रीराम नाम संग्राहलय",
+        title_en: "1. Shri Ram Naam Museum",
         image: museum,
         desc: (
             <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
@@ -36,12 +39,12 @@ export const yojanas: Yojana[] = [
                     जिसको व्यवस्थित एवं भव्य स्वरूप देने के लिए संस्था द्वारा विश्व का सबसे दिव्य एवं अदभुत "श्री राम नाम संग्राहलय"बनाया जा रहा है। जिस महान कार्य में आप सहयोग कर अपनी महत्वपूर्ण भूमिका दर्ज करवा सकते है। कृपया इस राम काज से अवश्य जुड़ें।
                 </p>
                 <div className="py-6">
-                    <Link to="/donation">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
                         <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
                             <Heart className="w-5 h-5 fill-current" />
                             दान करें (Donate)
                         </Button>
-                    </Link>
+                    </a>
                 </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
@@ -50,10 +53,37 @@ export const yojanas: Yojana[] = [
                 </div>
             </div>
         ),
+        desc_en: (
+            <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
+                <p>
+                    Shri Ram Naam World Bank Committee is the world's leading organization in the "Ram Naam" service sector. Every day, crores of Shri Ram Naam copies/forms and Ram Naam transactions take place from all over India. That is, the institution provides blank books to people for writing for free, and people write the Lord's name in notebooks in large numbers and deposit them in the institution. Similarly, this sequence continues.
+                </p>
+                <p>
+                    The organization Shri Ram Naam World Bank Committee works to collect the names of the Lord submitted by people in a very beautiful way. First of all, people's accounts are opened so that the names written by them can be deposited in their own accounts. Their passbook is given to them, and if you deposit names in large quantities, a certificate is also given to you. Then the Ram Naam written by you is collected in the institution in your name. As a result, today the institution possesses lakhs of crores of handwritten Ram Naams, meaning countless amounts of Ram Naam wealth, collected.
+                </p>
+                <p>
+                    To give it a systematic and grand form, the world's most divine and wonderful "Shri Ram Naam Museum" is being built by the institution. You can play an important role by cooperating in this great work. Please join this Ram Kaaj (Ram's work).
+                </p>
+                <div className="py-6">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            Donate
+                        </Button>
+                    </a>
+                </div>
+                <div className="font-bold text-primary pt-2">
+                    <p>Support this holy work and contact us for more information.</p>
+                    <p>Website: shreeramnaambank.com / Email: raamnaambank@gmail.com</p>
+                    <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
+                </div>
+            </div>
+        ),
     },
     {
         slug: "shri-ram-naam-gaushala-hospital",
         title: "2. श्री राम नाम गौशाला एवं अस्पताल",
+        title_en: "2. Shri Ram Naam Gaushala & Hospital",
         image: gaushala,
         desc: (
             <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
@@ -67,15 +97,41 @@ export const yojanas: Yojana[] = [
                     गौमाता के लिए खाने के लिए चारे, चोकर, खल, आदि, मेडिकल में दवाईयां, पट्टी, रुई, रहने के लिए टीन शेड, बांस बल्लियां, पंखे लाइट, आदि सेवा कार्यों में आप जरूर सहयोग करें।
                 </p>
                 <div className="py-6">
-                    <Link to="/donation">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
                         <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
                             <Heart className="w-5 h-5 fill-current" />
                             दान करें (Donate)
                         </Button>
-                    </Link>
+                    </a>
                 </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
+                    <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
+                    <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
+                </div>
+            </div>
+        ),
+        desc_en: (
+            <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
+                <p>
+                    Shri Ram Naam World Bank Committee has been serving cows and taking care of destitute cows for the last 20 years. Along with this, it works to treat animals like cows etc. that get injured in any accident.
+                </p>
+                <p>
+                    For the helpless, destitute, and injured Mother Cows, the organization is now going to acquire about 20 bighas of land. In which a huge Gaushala (cow shelter) and veterinary hospital will be constructed. Your significant support is urgently needed in this. Please do provide your support in this virtuous work.
+                </p>
+                <p>
+                    Please support in service works like fodder, choker, oil cake etc. for food for Mother Cow, medicines, bandages, cotton in medical, tin shed for living, bamboo poles, fans, lights, etc.
+                </p>
+                <div className="py-6">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            Donate
+                        </Button>
+                    </a>
+                </div>
+                <div className="font-bold text-primary pt-2">
+                    <p>Support this holy work and contact us for more information.</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
                     <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
                 </div>
@@ -85,6 +141,7 @@ export const yojanas: Yojana[] = [
     {
         slug: "shri-ram-ashray-old-age-home",
         title: "3. श्रीराम आश्रय (ओल्ड एज होम)",
+        title_en: "3. Shri Ram Ashray (Old Age Home)",
         image: oldagehome,
         desc: (
             <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
@@ -105,15 +162,48 @@ export const yojanas: Yojana[] = [
                     </ul>
                 </div>
                 <div className="py-6">
-                    <Link to="/donation">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
                         <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
                             <Heart className="w-5 h-5 fill-current" />
                             दान करें (Donate)
                         </Button>
-                    </Link>
+                    </a>
                 </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
+                    <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
+                    <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
+                </div>
+            </div>
+        ),
+        desc_en: (
+            <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
+                <p>
+                    Shri Ram Naam World Bank Committee is going to prepare an Old Age Home in a very beautiful and pleasant environment for the people associated with its institution, which will be a different world altogether. It will be ready within about 2 years. In which you will get many facilities like clean airy rooms, bathrooms, toilets, lobby, balcony, kitchen, beautiful park, morning and night 2 meals, morning and evening tea and breakfast, medical facility, close to the holy bank of Mother Ganga i.e. near Ganga Ji, etc.
+                </p>
+                <div>
+                    <h4 className="font-bold mb-2">Facilities available in Shri Ram Ashray:</h4>
+                    <ul className="list-disc list-inside space-y-1 pl-2">
+                        <li>Lunch and Dinner</li>
+                        <li>Morning and Evening Tea/Breakfast</li>
+                        <li>peaceful and clean environment</li>
+                        <li>beautiful park</li>
+                        <li>Shri Ram Naam Sankirtan and Religious Activities</li>
+                        <li>Ganga Aarti</li>
+                        <li>Medical Facility</li>
+                        <li>Just 15 minutes away from Har Ki Pauri</li>
+                    </ul>
+                </div>
+                <div className="py-6">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            Donate
+                        </Button>
+                    </a>
+                </div>
+                <div className="font-bold text-primary pt-2">
+                    <p>Support this holy work and contact us for more information.</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
                     <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
                 </div>
@@ -123,6 +213,7 @@ export const yojanas: Yojana[] = [
     {
         slug: "shri-ram-naam-ghat-temple",
         title: "4. श्री राम नाम घाट एवं मंदिर निर्माण",
+        title_en: "4. Shri Ram Naam Ghat & Temple Construction",
         image: ghat,
         desc: (
             <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
@@ -133,15 +224,38 @@ export const yojanas: Yojana[] = [
                     हरिद्वार में गंगा किनारे स्थित यह घाट (लगभग 102 मी. क्षेत्र में बना हुआ है। जहां का सौंदर्यीकरण, टीन शेड, मंदिर निर्माण, गंगा आरती का स्टेज आदि बहुत से कार्य किए जाने है। आप भी यहीं आकर गंगा आरती धार्मिक अनुष्ठान भोजन/भंडारे आदि कार्यों में प्रतिभाग/सहयोग कर पुण्य को भागी बन सकते हैं। घाट के सौन्दर्यकरण, मदिर निर्माण में आप भी अपना महत्वपूर्ण योगदान दे सकते हैं।
                 </p>
                 <div className="py-6">
-                    <Link to="/donation">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
                         <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
                             <Heart className="w-5 h-5 fill-current" />
                             दान करें (Donate)
                         </Button>
-                    </Link>
+                    </a>
                 </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
+                    <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
+                    <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
+                </div>
+            </div>
+        ),
+        desc_en: (
+            <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
+                <p>
+                    Shri Ram Naam World Bank Committee has a very beautiful Ghat built on the banks of Ganga in Haridwar. Where Havan Yajna, Rudrabhishek, Ganga Aarti, Bhandara, Bhagwat Katha, Sankirtan and other religious activities are organized daily and especially on bathing festivals.
+                </p>
+                <p>
+                    This Ghat located on the banks of Ganga in Haridwar is built in an area of about 102 meters. Where many works like beautification, tin shed, temple construction, Ganga Aarti stage etc. are to be done. You can also come here and participate/cooperate in Ganga Aarti, religious rituals, food/bhandara etc. and become a partner in virtue. You can also give your significant contribution in the beautification of the Ghat, temple construction.
+                </p>
+                <div className="py-6">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            Donate
+                        </Button>
+                    </a>
+                </div>
+                <div className="font-bold text-primary pt-2">
+                    <p>Support this holy work and contact us for more information.</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
                     <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
                 </div>
@@ -151,6 +265,7 @@ export const yojanas: Yojana[] = [
     {
         slug: "shri-ram-annakshetra",
         title: "5. श्रीराम अनक्षेत्र",
+        title_en: "5. Shri Ram Annakshetra",
         image: annakshetra,
         desc: (
             <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
@@ -164,15 +279,41 @@ export const yojanas: Yojana[] = [
                     विशेषकर आप भी अपनी की याद में, अपने प्रियजनों को निमित्त, या अपने जन्मदिन, वैवाहिक वर्षगांठ और किसी भी शुभ अवसर पर संस्था के सहयोग से भण्डारा करवाना चाहते हैं। तो करवा सकते हैं।
                 </p>
                 <div className="py-6">
-                    <Link to="/donation">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
                         <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
                             <Heart className="w-5 h-5 fill-current" />
                             दान करें (Donate)
                         </Button>
-                    </Link>
+                    </a>
                 </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
+                    <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
+                    <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
+                </div>
+            </div>
+        ),
+        desc_en: (
+            <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
+                <p>
+                    Bhandara (food distribution) is organized on the banks of Ganga by Shri Ram Naam Bank Committee on special bathing festivals that often take place in Haridwar. In which a large number of saints, mahatmas, social people, pilgrims coming from far and wide, and social people come and partake of the prasadam.
+                </p>
+                <p>
+                    You can also provide support in this holy and virtuous work.
+                </p>
+                <p>
+                    Especially if you also want to organize a Bhandara in your memory, on behalf of your loved ones, or on your birthday, wedding anniversary, and any auspicious occasion with the help of the institution, then you can do so.
+                </p>
+                <div className="py-6">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            Donate
+                        </Button>
+                    </a>
+                </div>
+                <div className="font-bold text-primary pt-2">
+                    <p>Support this holy work and contact us for more information.</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
                     <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
                 </div>
@@ -182,6 +323,7 @@ export const yojanas: Yojana[] = [
     {
         slug: "education-distribution",
         title: "6. शिक्षा के क्षेत्र में सहयोग",
+        title_en: "6. Support in Education Field",
         image: education,
         desc: (
             <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
@@ -189,15 +331,35 @@ export const yojanas: Yojana[] = [
                     श्री राम नाम विश्व बैंक समिति प्रतिभावान गरीब, बेसहारा एवं निराश्रित छात्र एवं छात्राओं को निःशुल्क -पाठ्य सामग्री व कोर्स से सम्बंधित किताबें कॉपियां या उनकी स्कून कोलेज की फीस देने में सहयोग करती है। जिन बच्चों में पढाई का हुनर होता है। तो उन बच्चों की प्रतिभा को निखारने के लिए संस्था अपना महत्वपूर्ण सहयोग प्रदान करती है। विगत 15 वर्षों से संस्था अपनी सामर्थ्यनुसार जरूरतमंदों को सहयोग करने का कार्य करती आ रही है। इस महत्वपूर्ण कार्य में आप भी बच्चों की स्कूली शिक्षा व पढ़ाई के खर्च को वहन कर उनकी मदद कर सकते है। जरूरतमंदों को सहयोग प्रदान कर सकते हैं।
                 </p>
                 <div className="py-6">
-                    <Link to="/donation">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
                         <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
                             <Heart className="w-5 h-5 fill-current" />
                             दान करें (Donate)
                         </Button>
-                    </Link>
+                    </a>
                 </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
+                    <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
+                    <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
+                </div>
+            </div>
+        ),
+        desc_en: (
+            <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
+                <p>
+                    Shri Ram Naam World Bank Committee helps talented poor, helpless, and destitute students by providing free study materials, course-related books and notebooks, or paying their school/college fees. The institution provides its significant support to nurture the talent of children who have the aptitude for studies. For the last 15 years, the organization has been working to help the needy according to its capacity. You can also help children by bearing their school education and study expenses in this important work. You can provide support to the needy.
+                </p>
+                <div className="py-6">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            Donate
+                        </Button>
+                    </a>
+                </div>
+                <div className="font-bold text-primary pt-2">
+                    <p>Support this holy work and contact us for more information.</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
                     <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
                 </div>
@@ -207,6 +369,7 @@ export const yojanas: Yojana[] = [
     {
         slug: "tree-plantation",
         title: "7. पर्यावरण क्षेत्र में सहयोग",
+        title_en: "7. Support in Environment Field",
         image: plantation,
         desc: (
             <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
@@ -217,15 +380,38 @@ export const yojanas: Yojana[] = [
                     आप भी स्वयं या अपनों की याद में अपने जन्मदिवस, वैवाहिक वर्षगांठ या किसी खुशी के अवसर पर वृक्षारोपण करवा सकते हैं। या एक पौधे को गोद ले सकते हैं।
                 </p>
                 <div className="py-6">
-                    <Link to="/donation">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
                         <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
                             <Heart className="w-5 h-5 fill-current" />
                             दान करें (Donate)
                         </Button>
-                    </Link>
+                    </a>
                 </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
+                    <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
+                    <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
+                </div>
+            </div>
+        ),
+        desc_en: (
+            <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
+                <p>
+                    Shri Ram Naam World Bank Committee has been running a massive tree plantation campaign for environmental support on a large scale for the last 30 years. In which lakhs of trees have been planted so far with the help of lakhs of people. Tree plantation is organized by the institution every year. Whatever trees and plants are planted every year, they are adopted through the office bearers of the institution or members of the institution and they are taken care of until they grow big.
+                </p>
+                <p>
+                    You can also get tree plantation done on your birthday, wedding anniversary, or any joyous occasion by yourself or in the memory of your loved ones. Or you can adopt a plant.
+                </p>
+                <div className="py-6">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            Donate
+                        </Button>
+                    </a>
+                </div>
+                <div className="font-bold text-primary pt-2">
+                    <p>Support this holy work and contact us for more information.</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
                     <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
                 </div>
@@ -235,6 +421,7 @@ export const yojanas: Yojana[] = [
     {
         slug: "ganga-pollution-free",
         title: "8. गंगा प्रदूषण मुक्ति अभियान",
+        title_en: "8. Ganga Pollution Free Campaign",
         image: ganga_campaign,
         desc: (
             <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
@@ -245,15 +432,38 @@ export const yojanas: Yojana[] = [
                     अभी भी संस्था का प्रयास लगातार जारी है। कि लोगों को जागरुकता के माध्यम से इस अभियान से जोड़ा जाए। संस्था गंगा किनारे जगह-जगह कैम्प लगाकर लोगों को जागरुक करने का कार्य करती है। आप भी स्वयंसेवी बनकर हमारी इस मुहीम में शामिल होकर गंगा के प्रति अपनी जिम्मेदारी निभा सकते हैं।
                 </p>
                 <div className="py-6">
-                    <Link to="/donation">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
                         <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
                             <Heart className="w-5 h-5 fill-current" />
                             दान करें (Donate)
                         </Button>
-                    </Link>
+                    </a>
                 </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
+                    <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
+                    <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
+                </div>
+            </div>
+        ),
+        desc_en: (
+            <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
+                <p>
+                    Shri Ram Naam Shiv Bank Committee has been continuously running the Ganga Pollution Free Public Awareness Campaign from the beginning till now. To make Ganga Ji pollution-free, the institution had sent some proposals to the Modi government at the center in the year 2014, which the central government accepted and included in the mission of Ganga Pollution Free. As a result, it helped a lot in making Ganga Ji pollution-free.
+                </p>
+                <p>
+                    The institution's effort is still continuing. To connect people with this campaign through awareness. The institution organizes camps at various places along the banks of Ganga to make people aware. You can also become a volunteer and join our campaign and fulfill your responsibility towards Ganga.
+                </p>
+                <div className="py-6">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            Donate
+                        </Button>
+                    </a>
+                </div>
+                <div className="font-bold text-primary pt-2">
+                    <p>Support this holy work and contact us for more information.</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
                     <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
                 </div>
@@ -263,6 +473,7 @@ export const yojanas: Yojana[] = [
     {
         slug: "medical-camp",
         title: "9. मेडिकल कैम्प (स्वास्थ शिविर)",
+        title_en: "9. Medical Camp (Health Camp)",
         image: medical_camp,
         desc: (
             <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
@@ -273,15 +484,38 @@ export const yojanas: Yojana[] = [
                     संख्या अपने स्वयंसेवियों के सहयोग से वृहद स्तर पर अभियान चलाकर जरूरतमंदो को स्वास्थ्य से जुडी सामग्री भी वितरित करती है। इस महान कार्य से जुड़‌कर आप भी किसी की जान बचा सकते हैं। तो आइए हमारे साथ और इस कार्य में सहयोग कीजिए।
                 </p>
                 <div className="py-6">
-                    <Link to="/donation">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
                         <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
                             <Heart className="w-5 h-5 fill-current" />
                             दान करें (Donate)
                         </Button>
-                    </Link>
+                    </a>
                 </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
+                    <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
+                    <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
+                </div>
+            </div>
+        ),
+        desc_en: (
+            <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
+                <p>
+                    Shri Ram Naam World Bank Committee organizes health camps or blood donation camps for needy people from time to time. The institution has saved the lives of many people so far through such efforts. Who were helped out of the jaws of death by going to the hospital and giving platelets and blood.
+                </p>
+                <p>
+                    With the cooperation of its volunteers, the institution runs a large-scale campaign and also distributes health-related materials to the needy. By joining this great work, you can also save someone's life. So come with us and cooperate in this work.
+                </p>
+                <div className="py-6">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            Donate
+                        </Button>
+                    </a>
+                </div>
+                <div className="font-bold text-primary pt-2">
+                    <p>Support this holy work and contact us for more information.</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
                     <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
                 </div>
@@ -291,6 +525,7 @@ export const yojanas: Yojana[] = [
     {
         slug: "moksha-dham",
         title: "10. मोक्ष धाम (श्मशान घाट)",
+        title_en: "10. Moksha Dham (Cremation Ground)",
         image: moksha_dham,
         desc: (
             <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
@@ -308,15 +543,45 @@ export const yojanas: Yojana[] = [
                     गरीबों की सहायता, सेवा करने में यदि आप भी आगे आना चाहते है या सहयोग करना चाहते है तो आपका हृदय से स्वागत है।
                 </p>
                 <div className="py-6">
-                    <Link to="/donation">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
                         <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
                             <Heart className="w-5 h-5 fill-current" />
                             दान करें (Donate)
                         </Button>
-                    </Link>
+                    </a>
                 </div>
                 <div className="font-bold text-primary pt-2">
                     <p>इस पुनीत कार्य में सहयोग करें व अधिक जानकारी के लिए हमसे सम्पर्क करें।</p>
+                    <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
+                    <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
+                </div>
+            </div>
+        ),
+        desc_en: (
+            <div className="space-y-4 text-justify text-lg leading-relaxed text-muted-foreground font-hind">
+                <p>
+                    One name is chanted from life to death, "Ram Naam Satya Hai" (The Name of Ram is Truth), but very few people follow this in their entire lifetime. Maybe you are among those few people, but human beings spend their whole life in useless tasks, but when the end time comes or lying in bed at the last moment, a person thinks what did I do in my whole life? What did I earn? Will I get any benefit from what I earned? Will anything go with me? I did everything for my people all my life, but what will happen after I leave? Etc. In many such ways, a person only gets regret. If he had followed "Ram Naam" from living to dying, he would have attained salvation.
+                </p>
+                <p>
+                    Therefore, from the journey of life to death, "Shri Ram Naam itself is the truth." Therefore, improve your Lok (this world) and Parlok (the other world) by connecting with Ram Naam.
+                </p>
+                <p>
+                    Shri Ram Naam World Bank Committee also operates a Moksha Dham (Cremation Ground) along with this. In which it also helps in performing the last rites of poor, helpless, destitute, unclaimed or volunteers associated with the institution with full rituals after life. So that they too can attain salvation at the feet of Shri Ram Ji.
+                </p>
+                <p className="font-semibold text-primary">"Come, let's move from work towards Ram"...</p>
+                <p>
+                    If you also want to come forward or cooperate in helping and serving the poor, you are largely welcome.
+                </p>
+                <div className="py-6">
+                    <a href="https://rzp.io/rzp/l2rTbK8X" target="_blank" rel="noopener noreferrer">
+                        <Button className="bg-gradient-to-r from-primary to-accent hover:from-primary/90 hover:to-accent/90 text-white font-bold text-lg px-8 py-6 rounded-full shadow-lg transition-transform hover:scale-105 flex items-center gap-2">
+                            <Heart className="w-5 h-5 fill-current" />
+                            Donate
+                        </Button>
+                    </a>
+                </div>
+                <div className="font-bold text-primary pt-2">
+                    <p>Support this holy work and contact us for more information.</p>
                     <p>Website : shreeramnaambank.com / Email : raamnaambank@gmail.com</p>
                     <p>Mob: 9045000108 / 8868888601 / 9410110900 / 8267006782</p>
                 </div>

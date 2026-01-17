@@ -12,6 +12,10 @@ export interface Product {
     categories: { id: number; name: string; slug: string }[];
     stock_status: string;
     price_html?: string;
+    acf?: {
+        english_title?: string;
+        english_description?: string;
+    };
 }
 
 export interface Category {

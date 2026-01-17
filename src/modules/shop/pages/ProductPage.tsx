@@ -12,10 +12,12 @@ import { useWishlistStore } from "../context/wishlistStore";
 import { Heart } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function ProductPage() {
     const { slug } = useParams<{ slug: string }>();
     const addToCart = useCartStore((state) => state.addToCart);
+    const { language } = useLanguage();
 
     const { data: product, isLoading, error } = useQuery({
         queryKey: ['product', slug],
@@ -60,21 +62,31 @@ export default function ProductPage() {
 
     const hasSale = product.sale_price && product.sale_price !== "";
 
+    // Language Logic
+    const displayName = (language === 'english' && product.acf?.english_title)
+        ? product.acf.english_title
+        : product.name;
+
+    const displayDescription = (language === 'english' && product.acf?.english_description)
+        ? product.acf.english_description
+        : product.description;
+
     return (
         <div className="min-h-screen flex flex-col">
             <Header />
             <div className="container mx-auto py-12 px-4 flex-grow">
                 <Helmet>
-                    <title>{product.name} - Ram Naam Shop</title>
-                    <meta name="description" content={product.short_description || `Buy ${product.name} online.`} />
+                    <title>{displayName} - Ram Naam Shop</title>
+                    <meta name="description" content={product.short_description || `Buy ${displayName} online.`} />
                 </Helmet>
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                     {/* Product Image */}
                     <div className="rounded-xl overflow-hidden border bg-white p-4 shadow-sm">
                         {product.images && product.images.length > 0 ? (
                             <img
                                 src={product.images[0].src}
-                                alt={product.images[0].alt || product.name}
+                                alt={product.images[0].alt || displayName}
                                 className="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         ) : (
@@ -87,7 +99,7 @@ export default function ProductPage() {
                     {/* Product Details */}
                     <div className="flex flex-col justify-center space-y-6">
                         <div>
-                            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{product.name}</h1>
+                            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">{displayName}</h1>
                             <div className="flex items-center gap-3">
                                 {hasSale ? (
                                     <>
@@ -108,11 +120,11 @@ export default function ProductPage() {
 
                         <div
                             className="prose prose-sm max-w-none text-gray-600"
-                            dangerouslySetInnerHTML={{ __html: product.description }}
+                            dangerouslySetInnerHTML={{ __html: displayDescription }}
                         />
 
                         <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                            <Button size="lg" className="flex-1 gap-2" onClick={handleAddToCart}>
+                            <Button size="lg" className="w-full sm:flex-1 gap-2" onClick={handleAddToCart}>
                                 <ShoppingCart className="h-5 w-5" /> Add into Cart
                             </Button>
                             <WishlistButton product={product} />
@@ -153,7 +165,7 @@ const WishlistButton = ({ product }: { product: any }) => {
         <Button
             size="lg"
             variant="outline"
-            className={`gap-2 ${isWishlisted ? 'border-primary text-primary bg-primary/5' : ''}`}
+            className={`w-full sm:w-auto gap-2 ${isWishlisted ? 'border-primary text-primary bg-primary/5' : ''}`}
             onClick={toggleWishlist}
         >
             <Heart className={`h-5 w-5 ${isWishlisted ? 'fill-primary' : ''}`} />

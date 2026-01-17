@@ -7,16 +7,17 @@ import { Loader2, Package } from "lucide-react";
 
 interface OrderListProps {
     customerId: number;
+    email?: string;
 }
 
-export const OrderList = ({ customerId }: OrderListProps) => {
+export const OrderList = ({ customerId, email }: OrderListProps) => {
     const [orders, setOrders] = useState<Order[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const data = await getOrdersByCustomer(customerId);
+                const data = await getOrdersByCustomer(customerId, email);
                 setOrders(data);
             } catch (error) {
                 console.error("Failed to fetch orders", error);
@@ -25,10 +26,10 @@ export const OrderList = ({ customerId }: OrderListProps) => {
             }
         };
 
-        if (customerId) {
+        if (customerId || email) {
             fetchOrders();
         }
-    }, [customerId]);
+    }, [customerId, email]);
 
     if (isLoading) {
         return <div className="flex justify-center p-8"><Loader2 className="animate-spin text-primary" /></div>;

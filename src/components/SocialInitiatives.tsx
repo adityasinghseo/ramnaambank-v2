@@ -10,9 +10,11 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { useTranslation } from "@/hooks/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const SocialInitiatives = () => {
   const { t } = useTranslation();
+  const { language } = useLanguage();
   const plugin = useRef(
     Autoplay({ delay: 3000, stopOnInteraction: false })
   );
@@ -46,14 +48,14 @@ const SocialInitiatives = () => {
                       <div className="relative aspect-[4/3] overflow-hidden">
                         <img
                           src={item.image}
-                          alt={item.title}
+                          alt={language === 'english' ? item.title_en : item.title}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         />
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
                       </div>
                       <div className="p-4 text-center">
                         <h3 className="text-lg font-bold text-secondary font-hind line-clamp-2 group-hover:text-primary transition-colors">
-                          {item.title}
+                          {language === 'english' ? item.title_en : item.title}
                         </h3>
                       </div>
                     </div>

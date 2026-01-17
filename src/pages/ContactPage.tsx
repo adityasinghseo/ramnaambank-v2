@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import { sendEmail } from "@/lib/email";
 import { Loader2 } from "lucide-react";
@@ -15,6 +16,7 @@ import SEO from "@/components/SEO";
 
 const ContactPage = () => {
   const { toast } = useToast();
+  const { language } = useLanguage();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -36,15 +38,19 @@ const ContactPage = () => {
       });
 
       toast({
-        title: "धन्यवाद!",
-        description: "आपका संदेश प्राप्त हुआ। हम जल्द ही आपसे संपर्क करेंगे।",
+        title: language === 'english' ? "Thank you!" : "धन्यवाद!",
+        description: language === 'english'
+          ? "Your message has been received. We will contact you shortly."
+          : "आपका संदेश प्राप्त हुआ। हम जल्द ही आपसे संपर्क करेंगे।",
       });
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
       toast({
         variant: "destructive",
-        title: "त्रुटि!",
-        description: "संदेश भेजने में समस्या आई। कृपया पुनः प्रयास करें।",
+        title: language === 'english' ? "Error!" : "त्रुटि!",
+        description: language === 'english'
+          ? "There was a problem sending the message. Please try again."
+          : "संदेश भेजने में समस्या आई। कृपया पुनः प्रयास करें।",
       });
     } finally {
       setIsLoading(false);
@@ -58,8 +64,10 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="संपर्क करें"
-        description="हमसे संपर्क करें - श्री राम नाम विश्व बैंक समिति। पता: हरिद्वार, उत्तराखंड। फोन: +91-9045000108"
+        title={language === 'english' ? "Contact Us" : "संपर्क करें"}
+        description={language === 'english'
+          ? "Contact Us - Shri Ram Naam World Bank Committee. Address: Haridwar, Uttarakhand. Phone: +91-9045000108"
+          : "हमसे संपर्क करें - श्री राम नाम विश्व बैंक समिति। पता: हरिद्वार, उत्तराखंड। फोन: +91-9045000108"}
       />
       <Header />
       <main>
@@ -68,11 +76,13 @@ const ContactPage = () => {
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto animate-fade-in">
               <h1 className="text-4xl md:text-6xl font-bold text-secondary mb-6 font-hind">
-                संपर्क करें
+                {language === 'english' ? "Contact Us" : "संपर्क करें"}
               </h1>
               <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
               <p className="text-xl text-muted-foreground font-hind leading-relaxed">
-                हमसे जुड़ें और अपने प्रश्नों के उत्तर पाएं। हम आपकी सेवा के लिए सदैव तत्पर हैं।
+                {language === 'english'
+                  ? "Connect with us and get answers to your queries. We are always ready to serve you."
+                  : "हमसे जुड़ें और अपने प्रश्नों के उत्तर पाएं। हम आपकी सेवा के लिए सदैव तत्पर हैं।"}
               </p>
             </div>
           </div>
@@ -86,7 +96,7 @@ const ContactPage = () => {
               <Card className="shadow-lg border-primary/30">
                 <CardHeader>
                   <CardTitle className="text-2xl font-hind text-center text-secondary">
-                    संपर्क जानकारी
+                    {language === 'english' ? "Contact Information" : "संपर्क जानकारी"}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4 text-muted-foreground font-hind text-lg leading-relaxed">
@@ -100,24 +110,27 @@ const ContactPage = () => {
                   <div className="flex items-start gap-3">
                     <MapPin className="w-6 h-6 text-primary mt-1" />
                     <span>
-                      श्री राम नाम विश्व बैंक समिति आश्रम,<br />
-                      बिल्केश्वर बाई पास रोड, निकट वेदाग्रीन बैंकट हाल,<br />
-                      ललतारौ पुल हरिद्वार (उत्तराखंड) 249401
+                      {language === 'english'
+                        ? <>Shri Ram Naam World Bank Committee Ashram,<br />Bilkeshwar Bypass Road, Near Vedagreen Banquet Hall,<br />Laltarau Bridge Haridwar (Uttarakhand) 249401</>
+                        : <>श्री राम नाम विश्व बैंक समिति आश्रम,<br />बिल्केश्वर बाई पास रोड, निकट वेदाग्रीन बैंकट हाल,<br />ललतारौ पुल हरिद्वार (उत्तराखंड) 249401</>}
                     </span>
                   </div>
 
                   <div className="flex items-start gap-3">
                     <MapPin className="w-6 h-6 text-primary mt-1" />
                     <span>
-                      No.7 नई बस्ती रामगढ़ रोड़, खड़खड़ी हरिद्वार (उत्तराखंड) 249401
+                      {language === 'english'
+                        ? <>No.7 New Basti Ramgarh Road, Kharkhari Haridwar (Uttarakhand) 249401</>
+                        : <>No.7 नई बस्ती रामगढ़ रोड़, खड़खड़ी हरिद्वार (उत्तराखंड) 249401</>}
                     </span>
                   </div>
 
                   <div className="flex items-start gap-3">
                     <MapPin className="w-6 h-6 text-primary mt-1" />
                     <span>
-                      8 गोविंदपुरी, रानीपुर मोड, वुडलैंड शोरूम के ऊपर द्वितीय तल,<br />
-                      हरिद्वार उत्तराखंड 249401
+                      {language === 'english'
+                        ? <>8 Govindpuri, Ranipur Mode, Above Woodland Showroom 2nd Floor,<br />Haridwar Uttarakhand 249401</>
+                        : <>8 गोविंदपुरी, रानीपुर मोड, वुडलैंड शोरूम के ऊपर द्वितीय तल,<br />हरिद्वार उत्तराखंड 249401</>}
                     </span>
                   </div>
 
@@ -135,7 +148,9 @@ const ContactPage = () => {
 
                   <div className="flex items-start gap-3">
                     <Clock className="w-6 h-6 text-primary mt-1" />
-                    <span>सोमवार - शनिवार: 9:00 AM - 6:00 PM</span>
+                    <span>
+                      {language === 'english' ? "Monday - Saturday: 9:00 AM - 6:00 PM" : "सोमवार - शनिवार: 9:00 AM - 6:00 PM"}
+                    </span>
                   </div>
                 </CardContent>
               </Card>
@@ -159,14 +174,14 @@ const ContactPage = () => {
               <Card className="shadow-lg border-primary/30">
                 <CardHeader className="bg-gradient-to-r from-primary to-accent text-white">
                   <CardTitle className="text-2xl font-hind text-center">
-                    संदेश भेजें
+                    {language === 'english' ? "Send Message" : "संदेश भेजें"}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-8">
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <Label htmlFor="name" className="font-hind text-base">
-                        पूरा नाम *
+                        {language === 'english' ? "Full Name *" : "पूरा नाम *"}
                       </Label>
                       <Input
                         id="name"
@@ -175,14 +190,14 @@ const ContactPage = () => {
                         onChange={handleChange}
                         required
                         className="mt-2 font-hind"
-                        placeholder="अपना नाम दर्ज करें"
+                        placeholder={language === 'english' ? "Enter your name" : "अपना नाम दर्ज करें"}
                       />
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-6">
                       <div>
                         <Label htmlFor="email" className="font-hind text-base">
-                          ईमेल *
+                          {language === 'english' ? "Email *" : "ईमेल *"}
                         </Label>
                         <Input
                           id="email"
@@ -198,7 +213,7 @@ const ContactPage = () => {
 
                       <div>
                         <Label htmlFor="phone" className="font-hind text-base">
-                          फोन नंबर *
+                          {language === 'english' ? "Phone Number *" : "फोन नंबर *"}
                         </Label>
                         <Input
                           id="phone"
@@ -215,7 +230,7 @@ const ContactPage = () => {
 
                     <div>
                       <Label htmlFor="message" className="font-hind text-base">
-                        संदेश *
+                        {language === 'english' ? "Message *" : "संदेश *"}
                       </Label>
                       <Textarea
                         id="message"
@@ -224,7 +239,7 @@ const ContactPage = () => {
                         onChange={handleChange}
                         required
                         className="mt-2 font-hind"
-                        placeholder="अपना संदेश यहाँ लिखें"
+                        placeholder={language === 'english' ? "Write your message here" : "अपना संदेश यहाँ लिखें"}
                         rows={6}
                       />
                     </div>
@@ -238,10 +253,10 @@ const ContactPage = () => {
                       {isLoading ? (
                         <>
                           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                          भेजा जा रहा है...
+                          {language === 'english' ? "Sending..." : "भेजा जा रहा है..."}
                         </>
                       ) : (
-                        "संदेश भेजें"
+                        language === 'english' ? "Send Message" : "संदेश भेजें"
                       )}
                     </Button>
                   </form>

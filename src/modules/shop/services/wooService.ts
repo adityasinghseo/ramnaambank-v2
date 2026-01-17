@@ -29,6 +29,18 @@ const api = axios.create({
     baseURL: WC_API_URL,
 });
 
+const mapProduct = (p: any): Product => {
+    const englishTitle = p.meta_data?.find((m: any) => m.key === 'english_title')?.value;
+    const englishDescription = p.meta_data?.find((m: any) => m.key === 'english_description')?.value;
+    return {
+        ...p,
+        acf: {
+            english_title: englishTitle,
+            english_description: englishDescription
+        }
+    };
+};
+
 export const fetchProducts = async (page = 1, perPage = 12): Promise<Product[]> => {
     try {
         const response = await api.get('/products', {
@@ -40,7 +52,7 @@ export const fetchProducts = async (page = 1, perPage = 12): Promise<Product[]> 
                 consumer_secret: CONSUMER_SECRET,
             },
         });
-        return response.data;
+        return response.data.map(mapProduct);
     } catch (error: any) {
         if (error.response) {
             console.error('API Error Response:', {
@@ -67,7 +79,7 @@ export const fetchProductBySlug = async (slug: string): Promise<Product | null> 
             },
         });
         if (response.data && response.data.length > 0) {
-            return response.data[0];
+            return mapProduct(response.data[0]);
         }
         return null;
     } catch (error) {

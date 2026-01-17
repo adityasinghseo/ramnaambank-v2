@@ -8,14 +8,15 @@ import { fetchPosts, BlogPost } from "@/modules/shop/services/blogService";
 import { format } from "date-fns";
 
 const News = () => {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const [news, setNews] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getPosts = async () => {
+      setLoading(true); // Ensure loading state is reset when language changes
       try {
-        const data = await fetchPosts();
+        const data = await fetchPosts(1, 10, language);
         setNews(data);
       } catch (error) {
         console.error("Error loading news:", error);
@@ -25,7 +26,7 @@ const News = () => {
     };
 
     getPosts();
-  }, []);
+  }, [language]);
 
   // Helper to get featured image
   const getFeaturedImage = (post: BlogPost) => {
@@ -40,6 +41,24 @@ const News = () => {
     const doc = new DOMParser().parseFromString(html, "text/html");
     return doc.body.textContent || "";
   };
+
+  // Helper to detect if text contains Devanagari characters (Hindi)
+  const containsDevanagari = (text: string) => {
+    return /[\u0900-\u097F]/.test(text);
+  };
+
+  // Filter posts based on current language
+  const filteredNews = news.filter((item) => {
+    const hasHindi = containsDevanagari(item.title.rendered);
+
+    if (language === 'english') {
+      // English Mode: Show functionality ONLY if it does NOT contain Hindi characters
+      return !hasHindi;
+    } else {
+      // Hindi Mode: Show functionality ONLY if it DOES contain Hindi characters
+      return hasHindi;
+    }
+  });
 
   if (loading) {
     return (
@@ -62,12 +81,12 @@ const News = () => {
         </div>
 
         <div className="max-w-4xl mx-auto space-y-8">
-          {news.length === 0 ? (
+          {filteredNews.length === 0 ? (
             <div className="text-center text-muted-foreground">
-              {t.news.noUpdates || "कोई अपडेट नहीं (No updates found)."}
+              {t.news.noUpdates || "No updates found."}
             </div>
           ) : (
-            news.map((item) => (
+            filteredNews.map((item) => (
               <Card key={item.id} className="shadow-soft border-primary/20 animate-fade-in-up hover:shadow-lg transition-shadow duration-300">
                 <CardContent className="p-0 md:p-6 overflow-hidden">
                   <div className="flex flex-col md:flex-row gap-6 items-start">

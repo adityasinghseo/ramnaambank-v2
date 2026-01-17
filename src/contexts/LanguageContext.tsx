@@ -13,6 +13,10 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
     const [language, setLanguage] = useState<Language>('hindi');
 
+    React.useEffect(() => {
+        document.documentElement.lang = language === 'english' ? 'en' : 'hi';
+    }, [language]);
+
     const toggleLanguage = () => {
         setLanguage(prev => prev === 'hindi' ? 'english' : 'hindi');
     };

@@ -35,6 +35,10 @@ const SignupPage = lazy(() => import("./modules/auth/pages/SignupPage"));
 const ProfilePage = lazy(() => import("./modules/auth/pages/ProfilePage"));
 const WishlistPage = lazy(() => import("./modules/shop/pages/WishlistPage"));
 const ForgotPasswordPage = lazy(() => import("./modules/auth/pages/ForgotPasswordPage"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./pages/TermsOfService"));
+const CancellationReturnPolicy = lazy(() => import("./pages/CancellationReturnPolicy"));
+const ShippingPolicy = lazy(() => import("./pages/ShippingPolicy"));
 
 const queryClient = new QueryClient();
 
@@ -113,6 +117,28 @@ const AppRoutes = () => (
       <Route path="/forgot-password" element={
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
           <ForgotPasswordPage />
+        </Suspense>
+      } />
+
+      {/* Compliance Routes */}
+      <Route path="/privacy-policy" element={
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+          <PrivacyPolicy />
+        </Suspense>
+      } />
+      <Route path="/terms-of-service" element={
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+          <TermsOfService />
+        </Suspense>
+      } />
+      <Route path="/cancellation-refund" element={
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+          <CancellationReturnPolicy />
+        </Suspense>
+      } />
+      <Route path="/shipping-policy" element={
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+          <ShippingPolicy />
         </Suspense>
       } />
 

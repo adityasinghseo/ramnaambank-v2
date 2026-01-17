@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
 import { MessageCircle, Mail } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 import gl1 from "@/assets/gl1.webp";
 import gl2 from "@/assets/gl2.webp";
 import gl3 from "@/assets/gl3.webp";
@@ -20,6 +21,7 @@ import gl14 from "@/assets/gl14.jpg";
 import gl15 from "@/assets/gl15.jpg";
 
 const GalleryPage = () => {
+  const { language } = useLanguage();
   const galleryImages = [gl1, gl2, gl3, gl4, gl5, gl6, gl7, gl8, gl9, gl10, gl11, gl12, gl13, gl14, gl15];
 
   const videoLinks = [
@@ -34,8 +36,10 @@ const GalleryPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="मीडिया गैलरी"
-        description="मीडिया गैलरी - श्री राम नाम विश्व बैंक समिति के फोटो और वीडियो संग्रह। हमारे आयोजनों की झलकियां देखें।"
+        title={language === 'english' ? "Media Gallery" : "मीडिया गैलरी"}
+        description={language === 'english'
+          ? "Media Gallery - Photo and video collection of Shri Ram Naam World Bank Committee. See glimpses of our events."
+          : "मीडिया गैलरी - श्री राम नाम विश्व बैंक समिति के फोटो और वीडियो संग्रह। हमारे आयोजनों की झलकियां देखें।"}
       />
       <Header />
       <main>
@@ -44,11 +48,13 @@ const GalleryPage = () => {
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto animate-fade-in">
               <h1 className="text-4xl md:text-6xl font-bold text-secondary mb-6 font-hind">
-                मीडिया गैलरी
+                {language === 'english' ? "Media Gallery" : "मीडिया गैलरी"}
               </h1>
               <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
               <p className="text-xl text-muted-foreground font-hind leading-relaxed">
-                श्री राम नाम विश्व बैंक समिति के धार्मिक, सामाजिक और जनहित कार्यक्रमों की झलकियां
+                {language === 'english'
+                  ? "Glimpses of religious, social and public service programs of Shri Ram Naam World Bank Committee"
+                  : "श्री राम नाम विश्व बैंक समिति के धार्मिक, सामाजिक और जनहित कार्यक्रमों की झलकियां"}
               </p>
             </div>
           </div>
@@ -58,7 +64,7 @@ const GalleryPage = () => {
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary text-center mb-12 font-hind">
-              फोटो गैलरी
+              {language === 'english' ? "Photo Gallery" : "फोटो गैलरी"}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {galleryImages.map((src, index) => (
@@ -84,11 +90,13 @@ const GalleryPage = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12 animate-fade-in-up">
               <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-4 font-hind">
-                वीडियो गैलरी
+                {language === 'english' ? "Video Gallery" : "वीडियो गैलरी"}
               </h2>
               <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto font-hind leading-relaxed">
-                हमारे आध्यात्मिक और सामाजिक कार्यक्रमों की झलकियां वीडियो के माध्यम से देखें।
+                {language === 'english'
+                  ? "Watch glimpses of our spiritual and social programs through videos."
+                  : "हमारे आध्यात्मिक और सामाजिक कार्यक्रमों की झलकियां वीडियो के माध्यम से देखें।"}
               </p>
             </div>
 
@@ -116,7 +124,7 @@ const GalleryPage = () => {
                 rel="noopener noreferrer"
                 className="inline-block bg-gradient-to-r from-primary to-accent text-white font-hind text-lg px-8 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-500"
               >
-                सभी वीडियो देखें YouTube पर →
+                {language === 'english' ? "Watch All Videos on YouTube →" : "सभी वीडियो देखें YouTube पर →"}
               </a>
             </div>
           </div>
@@ -126,10 +134,12 @@ const GalleryPage = () => {
         <section className="py-16 bg-cream">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6 font-hind">
-              हमारे कार्यक्रमों में शामिल हों
+              {language === 'english' ? "Join Our Programs" : "हमारे कार्यक्रमों में शामिल हों"}
             </h2>
             <p className="text-xl text-muted-foreground font-hind max-w-2xl mx-auto mb-8">
-              राम नाम बैंक के आगामी कार्यक्रमों में भाग लेने और अपनी तस्वीरें साझा करने के लिए हमसे संपर्क करें।
+              {language === 'english'
+                ? "Contact us to participate in upcoming programs of Ram Naam Bank and share your photos."
+                : "राम नाम बैंक के आगामी कार्यक्रमों में भाग लेने और अपनी तस्वीरें साझा करने के लिए हमसे संपर्क करें।"}
             </p>
 
             {/* Buttons */}
@@ -139,7 +149,7 @@ const GalleryPage = () => {
                 className="flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white font-hind text-lg px-8 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-500"
               >
                 <Mail className="w-5 h-5" />
-                संपर्क करें
+                {language === 'english' ? "Contact Us" : "संपर्क करें"}
               </a>
 
               <a
@@ -149,7 +159,7 @@ const GalleryPage = () => {
                 className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-hind text-lg px-8 py-3 rounded-full shadow-md hover:scale-105 transition-all duration-500"
               >
                 <MessageCircle className="w-5 h-5" />
-                WhatsApp पर जुड़ें
+                {language === 'english' ? "Connect on WhatsApp" : "WhatsApp पर जुड़ें"}
               </a>
             </div>
           </div>
@@ -159,5 +169,4 @@ const GalleryPage = () => {
     </div>
   );
 };
-
 export default GalleryPage;

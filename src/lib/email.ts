@@ -10,6 +10,7 @@ interface EmailData {
     email: string;
     message: string;
     phone?: string;
+    subject?: string;
 }
 
 export const sendEmail = async (data: EmailData) => {
@@ -19,6 +20,7 @@ export const sendEmail = async (data: EmailData) => {
             email: data.email,
             phone: data.phone || "N/A",
             message: data.message, // This will contain the structured body
+            subject: data.subject || "New Inquiry",
         };
 
         const response = await emailjs.send(

@@ -252,7 +252,7 @@ export default function ProfilePage() {
                                         <CardDescription>View your past orders.</CardDescription>
                                     </CardHeader>
                                     <CardContent>
-                                        <OrderList customerId={user.id} />
+                                        <OrderList customerId={user.id} email={user.email} />
                                     </CardContent>
                                 </Card>
                             </TabsContent>

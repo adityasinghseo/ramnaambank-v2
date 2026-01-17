@@ -3,13 +3,18 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { MessageCircle, Mail } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const JyotishPage = () => {
+  const { language } = useLanguage();
+
   return (
     <div className="min-h-screen">
       <SEO
-        title="ज्योतिष सेवा - ज्योतिष परामर्श"
-        description="अपने जीवन की दिशा को समझें — ज्योतिषीय दृष्टिकोण से। कुंडली ज्योतिष और अंक ज्योतिष परामर्श सेवाएं।"
+        title={language === 'english' ? "Astrology Service - Astrology Consultation" : "ज्योतिष सेवा - ज्योतिष परामर्श"}
+        description={language === 'english'
+          ? "Understand the direction of your life — from an astrological perspective. Kundli astrology and numerology consultation services."
+          : "अपने जीवन की दिशा को समझें — ज्योतिषीय दृष्टिकोण से। कुंडली ज्योतिष और अंक ज्योतिष परामर्श सेवाएं।"}
       />
       <Header />
       <main>
@@ -18,13 +23,13 @@ const JyotishPage = () => {
           <div className="container mx-auto px-4">
             <div className="text-center max-w-3xl mx-auto animate-fade-in">
               <h1 className="text-4xl md:text-6xl font-bold text-secondary mb-6 font-hind">
-                ज्योतिष फलादेश सेवा
+                {language === 'english' ? "Astrology Prediction Service" : "ज्योतिष फलादेश सेवा"}
               </h1>
               <div className="w-24 h-1 bg-primary mx-auto mb-6"></div>
               <p className="text-xl text-muted-foreground font-hind leading-relaxed">
-                अपने जीवन की दिशा को समझें — ज्योतिषीय दृष्टिकोण से।
-                हम आपको दो प्रमुख विधाओं में परामर्श प्रदान करते हैं:
-                <strong> कुंडली ज्योतिष </strong> और <strong> गणितीय ज्योतिष </strong>।
+                {language === 'english'
+                  ? <>Understand the direction of your life — from an astrological perspective. We provide consultation in two main disciplines: <strong>Kundli Astrology</strong> and <strong>Mathematical Astrology</strong>.</>
+                  : <>अपने जीवन की दिशा को समझें — ज्योतिषीय दृष्टिकोण से। हम आपको दो प्रमुख विधाओं में परामर्श प्रदान करते हैं: <strong> कुंडली ज्योतिष </strong> और <strong> गणितीय ज्योतिष </strong>।</>}
               </p>
             </div>
           </div>
@@ -36,25 +41,31 @@ const JyotishPage = () => {
             <Card className="shadow-md border-primary/20 mb-10">
               <CardHeader>
                 <CardTitle className="text-2xl md:text-3xl font-hind text-primary text-center">
-                  🪔 1. कुंडली ज्योतिष क्या है?
+                  {language === 'english' ? "🪔 1. What is Kundli Astrology?" : "🪔 1. कुंडली ज्योतिष क्या है?"}
                 </CardTitle>
               </CardHeader>
               <CardContent className="font-hind text-lg text-muted-foreground space-y-4 leading-relaxed">
                 <p>
-                  यह जन्म तिथि, समय और स्थान के आधार पर कुंडली बनाकर ग्रहों की स्थिति का विश्लेषण करता है।
+                  {language === 'english'
+                    ? "It analyzes the position of planets by creating a horoscope based on date, time, and place of birth."
+                    : "यह जन्म तिथि, समय और स्थान के आधार पर कुंडली बनाकर ग्रहों की स्थिति का विश्लेषण करता है।"}
                 </p>
 
-                <h4 className="font-bold text-secondary text-xl mt-4">✅ यह कैसे कार्य करता है?</h4>
+                <h4 className="font-bold text-secondary text-xl mt-4">
+                  {language === 'english' ? "✅ How does it work?" : "✅ यह कैसे कार्य करता है?"}
+                </h4>
                 <ul className="list-disc list-inside space-y-2">
-                  <li>12 भाव और 9 ग्रहों का विवरण शामिल होता है।</li>
-                  <li>ग्रहों की स्थिति के आधार पर जीवन की घटनाओं का पूर्वानुमान।</li>
+                  <li>{language === 'english' ? "Includes details of 12 houses and 9 planets." : "12 भाव और 9 ग्रहों का विवरण शामिल होता है।"}</li>
+                  <li>{language === 'english' ? "Prediction of life events based on planetary positions." : "ग्रहों की स्थिति के आधार पर जीवन की घटनाओं का पूर्वानुमान।"}</li>
                 </ul>
 
-                <h4 className="font-bold text-secondary text-xl mt-4">✨ लाभ:</h4>
+                <h4 className="font-bold text-secondary text-xl mt-4">
+                  {language === 'english' ? "✨ Benefits:" : "✨ लाभ:"}
+                </h4>
                 <ul className="list-disc list-inside space-y-2">
-                  <li>विवाह, करियर, शिक्षा, संतान, धन, स्वास्थ्य पर गहराई से विश्लेषण।</li>
-                  <li>अशुभ योगों की पहचान और शांति उपाय।</li>
-                  <li>शुभ मुहूर्त का निर्धारण।</li>
+                  <li>{language === 'english' ? "In-depth analysis of marriage, career, education, children, wealth, health." : "विवाह, करियर, शिक्षा, संतान, धन, स्वास्थ्य पर गहराई से विश्लेषण।"}</li>
+                  <li>{language === 'english' ? "Identification of inauspicious yogas and remedies." : "अशुभ योगों की पहचान और शांति उपाय।"}</li>
+                  <li>{language === 'english' ? "Determination of auspicious timings (Muhurat)." : "शुभ मुहूर्त का निर्धारण।"}</li>
                 </ul>
               </CardContent>
             </Card>
@@ -63,45 +74,73 @@ const JyotishPage = () => {
             <Card className="shadow-md border-primary/20 mb-10">
               <CardHeader>
                 <CardTitle className="text-2xl md:text-3xl font-hind text-primary text-center">
-                  🔢 2. अंक ज्योतिष (Numerology)
+                  {language === 'english' ? "🔢 2. Numerology (Ank Jyotish)" : "🔢 2. अंक ज्योतिष (Numerology)"}
                 </CardTitle>
               </CardHeader>
               <CardContent className="font-hind text-lg text-muted-foreground space-y-4 leading-relaxed">
                 <p>
-                  अंक ज्योतिष का अर्थ है अंक शास्त्र। हर चीज़ ब्रह्मांड (Universe) में कंपन (vibrate) करती है। इन्हीं अंकों की आवृत्ति (frequency) और उनके कंपन सूचकांक (vibrational index) से हम यह जान सकते हैं कि एक संख्या की क्या विशेषताएँ (properties) और ऊर्जा (energies) हैं।
+                  {language === 'english'
+                    ? "Numerology means the science of numbers. Everything in the Universe vibrates. By the frequency of these numbers and their vibrational index, we can know the properties and energies of a number."
+                    : "अंक ज्योतिष का अर्थ है अंक शास्त्र। हर चीज़ ब्रह्मांड (Universe) में कंपन (vibrate) करती है। इन्हीं अंकों की आवृत्ति (frequency) और उनके कंपन सूचकांक (vibrational index) से हम यह जान सकते हैं कि एक संख्या की क्या विशेषताएँ (properties) और ऊर्जा (energies) हैं।"}
                 </p>
                 <p>
-                  इन्हीं अंकों से जुड़ी हुई चीज़ों को समझते हुए, जब हम अपनी जन्म तिथि (date of birth) से जुड़े अंकों को देखते हैं, तो हम अपने भूतकाल, वर्तमान और भविष्य को उन ग्रहों के अंकों के माध्यम से समझ सकते हैं।
+                  {language === 'english'
+                    ? "Understanding things related to these numbers, when we look at the numbers associated with our date of birth, we can understand our past, present, and future through the numbers of those planets."
+                    : "इन्हीं अंकों से जुड़ी हुई चीज़ों को समझते हुए, जब हम अपनी जन्म तिथि (date of birth) से जुड़े अंकों को देखते हैं, तो हम अपने भूतकाल, वर्तमान और भविष्य को उन ग्रहों के अंकों के माध्यम से समझ सकते हैं।"}
                 </p>
 
-                <h4 className="font-bold text-secondary text-xl mt-6">🌟 अंक ज्योतिष की प्रमुख शाखाएँ (Major Branches):</h4>
+                <h4 className="font-bold text-secondary text-xl mt-6">
+                  {language === 'english' ? "🌟 Major Branches of Numerology:" : "🌟 अंक ज्योतिष की प्रमुख शाखाएँ (Major Branches):"}
+                </h4>
 
                 <div className="space-y-4 mt-4">
                   <div>
                     <h5 className="font-semibold text-primary text-lg">1. Pythagorean (5000 BC)</h5>
-                    <p>यह पद्धति लोगों की उनकी ऊर्जा और सामंजस्य (harmony) के आधार पर सहायता करती है। यह बताती है कि व्यक्ति अपने संबंधों (relationships) और दूसरों के साथ कैसा तालमेल रखता है।</p>
+                    <p>
+                      {language === 'english'
+                        ? "This method helps people based on their energy and harmony. It tells how a person harmonizes with their relationships and others."
+                        : "यह पद्धति लोगों की उनकी ऊर्जा और सामंजस्य (harmony) के आधार पर सहायता करती है। यह बताती है कि व्यक्ति अपने संबंधों (relationships) और दूसरों के साथ कैसा तालमेल रखता है।"}
+                    </p>
                   </div>
 
                   <div>
                     <h5 className="font-semibold text-primary text-lg">2. Chaldean (900 BC)</h5>
-                    <p>यह प्रणाली यह बताती है कि कौन-सा अंक आपके लिए लकी (Lucky) है और कौन-सा नहीं।</p>
+                    <p>
+                      {language === 'english'
+                        ? "This system tells which number is Lucky for you and which is not."
+                        : "यह प्रणाली यह बताती है कि कौन-सा अंक आपके लिए लकी (Lucky) है और कौन-सा नहीं।"}
+                    </p>
                   </div>
 
                   <div>
                     <h5 className="font-semibold text-primary text-lg">3. Lo Shu</h5>
-                    <p>यह चीनी फेंग शुई (Chinese Feng Shui) पर आधारित है। इसमें Lo Shu Grid के तीन स्तंभ (columns) और तीन पंक्तियाँ (rows) होती हैं, जिनमें 1 से 9 तक के अंक होते हैं।</p>
+                    <p>
+                      {language === 'english'
+                        ? "It is based on Chinese Feng Shui. It consists of three columns and three rows in the Lo Shu Grid, containing numbers from 1 to 9."
+                        : "यह चीनी फेंग शुई (Chinese Feng Shui) पर आधारित है। इसमें Lo Shu Grid के तीन स्तंभ (columns) और तीन पंक्तियाँ (rows) होती हैं, जिनमें 1 से 9 तक के अंक होते हैं।"}
+                    </p>
                   </div>
 
                   <div>
                     <h5 className="font-semibold text-primary text-lg">4. Vedic (1500 BC)</h5>
-                    <p>इसके अनुसार, 1 से 9 तक के प्रत्येक अंक का संबंध किसी ग्रह से होता है। प्रमुख ग्रहों और आपके चार्ट में स्थित अशुभ ग्रहों के आधार पर अंक शुभ या अशुभ प्रभाव दे सकते हैं।</p>
-                    <p className="mt-2">यह प्रणाली भविष्यवाणियों (predictions) और व्यक्तित्व विश्लेषण (character analysis) में मदद करती है। इसके माध्यम से करियर, वित्त, यात्रा, संपत्ति और जीवन के अन्य पहलुओं का अनुमान लगाया जा सकता है।</p>
+                    <p>
+                      {language === 'english'
+                        ? "According to this, each number from 1 to 9 relates to a planet. Based on major planets and inauspicious planets in your chart, numbers can give auspicious or inauspicious effects."
+                        : "इसके अनुसार, 1 से 9 तक के प्रत्येक अंक का संबंध किसी ग्रह से होता है। प्रमुख ग्रहों और आपके चार्ट में स्थित अशुभ ग्रहों के आधार पर अंक शुभ या अशुभ प्रभाव दे सकते हैं।"}
+                    </p>
+                    <p className="mt-2">
+                      {language === 'english'
+                        ? "This system helps in predictions and character analysis. Through this, career, finance, travel, property, and other aspects of life can be estimated."
+                        : "यह प्रणाली भविष्यवाणियों (predictions) और व्यक्तित्व विश्लेषण (character analysis) में मदद करती है। इसके माध्यम से करियर, वित्त, यात्रा, संपत्ति और जीवन के अन्य पहलुओं का अनुमान लगाया जा सकता है।"}
+                    </p>
                   </div>
                 </div>
 
 
                 <div className="mt-8">
-                  <h4 className="font-bold text-secondary text-xl mb-4">🪐 अंक और ग्रह (Planets & Numerology)</h4>
+                  <h4 className="font-bold text-secondary text-xl mb-4">
+                    {language === 'english' ? "🪐 Numbers and Planets (Planets & Numerology)" : "🪐 अंक और ग्रह (Planets & Numerology)"}
+                  </h4>
                   <div className="overflow-x-auto">
                     <table className="min-w-full border border-primary/20 text-center text-sm md:text-base">
                       <thead className="bg-primary/10">
@@ -142,43 +181,43 @@ const JyotishPage = () => {
             <Card className="shadow-md border-primary/20 mb-10">
               <CardHeader>
                 <CardTitle className="text-2xl md:text-3xl font-hind text-primary text-center">
-                  ⚖️ कुंडली बनाम अंक ज्योतिष
+                  {language === 'english' ? "⚖️ Kundli vs Numerology" : "⚖️ कुंडली बनाम अंक ज्योतिष"}
                 </CardTitle>
               </CardHeader>
               <CardContent className="overflow-x-auto font-hind text-lg text-muted-foreground">
                 <table className="min-w-full border border-primary/20 text-center">
                   <thead className="bg-primary/10">
                     <tr className="text-secondary">
-                      <th className="p-3 border border-primary/20">विशेषता</th>
-                      <th className="p-3 border border-primary/20">कुंडली ज्योतिष 🪔</th>
-                      <th className="p-3 border border-primary/20">अंक ज्योतिष 📐</th>
+                      <th className="p-3 border border-primary/20">{language === 'english' ? "Feature" : "विशेषता"}</th>
+                      <th className="p-3 border border-primary/20">{language === 'english' ? "Kundli Astrology 🪔" : "कुंडली ज्योतिष 🪔"}</th>
+                      <th className="p-3 border border-primary/20">{language === 'english' ? "Numerology 📐" : "अंक ज्योतिष 📐"}</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-                      <td className="p-3 border border-primary/20">आधार</td>
-                      <td className="p-3 border border-primary/20">जन्म तिथि, समय और स्थान</td>
-                      <td className="p-3 border border-primary/20">केवल जन्म तिथि और नाम</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Basis" : "आधार"}</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Date, time, and place of birth" : "जन्म तिथि, समय और स्थान"}</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Only date of birth and name" : "केवल जन्म तिथि और नाम"}</td>
                     </tr>
                     <tr>
-                      <td className="p-3 border border-primary/20">विधा</td>
-                      <td className="p-3 border border-primary/20">वैदिक शास्त्र आधारित</td>
-                      <td className="p-3 border border-primary/20">अंक शास्त्र और गणना आधारित</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Method" : "विधा"}</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Based on Vedic Scriptures" : "वैदिक शास्त्र आधारित"}</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Numerology and Calculation based" : "अंक शास्त्र और गणना आधारित"}</td>
                     </tr>
                     <tr>
-                      <td className="p-3 border border-primary/20">गहराई</td>
-                      <td className="p-3 border border-primary/20">विस्तृत और सूक्ष्म</td>
-                      <td className="p-3 border border-primary/20">सरल और त्वरित</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Depth" : "गहराई"}</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Detailed and Micro" : "विस्तृत और सूक्ष्म"}</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Simple and Quick" : "सरल और त्वरित"}</td>
                     </tr>
                     <tr>
-                      <td className="p-3 border border-primary/20">उपयोग</td>
-                      <td className="p-3 border border-primary/20">विवाह, संतान, ग्रह दोष</td>
-                      <td className="p-3 border border-primary/20">स्वभाव, करियर, सलाह</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Usage" : "उपयोग"}</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Marriage, Children, Planetary Defects" : "विवाह, संतान, ग्रह दोष"}</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Nature, Career, Advice" : "स्वभाव, करियर, सलाह"}</td>
                     </tr>
                     <tr>
-                      <td className="p-3 border border-primary/20">शांति उपाय</td>
-                      <td className="p-3 border border-primary/20">ग्रह शांति यज्ञ</td>
-                      <td className="p-3 border border-primary/20">अंकों से उपाय</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Remedies" : "शांति उपाय"}</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Planetary Peace Yagya" : "ग्रह शांति यज्ञ"}</td>
+                      <td className="p-3 border border-primary/20">{language === 'english' ? "Remedies via Numbers" : "अंकों से उपाय"}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -189,27 +228,33 @@ const JyotishPage = () => {
             <Card className="shadow-md border-primary/20">
               <CardHeader>
                 <CardTitle className="text-2xl md:text-3xl font-hind text-primary text-center">
-                  🌟 हमारी सेवाएँ
+                  {language === 'english' ? "🌟 Our Services" : "🌟 हमारी सेवाएँ"}
                 </CardTitle>
               </CardHeader>
               <CardContent className="font-hind text-lg text-muted-foreground leading-relaxed space-y-6">
-                <h4 className="font-bold text-secondary text-xl">1. कुंडली ज्योतिष</h4>
+                <h4 className="font-bold text-secondary text-xl">
+                  {language === 'english' ? "1. Kundli Astrology" : "1. कुंडली ज्योतिष"}
+                </h4>
                 <ul className="list-disc list-inside space-y-2">
-                  <li>🔹 नयी कुंडली बनवाएं: जन्म विवरण के आधार पर विस्तृत कुंडली।</li>
-                  <li>🔹 अपनी कुंडली दिखाएं: मौजूदा कुंडली का विश्लेषण और ग्रहों की स्थिति।</li>
-                  <li>🔹 ग्रह शांति उपाय: दोष निवारण हेतु सरल उपाय।</li>
+                  <li>{language === 'english' ? "🔹 Make New Kundli: Detailed Kundli based on birth details." : "🔹 नयी कुंडली बनवाएं: जन्म विवरण के आधार पर विस्तृत कुंडली।"}</li>
+                  <li>{language === 'english' ? "🔹 Show Your Kundli: Analysis of existing Kundli and planetary positions." : "🔹 अपनी कुंडली दिखाएं: मौजूदा कुंडली का विश्लेषण और ग्रहों की स्थिति।"}</li>
+                  <li>{language === 'english' ? "🔹 Planetary Peace Remedies: Simple remedies for defect removal." : "🔹 ग्रह शांति उपाय: दोष निवारण हेतु सरल उपाय।"}</li>
                 </ul>
 
-                <h4 className="font-bold text-secondary text-xl pt-4">2. अंक ज्योतिष (Numerology)</h4>
+                <h4 className="font-bold text-secondary text-xl pt-4">
+                  {language === 'english' ? "2. Numerology" : "2. अंक ज्योतिष (Numerology)"}
+                </h4>
                 <ul className="list-disc list-inside space-y-2">
-                  <li>जन्म तिथि, समय और स्थान के आधार पर भविष्य जानें।</li>
-                  <li>जीवन की प्रमुख घटनाओं की भविष्यवाणी।</li>
-                  <li>विवाह, करियर, शिक्षा, स्वास्थ्य से जुड़ी सलाह।</li>
-                  <li>किसी समस्या का समाधान पाएं।</li>
+                  <li>{language === 'english' ? "Know future based on date, time, and place of birth." : "जन्म तिथि, समय और स्थान के आधार पर भविष्य जानें।"}</li>
+                  <li>{language === 'english' ? "Prediction of major life events." : "जीवन की प्रमुख घटनाओं की भविष्यवाणी।"}</li>
+                  <li>{language === 'english' ? "Advice related to marriage, career, education, health." : "विवाह, करियर, शिक्षा, स्वास्थ्य से जुड़ी सलाह।"}</li>
+                  <li>{language === 'english' ? "Get solution to any problem." : "किसी समस्या का समाधान पाएं।"}</li>
                 </ul>
 
                 <p className="italic text-primary/90 mt-4">
-                  ✨ यह विधा वैज्ञानिक गणनाओं और शास्त्रीय विधियों पर आधारित है।
+                  {language === 'english'
+                    ? "✨ This discipline is based on scientific calculations and classical methods."
+                    : "✨ यह विधा वैज्ञानिक गणनाओं और शास्त्रीय विधियों पर आधारित है।"}
                 </p>
               </CardContent>
             </Card>
@@ -220,7 +265,7 @@ const JyotishPage = () => {
         < section className="py-16 bg-cream text-center" >
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-secondary mb-6 font-hind">
-              परामर्श के लिए संपर्क करें
+              {language === 'english' ? "Contact for Consultation" : "परामर्श के लिए संपर्क करें"}
             </h2>
 
             <div className="flex flex-wrap justify-center gap-4 mt-8">
@@ -229,7 +274,7 @@ const JyotishPage = () => {
                 className="flex items-center gap-2 bg-gradient-to-r from-primary to-accent text-white font-hind text-lg px-8 py-3 rounded-full shadow-md hover:shadow-lg hover:scale-105 transition-all duration-500"
               >
                 <Mail className="w-5 h-5" />
-                संपर्क करें
+                {language === 'english' ? "Contact Us" : "संपर्क करें"}
               </a>
 
               <a
@@ -239,7 +284,7 @@ const JyotishPage = () => {
                 className="flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white font-hind text-lg px-8 py-3 rounded-full shadow-md hover:scale-105 transition-all duration-500"
               >
                 <MessageCircle className="w-5 h-5" />
-                WhatsApp पर जुड़ें
+                {language === 'english' ? "Connect on WhatsApp" : "WhatsApp पर जुड़ें"}
               </a>
             </div>
           </div>
@@ -249,5 +294,4 @@ const JyotishPage = () => {
     </div >
   );
 };
-
 export default JyotishPage;

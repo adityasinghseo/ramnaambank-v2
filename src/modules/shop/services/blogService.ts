@@ -44,15 +44,21 @@ const api = axios.create({
  */
 
 // Fetch Latest Blog Posts
-export const fetchPosts = async (page = 1, perPage = 10): Promise<BlogPost[]> => {
+export const fetchPosts = async (page = 1, perPage = 10, lang?: string): Promise<BlogPost[]> => {
     try {
+        const params: any = {
+            page,
+            per_page: perPage,
+            _embed: true, // Crucial to get featured image and author details
+            status: 'publish',
+        };
+
+        if (lang) {
+            params.lang = lang === 'hindi' ? 'hi' : 'en';
+        }
+
         const response = await api.get('/wp/v2/posts', {
-            params: {
-                page,
-                per_page: perPage,
-                _embed: true, // Crucial to get featured image and author details
-                status: 'publish',
-            },
+            params,
         });
         return response.data;
     } catch (error) {

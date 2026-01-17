@@ -41,7 +41,7 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
-            <a href="/donation">
+            <a href="https://pages.razorpay.com/pl_S2dI0Ozu3q81qf/view" target="_blank" rel="noopener noreferrer">
               <Button
                 className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-white shadow-xl hover:shadow-2xl transition-all duration-300 font-bold px-8 py-6 text-lg rounded-full border-2 border-white/20"
               >

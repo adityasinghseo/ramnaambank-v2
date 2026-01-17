@@ -13,7 +13,7 @@ export const translations = {
             donate: "दान करें",
             gallery: "गैलरी",
             latestUpdate: "लेटेस्ट अपडेट",
-            shop: "Shop",
+            shop: "शॉप",
             contact: "संपर्क करें",
             onlineForm: "ऑनलाइन फॉर्म",
             offlineForm: "ऑफलाइन फॉर्म",
@@ -244,7 +244,10 @@ export const translations = {
             termsConditions: "नियम और शर्तें",
             address1: "श्री राम नाम विश्व बैंक समिति आश्रम, बिल्केश्वर बाई पास रोड, निकट वेदाग्रीन बैंकट हाल, ललतारौ पुल हरिद्वार (उत्तराखंड) 249401",
             address2: "No.7 नई बस्ती रामगढ़ रोड, खड़खड़ी हरिद्वार (उत्तराखंड) 249401",
-            address3: "8 गोविंदपुरी, रानीपुर मोड, वुडलैंड शोरूम के ऊपर द्वितीय तल, हरिद्वार उत्तराखंड 249401"
+            address3: "8 गोविंदपुरी, रानीपुर मोड, वुडलैंड शोरूम के ऊपर द्वितीय तल, हरिद्वार उत्तराखंड 249401",
+            termsOfService: "सेवा की शर्तें",
+            cancellationRefund: "रद्दीकरण और धनवापसी",
+            shippingPolicy: "शिपिंग नीति"
         },
         // Common
         common: {
@@ -508,7 +511,10 @@ export const translations = {
             termsConditions: "Terms & Conditions",
             address1: "Shri Ram Naam Vishwa Bank Samiti Ashram, Bilkeshwar Bypass Road, Near Vedagreen Banquet Hall, Laltarao Bridge Haridwar (Uttarakhand) 249401",
             address2: "No.7 Nai Basti Ramgarh Road, Khadkhadi Haridwar (Uttarakhand) 249401",
-            address3: "8 Govindpuri, Ranipur Mod, Above Woodland Showroom Second Floor, Haridwar Uttarakhand 249401"
+            address3: "8 Govindpuri, Ranipur Mod, Above Woodland Showroom Second Floor, Haridwar Uttarakhand 249401",
+            termsOfService: "Terms of Service",
+            cancellationRefund: "Cancellation & Refund",
+            shippingPolicy: "Shipping Policy"
         },
         // Common
         common: {

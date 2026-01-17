@@ -30,12 +30,17 @@ const formSchema = z.object({
     pincode: z.string().regex(/^[0-9]{6}$/, "Invalid pincode (6 digits)"),
 });
 
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTranslation } from "@/hooks/useTranslation";
+
 const CheckoutPage = () => {
     const navigate = useNavigate();
     const { items, clearCart } = useCartStore();
     const { user } = useAuth();
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [paymentMethod, setPaymentMethod] = useState<'cod' | 'online'>('cod');
+    const { language } = useLanguage();
+    const { t } = useTranslation();
 
     // ... existing hook logic ...
     const form = useForm<CheckoutFormData>({
@@ -93,24 +98,20 @@ const CheckoutPage = () => {
             }
 
             if (paymentMethod === 'online') {
-                // FUTURE READY NOTE: 
-                // Once you install the "Razorpay for WooCommerce" plugin on WordPress, 
-                // uncomment the redirect block below to enable real payments.
-
-                /*
+                // REAL PAYMENT FLOW
+                // Requires "Razorpay for WooCommerce" plugin to be installed and active on the backend.
                 if (response.payment_url) {
                     toast.loading("Redirecting to secure payment gateway...");
                     window.location.href = response.payment_url;
                     return;
                 }
-                */
 
-                // FALLBACK / SIMULATION (Active until Plugin is installed)
-                // This will run until you fully configure the Razorpay plugin in WordPress.
+                // If no payment_url is returned, it means the backend isn't configured correctly for online payments yet.
+                // We fall back to simulation for testing purposes only.
+                console.warn("No payment_url found in response. Falling back to simulation.");
+
+                // SIMULATION (Remove this block when going live)
                 await new Promise(resolve => setTimeout(resolve, 1500));
-
-                // Manually mark as paid logic would go here if we were using a headless SDK
-                // For now, we assume success for the simulation
                 clearCart();
                 toast.success("Payment Successful (Simulated)! Order placed.");
                 navigate("/order-success");
@@ -154,6 +155,10 @@ const CheckoutPage = () => {
             state: data.state,
             postcode: data.pincode,
             country: "IN",
+            shipping_class: "",
+            shipping_class_id: 0,
+            priority: 0,
+            workflow_id: ""
         },
         line_items: items.map((item) => ({
             product_id: item.id,
@@ -164,12 +169,14 @@ const CheckoutPage = () => {
     return (
         <div className="min-h-screen flex flex-col">
             <Helmet>
-                <title>Checkout - Shri Ram Naam Vishwa Bank</title>
-                <meta name="description" content="Secure checkout for Shri Ram Naam Vishwa Bank store. Complete your purchase with Cash on Delivery." />
+                <title>{language === 'english' ? "Checkout" : "चेकआउट"} - {t.header.organizationName}</title>
+                <meta name="description" content={language === 'english' ? "Secure checkout for Shri Ram Naam Vishwa Bank store." : "श्री राम नाम विश्व बैंक स्टोर के लिए सुरक्षित चेकआउट।"} />
             </Helmet>
             <Header />
             <main className="flex-grow container mx-auto px-4 py-8">
-                <h1 className="text-3xl font-bold mb-8 text-center text-primary-800">Checkout</h1>
+                <h1 className="text-3xl font-bold mb-8 text-center text-primary-800">
+                    {language === 'english' ? "Checkout" : "चेकआउट"}
+                </h1>
 
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
@@ -224,7 +231,7 @@ const CheckoutPage = () => {
                                                 Placing Order...
                                             </>
                                         ) : (
-                                            "Place Order (COD)"
+                                            paymentMethod === 'online' ? "Place Order (Online)" : "Place Order (COD)"
                                         )}
                                     </Button>
                                 </div>
