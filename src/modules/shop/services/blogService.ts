@@ -32,16 +32,12 @@ export interface BlogPost {
     };
 }
 
-const api = axios.create({
-    baseURL: WP_API_URL, // This is expected to be 'https://admin.shriramnaambank.com/wp-json'
-});
+const isDev = import.meta.env.MODE === 'development';
+const apiBaseUrl = isDev ? '/api-wp' : WP_API_URL + '/wp/v2';
 
-/**
- * Validates if the WP_API_URL points to the /wp-json root, 
- * and appends /wp/v2 if necessary, or just uses it directly.
- * Adjust based on your .env VITE_WP_API structure. 
- * Assuming VITE_WP_API = 'https://admin.shriramnaambank.com/wp-json'
- */
+const api = axios.create({
+    baseURL: apiBaseUrl,
+});
 
 // Fetch Latest Blog Posts
 export const fetchPosts = async (page = 1, perPage = 10, lang?: string): Promise<BlogPost[]> => {
@@ -57,7 +53,10 @@ export const fetchPosts = async (page = 1, perPage = 10, lang?: string): Promise
             params.lang = lang === 'hindi' ? 'hi' : 'en';
         }
 
-        const response = await api.get('/wp/v2/posts', {
+        const endpoint = isDev ? '/posts' : '/posts'; 
+        // Wait, if it's WP_API_URL + '/wp/v2' as base, it should be just '/posts'. Let me adjust above!
+        
+        const response = await api.get('/posts', {
             params,
         });
         return response.data;
@@ -70,7 +69,7 @@ export const fetchPosts = async (page = 1, perPage = 10, lang?: string): Promise
 // Fetch Single Post by Slug
 export const fetchPostBySlug = async (slug: string): Promise<BlogPost | null> => {
     try {
-        const response = await api.get('/wp/v2/posts', {
+        const response = await api.get('/posts', {
             params: {
                 slug,
                 _embed: true,

@@ -48,8 +48,8 @@ const News = () => {
   };
 
   // Filter posts based on current language
-  const filteredNews = news.filter((item) => {
-    const hasHindi = containsDevanagari(item.title.rendered);
+  let filteredNews = Array.isArray(news) ? news.filter((item) => {
+    const hasHindi = containsDevanagari(item.title?.rendered || "");
 
     if (language === 'english') {
       // English Mode: Show functionality ONLY if it does NOT contain Hindi characters
@@ -58,7 +58,12 @@ const News = () => {
       // Hindi Mode: Show functionality ONLY if it DOES contain Hindi characters
       return hasHindi;
     }
-  });
+  }) : [];
+
+  // Fallback: If no posts match the strict language filter, show all fetched posts
+  if (filteredNews.length === 0 && Array.isArray(news) && news.length > 0) {
+    filteredNews = news;
+  }
 
   if (loading) {
     return (

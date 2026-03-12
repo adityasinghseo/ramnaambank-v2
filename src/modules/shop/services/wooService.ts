@@ -45,7 +45,7 @@ const mapProduct = (p: any): Product => {
     };
 };
 
-export const fetchProducts = async (page = 1, perPage = 12): Promise<Product[]> => {
+export const fetchProducts = async (page = 1, perPage = 12): Promise<{ products: Product[], totalPages: number }> => {
     try {
         const response = await api.get('/products', {
             params: {
@@ -56,7 +56,11 @@ export const fetchProducts = async (page = 1, perPage = 12): Promise<Product[]> 
                 consumer_secret: CONSUMER_SECRET,
             },
         });
-        return response.data.map(mapProduct);
+        const totalPages = parseInt(response.headers['x-wp-totalpages'], 10) || 1;
+        return {
+            products: response.data.map(mapProduct),
+            totalPages,
+        };
     } catch (error: any) {
         if (error.response) {
             console.error('API Error Response:', {

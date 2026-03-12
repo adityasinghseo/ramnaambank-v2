@@ -31,7 +31,9 @@ export default function ProductPage() {
     const handleAddToCart = () => {
         if (product) {
             addToCart(product);
-            toast.success("Product added to cart!");
+            toast.success("Product added to cart!", {
+                duration: 1000,
+            });
         }
     };
 

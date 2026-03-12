@@ -25,7 +25,7 @@ const Events = () => {
   }
 
   // Fallback if no events found
-  if (!events || events.length === 0) {
+  if (!Array.isArray(events) || events.length === 0) {
     return null;
   }
 

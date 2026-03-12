@@ -17,22 +17,36 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 
 export default function ShopPage() {
-    const { data: products, isLoading, error } = useQuery({
-        queryKey: ['products'],
-        queryFn: () => fetchProducts(),
+    const [page, setPage] = useState(1);
+    const [allProducts, setAllProducts] = useState<Product[]>([]);
+
+    const { data, isLoading, error, isFetching } = useQuery({
+        queryKey: ['products', page],
+        queryFn: () => fetchProducts(page),
     });
+
+    useEffect(() => {
+        if (data?.products) {
+            setAllProducts((prev) => {
+                const newProducts = data.products.filter(p => !prev.some(existing => existing.id === p.id));
+                return [...prev, ...newProducts];
+            });
+        }
+    }, [data]);
+
+    const totalPages = data?.totalPages || 1;
 
     const addToCart = useCartStore((state) => state.addToCart);
 
     const handleAddToCart = (product: Product) => {
         addToCart(product);
         toast.success("Product added to cart", {
-            duration: 2500,
+            duration: 1000,
             dismissible: true,
         });
     };
 
-    if (isLoading) {
+    if (isLoading && allProducts.length === 0) {
         return (
             <div className="container mx-auto py-8">
                 <h1 className="text-3xl font-bold mb-6 text-primary">Shop</h1>
@@ -65,12 +79,28 @@ export default function ShopPage() {
                     <h1 className="text-4xl font-bold text-primary font-heading text-center md:text-left">Ram Naam Shop</h1>
                 </div>
 
-                {(!products || products.length === 0) ? (
+                {(!allProducts || allProducts.length === 0) && !isLoading ? (
                     <p className="text-center text-gray-500">No products found.</p>
                 ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                        <ProductGrid products={products} handleAddToCart={handleAddToCart} />
-                    </div>
+                    <>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                            <ProductGrid products={allProducts} handleAddToCart={handleAddToCart} />
+                        </div>
+                        
+                        {/* Load More Button */}
+                        {page < totalPages && (
+                            <div className="flex justify-center mt-12">
+                                <Button
+                                    size="lg"
+                                    className="px-8"
+                                    onClick={() => setPage((p) => p + 1)}
+                                    disabled={isFetching}
+                                >
+                                    {isFetching ? "Loading..." : "Load More Products"}
+                                </Button>
+                            </div>
+                        )}
+                    </>
                 )}
             </div>
             <Footer />
