@@ -1,73 +1,72 @@
-# Welcome to your Lovable project
+# Shri Ram Naam Vishwa Bank — Web Application
 
-## Project info
+Official website for **Shri Ram Naam Vishwa Bank**, built with React, Vite, TypeScript, TailwindCSS, and integrated with WordPress + WooCommerce REST API and Razorpay payment gateway.
 
-**URL**: https://lovable.dev/projects/c7b9da9e-86fe-4c61-bb0b-69ef732953d5
+---
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/c7b9da9e-86fe-4c61-bb0b-69ef732953d5) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## 🚀 Quick Start (After Cloning)
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Step 1: Clone the repository
+git clone https://github.com/adityasinghseo/ramnaambank-v2.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Step 2: Navigate into the project directory
+cd ramnaambank-v2
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Step 3: Install all dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app will automatically be available at **http://localhost:3000** (or the next available port).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+> ✅ The `.env` file is included in this private repo — no manual configuration required. All API keys are already set.
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🔑 Environment Variables (Already Configured)
 
-## What technologies are used for this project?
+The `.env` file at the root of the project contains all necessary credentials:
 
-This project is built with:
+| Variable | Purpose |
+|---|---|
+| `VITE_WP_API` | WordPress REST API base URL |
+| `VITE_WC_API` | WooCommerce REST API base URL |
+| `VITE_WC_CONSUMER_KEY` | WooCommerce consumer key (read access) |
+| `VITE_WC_CONSUMER_SECRET` | WooCommerce consumer secret |
+| `VITE_RAZORPAY_KEY_ID` | Razorpay live key ID (for online payments) |
+| `VITE_RAZORPAY_KEY_SECRET` | Razorpay live key secret |
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+---
 
-## How can I deploy this project?
+## 🛠️ Tech Stack
 
-Simply open [Lovable](https://lovable.dev/projects/c7b9da9e-86fe-4c61-bb0b-69ef732953d5) and click on Share -> Publish.
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Routing**: React Router v6
+- **Data Fetching**: TanStack React Query + Axios
+- **CMS/Backend**: WordPress + WooCommerce REST API
+- **Payments**: Razorpay
+- **State Management**: Zustand
 
-## Can I connect a custom domain to my Lovable project?
+---
 
-Yes, you can!
+## 📦 Build for Production
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+```sh
+npm run build
+```
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Output will be in the `dist/` folder. Deploy the contents of `dist/` to your hosting server (e.g., Hostinger).
+
+---
+
+## 🔗 Live Domains
+
+| Environment | URL |
+|---|---|
+| Live Website | https://shriramnaambank.com |
+| WordPress Admin | https://admin.shriramnaambank.com |
