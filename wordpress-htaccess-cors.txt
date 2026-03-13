@@ -1,0 +1,24 @@
+# WordPress CORS fix for REST API — allow shriramnaambank.com to call WP REST API
+<IfModule mod_headers.c>
+    # Allow the React frontend to access the REST API
+    Header always set Access-Control-Allow-Origin "https://shriramnaambank.com"
+    Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header always set Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With"
+    Header always set Access-Control-Allow-Credentials "true"
+
+    # Handle preflight OPTIONS requests
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} OPTIONS
+    RewriteRule ^(.*)$ $1 [R=200,L]
+</IfModule>
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress

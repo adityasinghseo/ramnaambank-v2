@@ -25,12 +25,10 @@ const getAuthHeaders = () => {
     return {};
 };
 
-// Use Proxy URL in development to bypass CORS
-const isDev = import.meta.env.MODE === 'development';
-const apiBaseUrl = isDev ? '/api-wc' : WC_API_URL;
-
+// Authentication via query params (works without CORS preflight issues)
+// Consumer key & secret are passed as URL query parameters for all environments
 const api = axios.create({
-    baseURL: apiBaseUrl,
+    baseURL: WC_API_URL,
 });
 
 const mapProduct = (p: any): Product => {
