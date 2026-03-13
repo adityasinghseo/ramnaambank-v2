@@ -15,10 +15,11 @@ const AboutPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title={language === 'english' ? "About Us" : "हमारे बारे में"}
-        description={language === 'english'
-          ? "From Work to Ram... - Shri Ram Naam World Bank Committee (Regd.) has been propagating the message of Dharma, Devotion and Self-purification for 37 years."
-          : "काम से राम की ओर... - श्री राम नाम विश्व बैंक समिति (रजि.) 37 वर्षों से धर्म, भक्ति और आत्मशुद्धि का संदेश प्रसारित कर रही है।"}
+        titleHi="हमारे बारे में"
+        titleEn="About Us"
+        descriptionHi="काम से राम की ओर... - श्री राम नाम विश्व बैंक समिति (रजि.) 37 वर्षों से धर्म, भक्ति और आत्मशुद्धि का संदेश प्रसारित कर रही है।"
+        descriptionEn="From Work to Ram... - Shri Ram Naam World Bank Committee (Regd.) has been propagating the message of Dharma, Devotion and Self-purification for 37 years."
+        path="/about"
       />
       <Header />
 

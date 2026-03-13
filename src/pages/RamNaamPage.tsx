@@ -36,10 +36,11 @@ const RamNaamPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title={language === 'english' ? "Ram Naam Bank - Ram Naam Writing" : "राम नाम बैंक - राम नाम लेखन"}
-        description={language === 'english'
-          ? "Ram Naam So Kalpataru, Kali Kalyan Niwasu. Get virtue and peace of mind by writing Ram Naam. Start now."
-          : "राम नाम सो कल्पतरु, कली कल्याण निवासु। राम नाम लेखन से पुण्य अर्जन और मन की शांति पाएं। अभी शुरू करें।"}
+        titleHi="राम नाम बैंक - राम नाम लेखन"
+        titleEn="Ram Naam Bank - Ram Naam Writing"
+        descriptionHi="राम नाम सो कल्पतरु, कली कल्याण निवासु। राम नाम लेखन से पुण्य अर्जन और मन की शांति पाएं। अभी शुरू करें।"
+        descriptionEn="Ram Naam So Kalpataru, Kali Kalyan Niwasu. Get virtue and peace of mind by writing Ram Naam. Start now."
+        path="/ram-naam"
       />
       <Header />
       <main>

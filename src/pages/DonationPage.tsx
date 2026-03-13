@@ -10,10 +10,11 @@ const DonationPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title={language === 'english' ? "Donate" : "दान करें"}
-        description={language === 'english'
-          ? "Donate - Contribute to social service and religious works. Shri Ram Naam World Bank Committee."
-          : "दान करें - समाज सेवा और धर्म के कार्य में अपना योगदान दें। श्री राम नाम विश्व बैंक समिति।"}
+        titleHi="दान करें"
+        titleEn="Donate"
+        descriptionHi="दान करें - समाज सेवा और धर्म के कार्य में अपना योगदान दें। श्री राम नाम विश्व बैंक समिति।"
+        descriptionEn="Donate - Contribute to social service and religious works. Shri Ram Naam World Bank Committee."
+        path="/donate"
       />
       <Header />
       <main>

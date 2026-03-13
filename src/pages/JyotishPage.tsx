@@ -11,10 +11,11 @@ const JyotishPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title={language === 'english' ? "Astrology Service - Astrology Consultation" : "ज्योतिष सेवा - ज्योतिष परामर्श"}
-        description={language === 'english'
-          ? "Understand the direction of your life — from an astrological perspective. Kundli astrology and numerology consultation services."
-          : "अपने जीवन की दिशा को समझें — ज्योतिषीय दृष्टिकोण से। कुंडली ज्योतिष और अंक ज्योतिष परामर्श सेवाएं।"}
+        titleHi="ज्योतिष सेवा - ज्योतिष परामर्श"
+        titleEn="Astrology Service - Astrology Consultation"
+        descriptionHi="अपने जीवन की दिशा को समझें — ज्योतिषीय दृष्टिकोण से। कुंडली ज्योतिष और अंक ज्योतिष परामर्श सेवाएं।"
+        descriptionEn="Understand the direction of your life — from an astrological perspective. Kundli astrology and numerology consultation services."
+        path="/jyotish"
       />
       <Header />
       <main>

@@ -36,10 +36,11 @@ const GalleryPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title={language === 'english' ? "Media Gallery" : "मीडिया गैलरी"}
-        description={language === 'english'
-          ? "Media Gallery - Photo and video collection of Shri Ram Naam World Bank Committee. See glimpses of our events."
-          : "मीडिया गैलरी - श्री राम नाम विश्व बैंक समिति के फोटो और वीडियो संग्रह। हमारे आयोजनों की झलकियां देखें।"}
+        titleHi="मीडिया गैलरी"
+        titleEn="Media Gallery"
+        descriptionHi="मीडिया गैलरी - श्री राम नाम विश्व बैंक समिति के फोटो और वीडियो संग्रह। हमारे आयोजनों की झलकियां देखें।"
+        descriptionEn="Media Gallery - Photo and video collection of Shri Ram Naam World Bank Committee. See glimpses of our events."
+        path="/gallery"
       />
       <Header />
       <main>

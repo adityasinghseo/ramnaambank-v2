@@ -64,10 +64,11 @@ const ContactPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title={language === 'english' ? "Contact Us" : "संपर्क करें"}
-        description={language === 'english'
-          ? "Contact Us - Shri Ram Naam World Bank Committee. Address: Haridwar, Uttarakhand. Phone: +91-9045000108"
-          : "हमसे संपर्क करें - श्री राम नाम विश्व बैंक समिति। पता: हरिद्वार, उत्तराखंड। फोन: +91-9045000108"}
+        titleHi="संपर्क करें"
+        titleEn="Contact Us"
+        descriptionHi="हमसे संपर्क करें - श्री राम नाम विश्व बैंक समिति। पता: हरिद्वार, उत्तराखंड। फोन: +91-9045000108"
+        descriptionEn="Contact Us - Shri Ram Naam World Bank Committee. Address: Haridwar, Uttarakhand. Phone: +91-9045000108"
+        path="/contact"
       />
       <Header />
       <main>

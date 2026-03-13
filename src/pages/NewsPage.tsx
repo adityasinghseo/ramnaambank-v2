@@ -11,10 +11,11 @@ const NewsPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title={language === 'english' ? "Latest News and Updates" : "नवीनतम समाचार और अपडेट"}
-        description={language === 'english'
-          ? "Latest news, events and announcements of Ram Naam Bank. Know about our recent activities and events."
-          : "राम नाम बैंक की नवीनतम खबरें, कार्यक्रम और घोषणाएं। जानिए हमारे हालिया गतिविधियों और आयोजनों के बारे में।"}
+        titleHi="नवीनतम समाचार और अपडेट"
+        titleEn="Latest News and Updates"
+        descriptionHi="राम नाम बैंक की नवीनतम खबरें, कार्यक्रम और घोषणाएं। जानिए हमारे हालिया गतिविधियों और आयोजनों के बारे में।"
+        descriptionEn="Latest news, events and announcements of Ram Naam Bank. Know about our recent activities and events."
+        path="/news"
       />
       <Header />
       <main>

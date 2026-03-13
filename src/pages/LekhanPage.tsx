@@ -63,11 +63,12 @@ const LekhanPage = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title={language === 'english' ? "Writing Material" : "लेखन सामग्री"}
-        description={language === 'english'
-          ? "Get all necessary materials, booklets and spiritual literature for Ram Naam writing here. Shri Ram Naam World Bank Committee."
-          : "राम नाम लेखन के लिए आवश्यक सभी सामग्री, पुस्तिकाएं और आध्यात्मिक साहित्य यहाँ प्राप्त करें। श्री राम नाम विश्व बैंक समिति।"}
+        titleHi="लेखन सामग्री"
+        titleEn="Writing Material"
+        descriptionHi="राम नाम लेखन के लिए आवश्यक सभी सामग्री, पुस्तिकाएं और आध्यात्मिक साहित्य यहाँ प्राप्त करें। श्री राम नाम विश्व बैंक समिति।"
+        descriptionEn="Get all necessary materials, booklets and spiritual literature for Ram Naam writing here. Shri Ram Naam World Bank Committee."
         image={ramnamLekhan}
+        path="/lekhan"
       />
       <Header />
       <main>

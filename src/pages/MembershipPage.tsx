@@ -108,10 +108,11 @@ const MembershipPage = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <SEO
-        title={language === 'english' ? "Membership Plans" : "सदस्यता योजनाएं"}
-        description={language === 'english'
-          ? "Membership plans of Ram Naam World Bank Committee. Join as a monthly, yearly or lifetime member and support religious works."
-          : "राम नाम विश्व बैंक समिति की सदस्यता योजनाएं। मासिक, वार्षिक और आजीवन सदस्य बनकर धर्म कार्यों में सहयोग करें।"}
+        titleHi="सदस्यता योजनाएं"
+        titleEn="Membership Plans"
+        descriptionHi="राम नाम विश्व बैंक समिति की सदस्यता योजनाएं। मासिक, वार्षिक और आजीवन सदस्य बनकर धर्म कार्यों में सहयोग करें।"
+        descriptionEn="Membership plans of Ram Naam World Bank Committee. Join as a monthly, yearly or lifetime member and support religious works."
+        path="/membership"
       />
       <Header />
       <main>

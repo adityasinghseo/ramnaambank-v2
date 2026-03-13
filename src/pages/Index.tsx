@@ -19,8 +19,11 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title={t.pages.home}
-        description={t.pages.homeDescription}
+        titleHi="होम"
+        titleEn="Home"
+        descriptionHi="श्री राम नाम विश्व बैंक समिति - भक्ति, सेवा और समर्पण का एक अनूठा संगम। हमसे जुड़ें और राम नाम की महिमा का अनुभव करें।"
+        descriptionEn="Shri Ram Naam Vishwa Bank Samiti - A unique confluence of devotion, service and dedication. Join us and experience the glory of Ram Naam."
+        path="/"
       />
       <Header />
       <main>
