@@ -25,10 +25,12 @@ const getAuthHeaders = () => {
     return {};
 };
 
-// Authentication via query params (works without CORS preflight issues)
-// Consumer key & secret are passed as URL query parameters for all environments
+// Dev: use Vite proxy to avoid CORS; Production: call WC API directly (CORS handled by WordPress .htaccess)
+const isDev = import.meta.env.DEV;
+const apiBaseUrl = isDev ? '/api-wc' : WC_API_URL;
+
 const api = axios.create({
-    baseURL: WC_API_URL,
+    baseURL: apiBaseUrl,
 });
 
 const mapProduct = (p: any): Product => {
