@@ -1,24 +1,62 @@
-# WordPress CORS fix for REST API — allow shriramnaambank.com to call WP REST API
-<IfModule mod_headers.c>
-    # Allow the React frontend to access the REST API
-    Header always set Access-Control-Allow-Origin "https://shriramnaambank.com"
-    Header always set Access-Control-Allow-Methods "GET, POST, OPTIONS"
-    Header always set Access-Control-Allow-Headers "Authorization, Content-Type, X-Requested-With"
-    Header always set Access-Control-Allow-Credentials "true"
+# BEGIN LSCACHE
+## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
+<IfModule LiteSpeed>
+RewriteEngine on
+CacheLookup on
+RewriteRule .* - [E=Cache-Control:no-autoflush]
+RewriteRule litespeed/debug/.*\.log$ - [F,L]
+RewriteRule \.litespeed_conf\.dat - [F,L]
 
-    # Handle preflight OPTIONS requests
-    RewriteEngine On
-    RewriteCond %{REQUEST_METHOD} OPTIONS
-    RewriteRule ^(.*)$ $1 [R=200,L]
+### marker ASYNC start ###
+RewriteCond %{REQUEST_URI} /wp-admin/admin-ajax\.php
+RewriteCond %{QUERY_STRING} action=async_litespeed
+RewriteRule .* - [E=noabort:1]
+### marker ASYNC end ###
+
+### marker DROPQS start ###
+CacheKeyModify -qs:fbclid
+CacheKeyModify -qs:gclid
+CacheKeyModify -qs:utm*
+CacheKeyModify -qs:_ga
+### marker DROPQS end ###
+
 </IfModule>
+## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
+# END LSCACHE
+# BEGIN NON_LSCACHE
+## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
+## LITESPEED WP CACHE PLUGIN - Do not edit the contents of this block! ##
+# END NON_LSCACHE
+# 1. FORCE LITESPEED AUTHORIZATION HEADER (Critically Important)
 
+
+# 3. WORDPRESS CORE RULES (Do Not Touch)
 # BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
 <IfModule mod_rewrite.c>
 RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 RewriteBase /
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 </IfModule>
+
 # END WordPress
+# BEGIN enable-cors
+# The directives (lines) between "BEGIN enable-cors" and "END enable-cors" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_headers.c>
+SetEnvIf Origin "^https?://(.+\.)?(localhost|shriramnaambank\.com)$" ORIGIN=$0
+Header set Access-Control-Allow-Origin %{ORIGIN}e env=ORIGIN
+Header merge Vary Origin
+
+Header set Access-Control-Allow-Credentials true env=ORIGIN
+
+Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+</IfModule>
+# END enable-cors
