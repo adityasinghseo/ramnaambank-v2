@@ -38,7 +38,7 @@ const CheckoutPage = () => {
     const { items, clearCart } = useCartStore();
     const { user } = useAuth();
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [paymentMethod, setPaymentMethod] = useState<'cod' | 'online'>('cod');
+    const [paymentMethod, setPaymentMethod] = useState<'cod' | 'online'>('online');
     const { language } = useLanguage();
     const { t } = useTranslation();
 
@@ -86,8 +86,8 @@ const CheckoutPage = () => {
             // For COD, the backend might handle status, but 'pending' is safe.
             const orderPayload = {
                 ...createPayload(data, items),
-                payment_method: paymentMethod === 'online' ? "razorpay" : "cod",
-                payment_method_title: paymentMethod === 'online' ? "Online Payment" : "Cash on Delivery",
+                payment_method: "razorpay",
+                payment_method_title: "Online Payment",
                 set_paid: false,
             };
 
@@ -168,11 +168,6 @@ const CheckoutPage = () => {
                 // Razorpay doesn't have a specific "close" event easily accessible in all versions without custom UI.
                 // For now, we rely on the user to try again or payment.failed.
 
-            } else {
-                // COD FLOW
-                clearCart();
-                toast.success("Order placed successfully");
-                navigate("/order-success");
             }
 
         } catch (error: any) {
@@ -244,23 +239,13 @@ const CheckoutPage = () => {
                                 <div className="bg-white p-6 rounded-lg shadow-sm border">
                                     <h2 className="text-xl font-semibold mb-4">Payment Method</h2>
                                     <div className="space-y-4">
-                                        <div onClick={() => setPaymentMethod('cod')} className={`cursor-pointer p-4 border rounded-lg flex items-center gap-4 transition-colors ${paymentMethod === 'cod' ? 'border-primary bg-primary/5' : 'hover:border-primary/50'}`}>
-                                            <div className={`h-4 w-4 rounded-full border flex items-center justify-center ${paymentMethod === 'cod' ? 'border-primary' : 'border-gray-400'}`}>
-                                                {paymentMethod === 'cod' && <div className="h-2 w-2 rounded-full bg-primary" />}
-                                            </div>
-                                            <div>
-                                                <h3 className="font-medium">Cash on Delivery (COD)</h3>
-                                                <p className="text-sm text-gray-500">Pay securely when your order arrives.</p>
-                                            </div>
-                                        </div>
-
                                         <div onClick={() => setPaymentMethod('online')} className={`cursor-pointer p-4 border rounded-lg flex items-center gap-4 transition-colors ${paymentMethod === 'online' ? 'border-primary bg-primary/5' : 'hover:border-primary/50'}`}>
                                             <div className={`h-4 w-4 rounded-full border flex items-center justify-center ${paymentMethod === 'online' ? 'border-primary' : 'border-gray-400'}`}>
                                                 {paymentMethod === 'online' && <div className="h-2 w-2 rounded-full bg-primary" />}
                                             </div>
                                             <div>
                                                 <h3 className="font-medium">Online Payment</h3>
-                                                <p className="text-sm text-gray-500">Pay via UPI, Cards, NetBanking (Simulated).</p>
+                                                <p className="text-sm text-gray-500">Pay via UPI, Cards, NetBanking</p>
                                             </div>
                                         </div>
                                     </div>
@@ -283,7 +268,7 @@ const CheckoutPage = () => {
                                                 Placing Order...
                                             </>
                                         ) : (
-                                            paymentMethod === 'online' ? "Place Order (Online)" : "Place Order (COD)"
+                                            "Place Order (Online)"
                                         )}
                                     </Button>
                                 </div>

@@ -3,10 +3,12 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "@/hooks/useTranslation";
 
 interface SEOProps {
-    titleHi: string;      // Hindi title
-    titleEn: string;      // English title
-    descriptionHi: string; // Hindi description
-    descriptionEn: string; // English description
+    title?: string;
+    description?: string;
+    titleHi?: string;      // Hindi title
+    titleEn?: string;      // English title
+    descriptionHi?: string; // Hindi description
+    descriptionEn?: string; // English description
     image?: string;
     path?: string;        // page path, e.g. "/about"
     type?: string;
@@ -15,6 +17,8 @@ interface SEOProps {
 const BASE_URL = "https://shriramnaambank.com";
 
 const SEO = ({
+    title,
+    description,
     titleHi,
     titleEn,
     descriptionHi,
@@ -28,10 +32,14 @@ const SEO = ({
 
     const isHindi = language === "hindi";
 
-    const title = isHindi ? titleHi : titleEn;
-    const description = isHindi ? descriptionHi : descriptionEn;
+    const resolvedTitle = isHindi ? (titleHi || title) : (titleEn || title);
+    const resolvedDescription = isHindi ? (descriptionHi || description) : (descriptionEn || description);
+    
+    const finalTitle = resolvedTitle || "";
+    const finalDescription = resolvedDescription || "";
+
     const siteTitle = t.header.organizationName;
-    const fullTitle = `${title} | ${siteTitle}`;
+    const fullTitle = finalTitle ? `${finalTitle} | ${siteTitle}` : siteTitle;
     const lang = isHindi ? "hi" : "en";
     const canonicalUrl = `${BASE_URL}${path}`;
 
@@ -42,7 +50,7 @@ const SEO = ({
 
             {/* Standard Metadata */}
             <title>{fullTitle}</title>
-            <meta name="description" content={description} />
+            <meta name="description" content={finalDescription} />
             <meta name="language" content={lang} />
 
             {/* Multilingual hreflang */}
@@ -57,7 +65,7 @@ const SEO = ({
             <meta property="og:type" content={type} />
             <meta property="og:url" content={canonicalUrl} />
             <meta property="og:title" content={fullTitle} />
-            <meta property="og:description" content={description} />
+            <meta property="og:description" content={finalDescription} />
             <meta property="og:image" content={image} />
             <meta property="og:locale" content={isHindi ? "hi_IN" : "en_IN"} />
             <meta property="og:locale:alternate" content={isHindi ? "en_IN" : "hi_IN"} />
@@ -67,7 +75,7 @@ const SEO = ({
             <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:url" content={canonicalUrl} />
             <meta name="twitter:title" content={fullTitle} />
-            <meta name="twitter:description" content={description} />
+            <meta name="twitter:description" content={finalDescription} />
             <meta name="twitter:image" content={image} />
         </Helmet>
     );

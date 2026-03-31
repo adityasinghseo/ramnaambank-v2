@@ -32,12 +32,10 @@ const OrderSuccessPage = () => {
                         {language === 'english' ? (
                             <>
                                 Thank you for your purchase. Your order has been received and will be processed shortly.
-                                Payment will be collected upon delivery (Cash on Delivery).
                             </>
                         ) : (
                             <>
                                 आपकी खरीद के लिए धन्यवाद। आपका ऑर्डर प्राप्त हो गया है और जल्द ही उस पर कार्रवाई की जाएगी।
-                                डिलीवरी पर भुगतान (कैश ऑन डिलीवरी) लिया जाएगा।
                             </>
                         )}
                     </p>

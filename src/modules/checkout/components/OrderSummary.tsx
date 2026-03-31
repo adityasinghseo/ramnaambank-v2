@@ -41,10 +41,6 @@ export const OrderSummary = () => {
                     <span>Total</span>
                     <span>₹{total.toFixed(2)}</span>
                 </div>
-
-                <div className="text-xs text-gray-500 mt-2">
-                    * Cash on Delivery (COD) only using standard shipping.
-                </div>
             </CardContent>
         </Card>
     );
