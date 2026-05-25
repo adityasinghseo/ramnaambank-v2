@@ -3,9 +3,11 @@ import logo from "@/assets/ramnam-logo.png";
 import androidIcon from "@/assets/android.png";
 import appleIcon from "@/assets/apple.png";
 import { useTranslation } from "@/hooks/useTranslation";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const { t } = useTranslation();
+  const { language } = useLanguage();
 
   const quickLinks = [
     { label: t.header.home, href: "/" },
@@ -169,6 +171,12 @@ const Footer = () => {
           <a href="/cancellation-refund" className="hover:text-primary transition-smooth">{t.footer.cancellationRefund}</a>
           <span className="hidden md:inline">|</span>
           <a href="/shipping-policy" className="hover:text-primary transition-smooth">{t.footer.shippingPolicy}</a>
+          <span className="hidden md:inline">|</span>
+          <a href="/ramnaam" className="hover:text-primary transition-smooth">{language === 'english' ? "Ram Naam App" : "राम नाम ऐप"}</a>
+          <span className="hidden md:inline">|</span>
+          <a href="/app-support" className="hover:text-primary transition-smooth">{language === 'english' ? "App Support" : "ऐप सहायता"}</a>
+          <span className="hidden md:inline">|</span>
+          <a href="/copyright" className="hover:text-primary transition-smooth">{language === 'english' ? "Copyright" : "कॉपीराइट"}</a>
         </div>
       </div>
       <div className="border-t border-white/10 pt-6 text-center">

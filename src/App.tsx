@@ -39,6 +39,9 @@ const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./pages/TermsOfService"));
 const CancellationReturnPolicy = lazy(() => import("./pages/CancellationReturnPolicy"));
 const ShippingPolicy = lazy(() => import("./pages/ShippingPolicy"));
+const AppSupportPage = lazy(() => import("./pages/AppSupportPage"));
+const RamNaamAppPage = lazy(() => import("./pages/RamNaamAppPage"));
+const CopyrightPage = lazy(() => import("./pages/CopyrightPage"));
 
 const queryClient = new QueryClient();
 
@@ -139,6 +142,21 @@ const AppRoutes = () => (
       <Route path="/shipping-policy" element={
         <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
           <ShippingPolicy />
+        </Suspense>
+      } />
+      <Route path="/app-support" element={
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+          <AppSupportPage />
+        </Suspense>
+      } />
+      <Route path="/ramnaam" element={
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+          <RamNaamAppPage />
+        </Suspense>
+      } />
+      <Route path="/copyright" element={
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+          <CopyrightPage />
         </Suspense>
       } />
 
