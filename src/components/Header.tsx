@@ -9,7 +9,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Facebook, Instagram, Youtube, Languages } from "lucide-react";
+import { Facebook, Instagram, Youtube, Languages, ShieldCheck, ExternalLink } from "lucide-react";
 import offlineForm from "../assets/ऑफ़लाइन-फार्म.pdf";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "@/hooks/useTranslation";
@@ -84,7 +84,7 @@ const UserAuthMenuDesktop = () => {
 
 const Header = () => {
   const location = useLocation();
-  const { toggleLanguage } = useLanguage();
+  const { language, toggleLanguage } = useLanguage();
   const { t } = useTranslation();
 
   const navItems = [
@@ -104,7 +104,52 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full shadow-md">
-      {/* ROW 1: Social Media (Left) + Logo (Center) + Language Toggle (Right) - Orange Background */}
+      {/* ROW 0: Top Credentials Bar - Renewal & Registration Numbers */}
+      <div className="w-full bg-[#7A1C06] text-white py-1 px-3 md:px-8 border-b border-amber-500/20 text-[11px] md:text-xs">
+        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
+          {/* Credentials */}
+          <div className="flex items-center gap-2 sm:gap-4 overflow-x-auto no-scrollbar whitespace-nowrap">
+            <span className="hidden sm:inline-flex items-center gap-1.5 font-medium text-amber-200">
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+              <span>
+                {language === "english"
+                  ? "Govt. Regd. Society:"
+                  : "उत्तराखण्ड शासन द्वारा पंजीकृत संस्था:"}
+              </span>
+            </span>
+
+            <div className="inline-flex items-center gap-1">
+              <span className="text-white/80">
+                {language === "english" ? "Reg. Cert. No.:" : "पंजी. प्रमाण पत्र सं.:"}
+              </span>
+              <span className="font-mono font-bold text-amber-200 bg-black/20 px-1.5 py-0.5 rounded tracking-wide">
+                UK0680142023011037
+              </span>
+            </div>
+
+            <span className="text-amber-300/40">|</span>
+
+            <div className="inline-flex items-center gap-1">
+              <span className="text-white/80">
+                {language === "english" ? "Renewal No.:" : "नवीनीकरण सं.:"}
+              </span>
+              <span className="font-mono font-bold text-amber-200 bg-black/20 px-1.5 py-0.5 rounded tracking-wide">
+                RENEW0823007442
+              </span>
+            </div>
+          </div>
+
+          {/* Right link to certificate */}
+          <Link
+            to="/about#certificate"
+            className="shrink-0 inline-flex items-center gap-1 text-[11px] md:text-xs text-amber-200 hover:text-white transition-colors underline-offset-2 hover:underline ml-2"
+          >
+            <span>{language === "english" ? "Certificate" : "प्रमाण पत्र"}</span>
+            <ExternalLink className="w-3 h-3" />
+          </Link>
+        </div>
+      </div>
+
       {/* ROW 1: Social Media (Left) + Logo (Center) + Language Toggle (Right) - Orange Background */}
       <div className="w-full bg-[#FF7E26] px-4 md:px-8 py-2 md:hidden">
         <div className="max-w-7xl mx-auto flex flex-col items-center gap-4">

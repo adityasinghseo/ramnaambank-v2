@@ -2,11 +2,37 @@ import SEO from "@/components/SEO";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import rampic from "@/assets/rampic.png";
 import rambaba from "@/assets/team/rambabanew.webp";
 import teamone from "@/assets/team/sumittiwarinew.webp";
 import teamtwo from "@/assets/team/vikasgargnew.webp";
-import { Phone, Mail, MapPin, Facebook, Youtube, Instagram } from "lucide-react";
+import renewalCertificate from "@/assets/society-renewal-certificate.jpg";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Youtube,
+  Instagram,
+  ShieldCheck,
+  FileText,
+  CheckCircle2,
+  Calendar,
+  Building2,
+  ExternalLink,
+  Eye,
+  Download,
+  Award,
+  ZoomIn,
+} from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const AboutPage = () => {
@@ -139,6 +165,259 @@ const AboutPage = () => {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </section>
+
+        {/* Government Registration & Renewal Certificate Section */}
+        <section id="certificate" className="py-20 bg-gradient-to-b from-[#fffaf0] via-amber-50/30 to-white relative overflow-hidden border-y border-amber-100/80">
+          <div className="container mx-auto px-4 max-w-6xl">
+            {/* Section Header */}
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary font-semibold text-sm mb-4 border border-primary/20">
+                <ShieldCheck className="w-4 h-4" />
+                <span>
+                  {language === "english"
+                    ? "Government Registered & Verified"
+                    : "उत्तराखण्ड शासन द्वारा पंजीकृत एवं नवीकृत"}
+                </span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-bold text-secondary font-hind mb-4">
+                {language === "english"
+                  ? "Society Registration & Renewal Certificate"
+                  : "सोसाइटी के नवीनीकरण का प्रमाण पत्र"}
+              </h2>
+              <div className="w-24 h-1 bg-primary mx-auto mb-4"></div>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto font-hind">
+                {language === "english"
+                  ? "Shri Ram Naam World Bank Committee is an officially recognized non-profit spiritual society registered with the Government of Uttarakhand."
+                  : "श्री राम नाम विश्व बैंक समिति, उत्तराखण्ड शासन के सोसाइटी रजिस्ट्रार कार्यालय द्वारा विधिवत नवीकृत एवं अधिकृत संस्था है।"}
+              </p>
+            </div>
+
+            {/* Document Showcase Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              {/* Document Image & Preview Card (Left - 5 cols) */}
+              <div className="lg:col-span-5 flex flex-col items-center">
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <div className="group relative cursor-pointer bg-white p-3 rounded-2xl shadow-xl border-2 border-amber-200/80 hover:border-primary/60 transition-all duration-300 hover:shadow-2xl max-w-md w-full">
+                      <div className="relative overflow-hidden rounded-xl bg-slate-50">
+                        <img
+                          src={renewalCertificate}
+                          alt={
+                            language === "english"
+                              ? "Society Renewal Certificate - Shri Ram Naam World Bank Committee"
+                              : "सोसाइटी नवीनीकरण प्रमाण पत्र - श्री राम नाम विश्व बैंक समिति"
+                          }
+                          className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                          loading="lazy"
+                        />
+                        <div className="absolute inset-0 bg-secondary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white backdrop-blur-[2px]">
+                          <div className="bg-primary text-white p-3 rounded-full mb-2 shadow-lg transform -translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                            <ZoomIn className="w-6 h-6" />
+                          </div>
+                          <span className="font-semibold text-sm tracking-wide bg-black/60 px-3 py-1 rounded-full">
+                            {language === "english" ? "Click to Enlarge" : "क्लिक करके बड़ा देखें"}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Verified Badge below image inside card */}
+                      <div className="mt-3 flex items-center justify-between text-xs text-muted-foreground px-1">
+                        <span className="flex items-center gap-1.5 text-emerald-600 font-semibold">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                          {language === "english" ? "Digitally Verified" : "डिजिटल सत्यापित"}
+                        </span>
+                        <span className="text-muted-foreground font-mono">
+                          RENEW0823007442
+                        </span>
+                      </div>
+                    </div>
+                  </DialogTrigger>
+
+                  {/* Modal Full Document View */}
+                  <DialogContent className="max-w-4xl w-[95vw] max-h-[92vh] p-4 sm:p-6 overflow-y-auto">
+                    <DialogHeader className="mb-2">
+                      <DialogTitle className="text-xl font-bold text-secondary font-hind flex items-center gap-2">
+                        <FileText className="w-5 h-5 text-primary" />
+                        {language === "english"
+                          ? "Society Renewal Certificate (Govt. of Uttarakhand)"
+                          : "सोसाइटी के नवीनीकरण का प्रमाण पत्र (उत्तराखण्ड शासन)"}
+                      </DialogTitle>
+                    </DialogHeader>
+                    <div className="flex flex-col items-center justify-center py-2">
+                      <img
+                        src={renewalCertificate}
+                        alt="Renewal Certificate Full View"
+                        className="max-h-[72vh] w-auto object-contain rounded-lg border shadow-md"
+                      />
+                      <div className="mt-4 flex flex-wrap gap-3 justify-center">
+                        <a
+                          href="/society-renewal-certificate.jpg"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-lg hover:bg-primary/90 transition-colors shadow-sm"
+                        >
+                          <ExternalLink className="w-4 h-4" />
+                          {language === "english" ? "Open Original File" : "मूल दस्तावेज़ खोलें"}
+                        </a>
+                        <a
+                          href="/society-renewal-certificate.jpg"
+                          download="Society-Renewal-Certificate-RamNaamBank.jpg"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-secondary text-white text-sm font-medium rounded-lg hover:bg-secondary/90 transition-colors shadow-sm"
+                        >
+                          <Download className="w-4 h-4" />
+                          {language === "english" ? "Download Copy" : "प्रति डाउनलोड करें"}
+                        </a>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+
+                {/* Actions below preview */}
+                <div className="mt-4 flex flex-wrap gap-3 justify-center w-full max-w-md">
+                  <a
+                    href="/society-renewal-certificate.jpg"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-white border border-primary/30 text-primary hover:bg-primary/5 rounded-xl font-semibold text-sm transition-all shadow-sm"
+                  >
+                    <Eye className="w-4 h-4" />
+                    <span>{language === "english" ? "View Full Size" : "पूरा प्रमाण पत्र देखें"}</span>
+                  </a>
+                  <a
+                    href="/society-renewal-certificate.jpg"
+                    download="Society-Renewal-Certificate-RamNaamBank.jpg"
+                    className="flex-1 min-w-[140px] inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-primary text-white hover:bg-primary/90 rounded-xl font-semibold text-sm transition-all shadow-md hover:shadow-lg"
+                  >
+                    <Download className="w-4 h-4" />
+                    <span>{language === "english" ? "Download" : "डाउनलोड"}</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Verified Details & Credentials (Right - 7 cols) */}
+              <div className="lg:col-span-7 space-y-5">
+                {/* Highlights Card */}
+                <Card className="border-amber-200 bg-white/95 shadow-md">
+                  <CardContent className="p-6 md:p-8 space-y-6">
+                    <div className="flex items-center justify-between border-b pb-4">
+                      <div>
+                        <p className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
+                          {language === "english" ? "Document Type" : "दस्तावेज़ प्रकार"}
+                        </p>
+                        <h3 className="text-xl md:text-2xl font-bold text-secondary font-hind">
+                          {language === "english"
+                            ? "Certificate of Society Renewal"
+                            : "सोसाइटी के नवीनीकरण का प्रमाण पत्र"}
+                        </h3>
+                      </div>
+                      <Badge className="bg-emerald-100 text-emerald-800 hover:bg-emerald-100 border-emerald-300 px-3 py-1 font-semibold text-xs flex items-center gap-1">
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                        {language === "english" ? "Active & Valid" : "सक्रिय एवं वैध"}
+                      </Badge>
+                    </div>
+
+                    {/* Key Details Grid */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      {/* Renewal Number */}
+                      <div className="bg-amber-50/70 p-4 rounded-xl border border-amber-200/60">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-amber-900/70 flex items-center gap-1.5 mb-1">
+                          <Award className="w-3.5 h-3.5 text-primary" />
+                          {language === "english" ? "Renewal Number" : "नवीनीकरण संख्या"}
+                        </p>
+                        <p className="text-base font-bold font-mono text-secondary select-all">
+                          RENEW0823007442
+                        </p>
+                      </div>
+
+                      {/* Registration Cert Number */}
+                      <div className="bg-amber-50/70 p-4 rounded-xl border border-amber-200/60">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-amber-900/70 flex items-center gap-1.5 mb-1">
+                          <FileText className="w-3.5 h-3.5 text-primary" />
+                          {language === "english" ? "Registration Certificate No." : "रजिस्ट्रीकरण प्रमाण पत्र संख्या"}
+                        </p>
+                        <p className="text-base font-bold font-mono text-secondary select-all">
+                          UK0680142023011037
+                        </p>
+                      </div>
+
+                      {/* Initial Reg Date */}
+                      <div className="bg-gray-50 p-4 rounded-xl border border-gray-100">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground flex items-center gap-1.5 mb-1">
+                          <Calendar className="w-3.5 h-3.5 text-primary" />
+                          {language === "english" ? "Original Registration Date" : "मूल रजिस्ट्रीकरण दिनांक"}
+                        </p>
+                        <p className="text-base font-semibold text-foreground">
+                          17-AUG-2013
+                        </p>
+                      </div>
+
+                      {/* Valid Up To */}
+                      <div className="bg-emerald-50/80 p-4 rounded-xl border border-emerald-200/80">
+                        <p className="text-xs font-semibold uppercase tracking-wider text-emerald-800 flex items-center gap-1.5 mb-1">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                          {language === "english" ? "Valid Through" : "वैधता अवधि"}
+                        </p>
+                        <p className="text-base font-bold text-emerald-900">
+                          16-AUG-2028 {language === "english" ? "(5 Years)" : "(तक के लिए नवीकृत)"}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Society & Authority details */}
+                    <div className="space-y-3 pt-2 border-t">
+                      <div className="flex items-start gap-3">
+                        <Building2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                        <div>
+                          <p className="text-xs uppercase font-semibold text-muted-foreground tracking-wider">
+                            {language === "english" ? "Registered Society Name" : "पंजीकृत संस्था का नाम"}
+                          </p>
+                          <p className="font-bold text-secondary font-hind">
+                            {language === "english"
+                              ? "Shri Ram Naam World Bank Committee"
+                              : "श्री राम नाम विश्व बैंक समिति"}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <MapPin className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                        <div>
+                          <p className="text-xs uppercase font-semibold text-muted-foreground tracking-wider">
+                            {language === "english" ? "Registered Office Address" : "पंजीकृत कार्यालय का पता"}
+                          </p>
+                          <p className="text-sm text-foreground/90 font-hind">
+                            HOUSE NO 7, NAI BASTI, RAMGARH, KHARKHARI, HARIDWAR, UTTARAKHAND - 249401
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <Award className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                        <div>
+                          <p className="text-xs uppercase font-semibold text-muted-foreground tracking-wider">
+                            {language === "english" ? "Issuing Authority" : "प्रमाण पत्र जारीकर्ता प्राधिकारी"}
+                          </p>
+                          <p className="text-sm font-medium text-foreground/90 font-hind">
+                            {language === "english"
+                              ? "Society Registrar, Government of Uttarakhand"
+                              : "सोसाइटी-रजिस्ट्रार, उत्तराखण्ड शासन"}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Official Note / Seal */}
+                    <div className="bg-amber-50/60 border-l-4 border-primary p-3.5 rounded-r-lg text-xs leading-relaxed text-muted-foreground font-hind">
+                      {language === "english"
+                        ? "Certified that the Society Registration Certificate has been officially renewed by the Registrar of Societies, Uttarakhand through e-Approval and digitally verified."
+                        : "एतद्द्वारा प्रमाणित किया जाता है कि संस्था श्री राम नाम विश्व बैंक समिति का रजिस्ट्रीकरण प्रमाण पत्र सोसाइटी-रजिस्ट्रार उत्तराखण्ड द्वारा विधिवत नवीकृत किया गया है।"}
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
           </div>
         </section>
 
